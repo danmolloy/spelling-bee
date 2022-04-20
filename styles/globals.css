@@ -168,8 +168,9 @@
 
 .hex {
   float: left;
-  margin-right: -5px;
-  margin-bottom: -40px;
+  margin-right: -12px;
+  margin-left: -5px;
+  margin-bottom: -57px;
 }
 .hex-top { /* Left side triangle of each gray hex */
   float: left;
