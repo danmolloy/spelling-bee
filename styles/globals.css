@@ -10,10 +10,10 @@
     @apply font-bold text-2xl text-yellow-500 h-12 flex items-center justify-center
   }
   .single-btn {
-    @apply border m-2 py-2 px-3 rounded-full active:bg-gray-100
+    @apply border m-2 py-3 px-4 rounded-full active:bg-gray-100
   }
   .shuffle-btn {
-    @apply border m-2 p-3 rounded-full active:bg-gray-100 text-xl
+    @apply border m-2 p-4 rounded-full active:bg-gray-100 text-xl
   }
   .letters {
     @apply fill-gray-300 
@@ -22,7 +22,7 @@
     @apply active:scale-90 active:border-gray-50
   }
   .buttons {
-    @apply mt-12 flex flex-row items-center justify-center
+    @apply mt-16 flex flex-row items-center justify-center 
   }
   .word-list {
     @apply border rounded-lg w-full p-3 flex flex-row justify-between items-center font-light
@@ -64,7 +64,7 @@
     @apply p-2 w-full hover:bg-gray-100 active:bg-gray-200
   }
   .ranking-bar {
-    @apply flex flex-row justify-between items-center z-10 
+    @apply flex flex-row justify-between items-center z-10 mr-2
   }
   .current-rank-icon {
     @apply w-8 h-8 rounded-full bg-yellow-300 flex items-center justify-center 
@@ -79,7 +79,7 @@
     @apply w-4 h-4 bg-gray-300 flex items-center justify-center
   }
   .line {
-    @apply border-t mx-1 mb-4 -mt-4
+    @apply border-t mx-1 mb-4 -mt-4 mr-2
   }
   .cursor {
     @apply flex text-yellow-300 text-3xl font-medium z-20 w-3 items-center justify-center mb-1
@@ -98,7 +98,7 @@
     @apply px-2
   }
   .message {
-    @apply text-white m-2 font-extralight bg-black py-1 px-2 rounded
+    @apply fixed z-30 text-white m-2 font-extralight bg-black py-1 px-2 rounded
   }
 }
 
@@ -151,45 +151,46 @@
     transform: translateY(-10%);
   }
 }
-
+@media (max-width: 767px) {
 .hex:active .hex-middle {
   background-color: rgb(209 213 219);
 }
 .hex:active .hex-top {
-  border-right: 30px solid rgb(209 213 219);
-  border-top: 52px solid transparent;
-  border-bottom: 52px solid transparent;
+  border-right: calc(.75 * 30px) solid rgb(209 213 219);
+  border-top: calc(.75 * 52px) solid transparent;
+  border-bottom: calc(.75 * 52px) solid transparent;
 }
 .hex:active .hex-bottom {
-  border-left: 30px solid rgb(209 213 219);
-  border-top: 52px solid transparent;
-  border-bottom: 52px solid transparent;
+  border-left: calc(.75 * 30px) solid rgb(209 213 219);
+  border-top: calc(.75 * 52px) solid transparent;
+  border-bottom: calc(.75 * 52px) solid transparent;
 }
 
 .hex {
   float: left;
-  margin-right: -25px;
-  margin-bottom: -58px;
+  margin-right: -5px;
+  margin-bottom: -70px;
+  margin-top: 90px;
 }
-.hex-top {
+.hex-top { /* Left side triangle of each gray hex */
   float: left;
   width: 0;
-  border-right: 30px solid rgb(229 231 235);
-  border-top: 52px solid transparent;
-  border-bottom: 52px solid transparent;
+  border-right: calc(30px * .75) solid rgb(229 231 235);
+  border-top: calc(.75*52px) solid transparent;
+  border-bottom: calc(.75*52px) solid transparent;
 }
-.hex-middle {
+.hex-middle { /* Middle rectangle of each gray hex */
   float: left;
-  width: 60px;
-  height: 104px;
+  width: calc(60px * .75);
+  height: calc(104px * .75);
   background: rgb(229 231 235);
 }
-.hex-bottom {
+.hex-bottom { /* Right side triangle of each gray hex */
   float: left;
   width: 0;
-  border-left: 30px solid rgb(229 231 235);
-  border-top: 52px solid transparent;
-  border-bottom: 52px solid transparent;
+  border-left: calc(.75 * 30px) solid rgb(229 231 235);
+  border-top: calc(.75 * 52px) solid transparent;
+  border-bottom: calc(.75 * 52px) solid transparent;
 }
 .hex-row {
   clear: left;
@@ -198,22 +199,89 @@
 .center-top {
   float: left;
   width: 0;
-  border-right: 30px solid rgb(253 224 71);
-  border-top: 52px solid transparent;
-  border-bottom: 52px solid transparent;
+  border-right: calc(.75 * 30px) solid rgb(253 224 71);
+  border-top: calc(.75 * 52px) solid transparent;
+  border-bottom: calc(.75 * 52px) solid transparent;
 }
 .hex-center {
   float: left;
-  width: 60px;
-  height: 104px;
+  width: calc(.75 * 60px);
+  height: calc(.75 * 104px);
   background-color: rgb(253 224 71);
 }
 .center-bottom {
   float: left;
   width: 0;
-  border-left: 30px solid rgb(253 224 71);
-  border-top: 52px solid transparent;
-  border-bottom: 52px solid transparent;
+  border-left: calc(.75 * 30px) solid rgb(253 224 71);
+  border-top: calc(.75 * 52px) solid transparent;
+  border-bottom: calc(.75 * 52px) solid transparent;
+}
+}
+
+@media (min-width: 768px) {
+  .hex:active .hex-middle {
+    background-color: rgb(209 213 219);
+  }
+  .hex:active .hex-top {
+    border-right: 30px solid rgb(209 213 219);
+    border-top: 52px solid transparent;
+    border-bottom: 52px solid transparent;
+  }
+  .hex:active .hex-bottom {
+    border-left: 30px solid rgb(209 213 219);
+    border-top: 52px solid transparent;
+    border-bottom: 52px solid transparent;
+  }
+  
+  .hex {
+    float: left;
+    margin-right: -25px;
+    margin-bottom: -58px;
+  }
+  .hex-top {
+    float: left;
+    width: 0;
+    border-right: 30px solid rgb(229 231 235);
+    border-top: 52px solid transparent;
+    border-bottom: 52px solid transparent;
+  }
+  .hex-middle {
+    float: left;
+    width: 60px;
+    height: 104px;
+    background: rgb(229 231 235);
+  }
+  .hex-bottom {
+    float: left;
+    width: 0;
+    border-left: 30px solid rgb(229 231 235);
+    border-top: 52px solid transparent;
+    border-bottom: 52px solid transparent;
+  }
+  .hex-row {
+    clear: left;
+  }
+  
+  .center-top {
+    float: left;
+    width: 0;
+    border-right: 30px solid rgb(253 224 71);
+    border-top: 52px solid transparent;
+    border-bottom: 52px solid transparent;
+  }
+  .hex-center {
+    float: left;
+    width: 60px;
+    height: 104px;
+    background-color: rgb(253 224 71);
+  }
+  .center-bottom {
+    float: left;
+    width: 0;
+    border-left: 30px solid rgb(253 224 71);
+    border-top: 52px solid transparent;
+    border-bottom: 52px solid transparent;
+  }
 }
 
 .cursor{

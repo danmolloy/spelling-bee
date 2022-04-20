@@ -221,7 +221,7 @@ export default function Home() {
           <WordList words={foundWords} />
         </div>
         <div className='game-div'>
-          <div className='h-12 w-auto flex flex-row items-center justify-center'>
+          <div className='w-auto flex flex-row items-center justify-center'>
           {message 
           && <p className='message'>{message}</p>}
           {pointsAdded && <p className='text-xl animate-ping'>{pointsAdded}</p>}
