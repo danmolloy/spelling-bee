@@ -689,10 +689,3 @@ describe('User messages', () => {
   })
 
 })
-
-
-/*
-//it("Highlighted ranking icon slides along when you graduate", () => {})
-//refactor
-// mobile view
-*/
