@@ -7,7 +7,7 @@
     @apply flex flex-col items-center w-screen min-h-screen font-sans pb-2
   }
   .input {
-    @apply font-bold text-2xl text-yellow-500 h-12 flex items-center justify-center
+    @apply font-bold text-2xl text-yellow-500 h-12 flex items-center justify-center 
   }
   .single-btn {
     @apply border m-2 py-3 px-4 rounded-full active:bg-gray-100
@@ -169,8 +169,7 @@
 .hex {
   float: left;
   margin-right: -5px;
-  margin-bottom: -70px;
-  margin-top: 90px;
+  margin-bottom: -40px;
 }
 .hex-top { /* Left side triangle of each gray hex */
   float: left;
