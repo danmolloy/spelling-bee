@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import Head from 'next/head'
 import Buttons from '../components/buttons';
 import Letters from '../components/letters';
 import WordList from '../components/wordList';
@@ -204,6 +205,9 @@ export default function Home() {
 
   return (
     <div className='game'>
+      <Head>
+        <title>Spelling Bee Replica</title>
+      </Head>
       {showHowTo && <HowTo showHowTo={() => setShowHowTo(!showHowTo)}/>}
       {showRanking && <Rankings foundWords={foundWords} data={data} showRankingsToggle={() => setShowRanking(!showRanking)} showRanking={showRanking}/>}
       {showHints && <Hints showHints={() => setShowHints(!showHints)} pangrams={data && data.gameData.yesterday.pangrams} answers={data && data.gameData.yesterday.answers}/>}
