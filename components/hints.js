@@ -11,7 +11,9 @@ export default function Hints({ showHints, answers, pangrams }) {
       </div>
       <div className='p-2'>
         <p className='text-lg font-thin'>The current puzzle has {answers.length} words.</p>
-        <p className='text-lg font-thin'>There are {pangrams.length} pangrams.</p>
+        {pangrams.length === 1 
+        ? <p className='text-lg font-thin'>There is {pangrams.length} pangram.</p>
+        : <p className='text-lg font-thin'>There are {pangrams.length} pangrams.</p>}
       </div>
 
       <h2 className='text-xl font-medium pb-1'>Number of words for each length</h2>

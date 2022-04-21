@@ -54,7 +54,6 @@ export default function Home() {
   const [showHints, setShowHints] = useState(false)
   const [rankIndex, setRankIndex] = useState(0)
   const [currentPoints, setCurrentPoints] = useState(0)
-  const [cursorOpaque, setCursorOpaque] = useState(false)
 
   const logKey = (e) => {
     if (e.keyCode === 8) {
@@ -104,10 +103,6 @@ export default function Home() {
       userRanking()
       setFoundWords([])
     }
-
-    setInterval(() => {
-      setCursorOpaque(!cursorOpaque) 
-    }, 500)
   }, [data]) 
 
   useEffect(() => {
@@ -125,7 +120,9 @@ export default function Home() {
 
   const searchWord = async () => {
 
-    if (userWord.length < 4) {
+    if (userWord.length === 0) {
+      return;
+    } else if (userWord.length < 4) {
       setMessage("Too short")
       await new Promise(res => setTimeout(res, 800))
       setMessage(null)
@@ -206,7 +203,7 @@ export default function Home() {
   return (
     <div className='game'>
       <Head>
-        <title>Spelling Bee Replica</title>
+        <title>Spelling Bee</title>
       </Head>
       {showHowTo && <HowTo showHowTo={() => setShowHowTo(!showHowTo)}/>}
       {showRanking && <Rankings foundWords={foundWords} data={data} showRankingsToggle={() => setShowRanking(!showRanking)} showRanking={showRanking}/>}
@@ -221,10 +218,10 @@ export default function Home() {
           <WordList words={foundWords} />
         </div>
         <div className='game-div'>
-          <div className='w-auto flex flex-row items-center justify-center'>
+          <div className='w-full fixed flex flex-row items-center justify-center'>
           {message 
           && <p className='message'>{message}</p>}
-          {pointsAdded && <p className='text-xl animate-ping'>{pointsAdded}</p>}
+          {pointsAdded && <p className='points-added rounded-full animate-ping bg-white'>{pointsAdded}</p>}
           </div>
               {userWord.length < 1
               ? <h2 className='input self-center text-gray-300'><span className='cursor'>|</span>Type or click</h2>

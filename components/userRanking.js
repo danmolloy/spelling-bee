@@ -25,9 +25,7 @@ export default function UserRanking({ rankIndex, currentPoints, data }) {
 
   return (
     <div className='flex flex-row w-full items-center justify-center'>
-        <h3 className='p-1  w-32'>
-          <b className="">{rankingLevels[rankIndex].name}</b>
-        </h3>
+        <h3 className='flex items-center justify-center p-1  w-32 font-semibold'>{rankingLevels[rankIndex].name}</h3>
         <div className="w-full">
           <div className="ranking-bar">
             <RankingVisual />
