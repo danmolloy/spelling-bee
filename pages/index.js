@@ -69,7 +69,7 @@ export default function Home() {
   }
 
  useEffect(() => {
-    window.addEventListener("keydown",logKey)
+    window.addEventListener("keydown", logKey)
     return () => {
       window.removeEventListener("keydown",logKey)
     }

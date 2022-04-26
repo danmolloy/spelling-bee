@@ -20,7 +20,7 @@ export default function HowTo({ showHowTo }) {
       <div className='how-to-section'>
         <p>4-letter words are worth 1 point each.</p>
         <p>Longer words earn 1 point per letter.</p>
-        <p>Each puzzle contains at least one "pangram", which is a word using each letter at least once. These are worth an additional 7 points.</p>
+        <p>Each puzzle contains at least one pangram, which is a word using each letter at least once. These are worth an additional 7 points.</p>
       </div>
     </div>
   )
