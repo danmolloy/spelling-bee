@@ -1,6 +1,6 @@
 import { AiOutlineClose } from 'react-icons/ai'
 
-export default function Hints({ showHints, answers, pangrams }) {
+export default function Hints({ showHints, answers, pangrams, foundWords }) {
   return (
     <div className="slide-up how-to">
       <div className='flex flex-row w-full justify-between items-center'>
@@ -22,7 +22,7 @@ export default function Hints({ showHints, answers, pangrams }) {
         <p className='font-semithin'>Five letters: <span className='font-medium'>{answers.filter(i => i.length === 5).length}</span></p>
         <p className='font-semithin'>Six letters: <span className='font-medium'>{answers.filter(i => i.length === 6).length}</span></p>
         <p className='font-semithin'>Seven letters: <span className='font-medium'>{answers.filter(i => i.length === 7).length}</span></p>
-        <p className='font-semithin'>Eight or more letters: <span className='font-medium'>{answers.filter(i => i.length >= 8).length}</span></p>
+        <p className='font-semithin'>Eight or more letters: <span className='font-medium'>{answers.filter(i => i.length === 8).length}</span></p>
       </div> 
     </div>
   )

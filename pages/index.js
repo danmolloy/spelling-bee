@@ -124,15 +124,15 @@ export default function Home() {
       return;
     } else if (userWord.length < 4) {
       setMessage("Too short")
-      await new Promise(res => setTimeout(res, 800))
+      await new Promise(res => setTimeout(res, 1000))
       setMessage(null)
     } else if (!userWord.toLowerCase().includes(data.gameData.yesterday.centerLetter)) {
       setMessage("Missing centre letter")
-      await new Promise(res => setTimeout(res, 800))
+      await new Promise(res => setTimeout(res, 900))
       setMessage(null)
     } else if (foundWords.includes(userWord)) {
       setMessage("Already found")
-      await new Promise(res => setTimeout(res, 800))
+      await new Promise(res => setTimeout(res, 900))
       setMessage(null)
     } else if (data.gameData.yesterday.pangrams.includes(userWord.toLowerCase())) {
       setMessage("Pangram!")
@@ -143,7 +143,7 @@ export default function Home() {
       localStorage.setItem('pangrams', [userWord, ...foundPangrams].toString())
       setUserWord("");
       userRanking()
-      await new Promise(res => setTimeout(res, 800))
+      await new Promise(res => setTimeout(res, 900))
       setMessage(null)
       setPointsAdded(null)
         
@@ -160,12 +160,12 @@ export default function Home() {
         localStorage.setItem('foundWords', [userWord, ...foundWords].toString())
         setUserWord("");
         () => userRanking()
-        await new Promise(res => setTimeout(res, 800))
+        await new Promise(res => setTimeout(res, 900))
         setMessage(null)
         setPointsAdded(null)
       } else if (!data.gameData.yesterday.answers.includes(userWord.toLowerCase())) {
         setMessage("Not in word list")
-        await new Promise(res => setTimeout(res, 800))
+        await new Promise(res => setTimeout(res, 900))
         setMessage(null)
       }
   }
@@ -207,7 +207,7 @@ export default function Home() {
       </Head>
       {showHowTo && <HowTo showHowTo={() => setShowHowTo(!showHowTo)}/>}
       {showRanking && <Rankings foundWords={foundWords} data={data} showRankingsToggle={() => setShowRanking(!showRanking)} showRanking={showRanking}/>}
-      {showHints && <Hints showHints={() => setShowHints(!showHints)} pangrams={data && data.gameData.yesterday.pangrams} answers={data && data.gameData.yesterday.answers}/>}
+      {showHints && <Hints showHints={() => setShowHints(!showHints)} pangrams={data && data.gameData.yesterday.pangrams} answers={data && data.gameData.yesterday.answers} foundWords={foundWords}/>}
 
       <Header data={data} showRankings={() => setShowRanking(!showRanking)} showHowTo={() => setShowHowTo(!showHowTo)} showHints={() => setShowHints(!showHints)}/>
       <div className='flex flex-row w-full'>
