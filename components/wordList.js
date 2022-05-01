@@ -31,8 +31,8 @@ export default function WordList({words}) {
         :<div className="word-list-words">
         {words.filter(i => i.length > 1).length < 1 
         && <p className="text-gray-400">Your words...</p>}
-        { words.filter(i => i.length > 1).length > 6
-        ? <div className="word-list-words">{[...words.filter(i => i.length > 1)].slice(0, 6).map(i => (
+        { words.filter(i => i.length > 1).length > 4
+        ? <div className="word-list-words">{[...words.filter(i => i.length > 1)].slice(0, 4).map(i => (
           <p key={i} className="list-word">{capitalize(i)}</p>))}
           <span className="text-gray-400 ">...</span>
           </div>
