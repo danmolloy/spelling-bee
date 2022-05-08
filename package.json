@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "micro": "^9.3.4",
-    "next": "^12.1.4",
+    "next": "^12.1.6",
     "react": "^18.0.0-rc.3",
     "react-dom": "^18.0.0-rc.3",
     "react-icons": "^4.3.1",
@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "@testing-library/dom": "^8.13.0",
+    "@types/react": "^18.0.9",
     "autoprefixer": "^10.4.4",
     "eslint": "8.11.0",
     "eslint-config-next": "12.1.0",

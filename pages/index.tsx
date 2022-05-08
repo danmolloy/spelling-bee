@@ -111,7 +111,9 @@ export default function Home() {
 
   },[foundWords])
 
-  if (!data) return <Loading />
+  if (!data) { 
+    return <Loading />
+  }
   if (error) console.log(error)
 
   const clearWord = () => {
