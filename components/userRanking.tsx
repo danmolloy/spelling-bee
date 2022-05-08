@@ -1,6 +1,6 @@
 import { rankingLevels } from "./rankings";
 
-export default function UserRanking({ rankIndex, currentPoints, data }) {
+export default function UserRanking({ rankIndex, currentPoints }) {
 
   return (
     <div className='flex flex-row w-full items-center justify-center'>

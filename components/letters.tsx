@@ -2,7 +2,7 @@ import Hexagon from "./hexagon";
 import { useState, useEffect } from 'react'
 
 
-export default function Letters({setLetter, shuffle, shuffledLetters, data}) {
+export default function Letters({setLetter, shuffledLetters, data}) {
   
 
   return (

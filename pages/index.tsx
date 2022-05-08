@@ -208,7 +208,7 @@ export default function Home() {
         <title>Spelling Bee</title>
       </Head>
       {showHowTo && <HowTo showHowTo={() => setShowHowTo(!showHowTo)}/>}
-      {showRanking && <Rankings foundWords={foundWords} data={data} showRankingsToggle={() => setShowRanking(!showRanking)} showRanking={showRanking}/>}
+      {showRanking && <Rankings data={data} showRankingsToggle={() => setShowRanking(!showRanking)}/>}
       {showHints && <Hints showHints={() => setShowHints(!showHints)} pangrams={data && data.gameData.yesterday.pangrams} answers={data && data.gameData.yesterday.answers} foundWords={foundWords}/>}
 
       <Header data={data} showRankings={() => setShowRanking(!showRanking)} showHowTo={() => setShowHowTo(!showHowTo)} showHints={() => setShowHints(!showHints)}/>
