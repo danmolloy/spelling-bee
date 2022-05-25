@@ -34,7 +34,7 @@ export default function Hints({ showHints, answers, pangrams, foundWords, reveal
       <hr />
       <h2 className='text-xl font-medium py-1 my-2'>Reveal Mode</h2>
       <div className='how-to-section flex flex-col'>
-        <p className='font-semithin'>Can't find any more words? Reveal the answer list for the current game.</p>
+        <p className='font-semithin'>Reveal the answer list for the current game.</p>
         <button className='self-center single-btn border-0 m-1 text-bold bg-yellow-300 hover:bg-yellow-200 active:bg-black active:text-yellow-300' onClick={() => reveal()}>Reveal</button>
       </div> 
     </div>
