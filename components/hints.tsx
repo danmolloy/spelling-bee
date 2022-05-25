@@ -29,7 +29,7 @@ export default function Hints({ showHints, answers, pangrams, foundWords, reveal
         <p className='font-semithin'>Five letters: <span className='font-medium'>{answers.filter(i => i.length === 5).length}</span></p>
         <p className='font-semithin'>Six letters: <span className='font-medium'>{answers.filter(i => i.length === 6).length}</span></p>
         <p className='font-semithin'>Seven letters: <span className='font-medium'>{answers.filter(i => i.length === 7).length}</span></p>
-        <p className='font-semithin'>Eight or more letters: <span className='font-medium'>{answers.filter(i => i.length === 8).length}</span></p>
+        <p className='font-semithin'>Eight or more letters: <span className='font-medium'>{answers.filter(i => i.length >= 8).length}</span></p>
       </div> 
       <hr />
       <h2 className='text-xl font-medium py-1 my-2'>Reveal Mode</h2>
