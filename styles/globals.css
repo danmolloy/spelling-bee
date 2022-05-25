@@ -10,10 +10,10 @@
     @apply font-bold text-2xl text-yellow-500 h-12 flex items-center justify-center 
   }
   .single-btn {
-    @apply border m-2 py-3 px-4 rounded-full active:bg-gray-100
+    @apply border m-2 py-3 px-4 rounded-full active:bg-gray-100 disabled:active:bg-white
   }
   .shuffle-btn {
-    @apply border m-2 p-4 rounded-full active:bg-gray-100 text-xl
+    @apply border m-2 p-4 rounded-full active:bg-gray-100 text-xl disabled:active:bg-white
   }
   .letters {
     @apply fill-gray-300 

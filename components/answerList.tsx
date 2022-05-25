@@ -1,7 +1,7 @@
 import ArrowIcon from "./arrowIcon"
 import { useState } from 'react'
 
-export default function WordList({words }) {
+export default function AnswerList({words, answers }) {
   const [showList, setShowList] = useState(false)
 
   const capitalize = (word) => {
@@ -20,22 +20,23 @@ export default function WordList({words }) {
         showList
         ?
         <div className="w-full ">
-          <p className="slide-in-text pb-4 w-full">You have found {words.filter(i => i.length > 0).length} words</p>
+          <p className="slide-in-text pb-4 w-full">You found {words.filter(i => i.length > 0).length} out of {answers.length} words</p>
           <div className="expanded-list-words">
-          {words.filter(i => i.length > 1).length < 1 && <p className="text-gray-400">Your words...</p>}
-          {[...words].sort((a, b) => a.length - b.length).map(i => (
-            i.length > 0 && <p key={i} className="expanded-list-word">{capitalize(i)}</p>
+          {[...answers].sort((a, b) => a.length - b.length).map(i => (
+            <p key={i} className={words.includes(i.toUpperCase()) ? "expanded-list-word font-bold" :"expanded-list-word"}>{capitalize(i)}</p>
           ))}
           </div>
         </div>
         :<div className="word-list-words">
         {words.filter(i => i.length > 1).length < 1 
-        && <p className="text-gray-400">Your words...</p>}
+        && <p className="text-gray-400">The answers...</p>}
         { words.filter(i => i.length > 1).length > 4
-        ? <div className="word-list-words">{[...words.filter(i => i.length > 1)].slice(0, 4).map(i => (
-          <p key={i} className="list-word">{capitalize(i)}</p>))}
+        ? <div className="word-list-words"> {[...answers].sort((a, b) => a.length - b.length).slice(0, 4).map(i => (
+          <p key={i} className={words.includes(i.toUpperCase()) ? "list-word font-bold" :"list-word"}>{capitalize(i)}</p>
+        ))}
           <span className="text-gray-400 ">...</span>
           </div>
+          
         : words.filter(i => i.length > 1).map(i => (
           <p key={i} className="list-word">{capitalize(i)}</p>
         ))}

@@ -11,6 +11,7 @@ import UserRanking from '../components/userRanking';
 import HowTo from '../components/howTo';
 import Loading from '../components/loading';
 import Hints from '../components/hints';
+import AnswerList from '../components/answerList';
 
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
@@ -54,6 +55,7 @@ export default function Home() {
   const [showHints, setShowHints] = useState(false)
   const [rankIndex, setRankIndex] = useState(0)
   const [currentPoints, setCurrentPoints] = useState(0)
+  const [revealAnswers, setRevealAnswers] = useState(false)
 
   const logKey = (e) => {
     if (e.keyCode === 8) {
@@ -62,7 +64,7 @@ export default function Home() {
     else if (e.keyCode > 64 && e.keyCode < 91) {
       setUserWord(userWord.concat(e.key.toUpperCase()))
     } else if (e.keyCode === 13) {
-      searchWord()
+      !revealAnswers && searchWord()
     } else if (e.keyCode === 32) {
       shuffle()
     }
@@ -84,13 +86,21 @@ export default function Home() {
       localStorage.setItem('expiration', data.gameData.today.expiration.toString().slice(0, 8))
       localStorage.setItem('foundWords', "")
       localStorage.setItem('pangrams', "")
+      localStorage.setItem('revealed', "false");
     } else if (data && localStorage.getItem('expiration') < Date.now().toString().slice(0, 8)) {
       localStorage.setItem('expiration', data.gameData.today.expiration.toString().slice(0, 8))
       localStorage.setItem('foundWords', "");
       localStorage.setItem('pangrams', "");
+      localStorage.setItem('revealed', "false");
       userRanking()
       setFoundWords([])
 
+    } else if (localStorage.getItem('expiration') >= Date.now().toString().slice(0, 8) 
+    && localStorage.getItem('revealed') === "true") {
+      setRevealAnswers(true)
+      setFoundWords(localStorage.getItem('foundWords').split(','));
+      localStorage.getItem('pangrams') !== null && setFoundPangrams(localStorage.getItem('pangrams').split(','))
+      userRanking()
     } else if (localStorage.getItem('expiration') >= Date.now().toString().slice(0, 8) 
       && localStorage.getItem('foundWords') !== null) {
         setFoundWords(localStorage.getItem('foundWords').split(','));
@@ -100,6 +110,7 @@ export default function Home() {
       localStorage.setItem('expiration', data.gameData.today.expiration.toString().slice(0, 8))
       localStorage.setItem('foundWords', "");
       localStorage.setItem('pangrams', "");
+      localStorage.setItem('revealed', "false");
       userRanking()
       setFoundWords([])
     }
@@ -209,7 +220,7 @@ export default function Home() {
       </Head>
       {showHowTo && <HowTo showHowTo={() => setShowHowTo(!showHowTo)}/>}
       {showRanking && <Rankings data={data} showRankingsToggle={() => setShowRanking(!showRanking)}/>}
-      {showHints && <Hints showHints={() => setShowHints(!showHints)} pangrams={data && data.gameData.yesterday.pangrams} answers={data && data.gameData.yesterday.answers} foundWords={foundWords}/>}
+      {showHints && <Hints revealWords={() => setRevealAnswers(true)} showHints={() => setShowHints(!showHints)} pangrams={data && data.gameData.yesterday.pangrams} answers={data && data.gameData.yesterday.answers} foundWords={foundWords}/>}
 
       <Header data={data} showRankings={() => setShowRanking(!showRanking)} showHowTo={() => setShowHowTo(!showHowTo)} showHints={() => setShowHints(!showHints)}/>
       <div className='flex flex-row w-full'>
@@ -217,7 +228,10 @@ export default function Home() {
       <div className='ranking-game-div'>
         <div className='ranking-wordlist'>
           <UserRanking currentPoints={currentPoints} rankIndex={rankIndex} />
-          <WordList words={foundWords} />
+          {revealAnswers 
+          ? <AnswerList words={foundWords} answers={data && data.gameData.yesterday.answers}/>
+          : <WordList words={foundWords} />
+        }
         </div>
         <div className='game-div'>
           <div className='w-full fixed flex flex-row items-center justify-center'>
@@ -229,7 +243,7 @@ export default function Home() {
               ? <h2 className='input self-center text-gray-300'><span className='cursor'>|</span>Type or click</h2>
               : <h2 className='input self-center'>{userWord.split('').map(i => <span key={i} className={i === data.gameData.yesterday.centerLetter.toUpperCase() ? "text-yellow-500" : data.gameData.yesterday.outerLetters.includes(i.toLowerCase()) ? "text-black" : "text-gray-300"}>{i}</span>)}<span className='cursor'>|</span></h2>}
           <Letters data={data && data.gameData.yesterday} shuffledLetters={shuffledLetters === null ? data.gameData.yesterday.outerLetters.map(i => i.toUpperCase()) : shuffledLetters.map(i => i.toUpperCase())}  setLetter={e => setUserWord(userWord.concat(e))}/>
-          <Buttons shuffle={() => shuffle()} clearWord={() => clearWord()} searchWord={() => searchWord()}/>
+          <Buttons revealedAnswers={revealAnswers} shuffle={() => shuffle()} clearWord={() => clearWord()} searchWord={() => searchWord()}/>
         </div>
       </div>
       </div>
