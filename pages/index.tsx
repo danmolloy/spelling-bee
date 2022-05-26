@@ -87,7 +87,7 @@ export default function Home() {
       localStorage.setItem('foundWords', "")
       localStorage.setItem('pangrams', "")
       localStorage.setItem('revealed', "false");
-    } else if (data && localStorage.getItem('expiration') < Date.now().toString().slice(0, 8)) {
+    } else if (data && localStorage.getItem('expiration') <= Date.now().toString().slice(0, 8)) {
       localStorage.setItem('expiration', data.gameData.today.expiration.toString().slice(0, 8))
       localStorage.setItem('foundWords', "");
       localStorage.setItem('pangrams', "");
@@ -95,13 +95,13 @@ export default function Home() {
       userRanking()
       setFoundWords([])
 
-    } else if (localStorage.getItem('expiration') >= Date.now().toString().slice(0, 8) 
+    } else if (localStorage.getItem('expiration') > Date.now().toString().slice(0, 8) 
     && localStorage.getItem('revealed') === "true") {
       setRevealAnswers(true)
       setFoundWords(localStorage.getItem('foundWords').split(','));
       localStorage.getItem('pangrams') !== null && setFoundPangrams(localStorage.getItem('pangrams').split(','))
       userRanking()
-    } else if (localStorage.getItem('expiration') >= Date.now().toString().slice(0, 8) 
+    } else if (localStorage.getItem('expiration') > Date.now().toString().slice(0, 8) 
       && localStorage.getItem('foundWords') !== null) {
         setFoundWords(localStorage.getItem('foundWords').split(','));
         localStorage.getItem('pangrams') !== null && setFoundPangrams(localStorage.getItem('pangrams').split(','))
