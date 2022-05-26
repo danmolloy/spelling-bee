@@ -5,14 +5,7 @@ export default function Hints({ showHints, answers, pangrams, foundWords, reveal
   const reveal = () => {
     showHints();
     revealWords();
-    if (localStorage.getItem('revealed') ===  "true") {
-      localStorage.setItem('revealed', "false");
-
-    } else {
-      localStorage.setItem('revealed', "true");
-
-    }
-
+    localStorage.setItem('revealed', "true");
   }
   
   return (
