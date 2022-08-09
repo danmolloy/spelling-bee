@@ -12,6 +12,7 @@ import HowTo from '../components/howTo';
 import Loading from '../components/loading';
 import Hints from '../components/hints';
 import AnswerList from '../components/answerList';
+import Realistic from '../components/realistic'
 
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
@@ -225,6 +226,7 @@ export default function Home() {
       <Header data={data} showRankings={() => setShowRanking(!showRanking)} showHowTo={() => setShowHowTo(!showHowTo)} showHints={() => setShowHints(!showHints)}/>
       <div className='flex flex-row w-full'>
       </div>
+      <Realistic message={message}/>
       <div className='ranking-game-div'>
         <div className='ranking-wordlist'>
           <UserRanking currentPoints={currentPoints} rankIndex={rankIndex} />
