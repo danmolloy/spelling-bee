@@ -2,6 +2,8 @@
 
 A replica of NYT's [Spelling Bee](https://www.nytimes.com/puzzles/spelling-bee).
 
+<img src="./public/images/bee.gif"/>
+
 ## Features
 - Connects to NYT source code (I've chosen to use yesterday's data - can't imagine NYT would be happy with today's game out there for free)
 - Saves answers in localStorage so you can enjoy the game throughout the day
