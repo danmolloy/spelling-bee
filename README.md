@@ -2,7 +2,7 @@
 
 A replica of NYT's [Spelling Bee](https://www.nytimes.com/puzzles/spelling-bee).
 
-<img src="./public/images/bee.gif"/>
+<img src="./public/images/bee.gif" width={375/2} height={667/2} alt="screenshot of app"/>
 
 ## Features
 - Connects to NYT source code (I've chosen to use yesterday's data - can't imagine NYT would be happy with today's game out there for free)
