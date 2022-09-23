@@ -15,7 +15,7 @@ export default function HowTo({ showHowTo }) {
       <div className='how-to-section pb-2'>
         <p>Words must use the center letter and be at least 4 letters long.</p>
         <p>You can use letters more than once (e.g. <i>aardvark</i>).</p>
-        <p>Found words are saved and you can return to the game throughout the day.</p>
+        <p>Found words are saved allowing you to return to the game throughout the day.</p>
         <p>The game is reset with new letters each day at 8:00am GMT.</p>
       </div>
       <h2 className='text-xl font-semibold'>Scoring</h2>
