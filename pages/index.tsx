@@ -1,29 +1,41 @@
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
-import Buttons from '../components/buttons';
-import Letters from '../components/letters';
+import Buttons from '../components/input/buttons';
+import Letters from '../components/input/letters';
 import WordList from '../components/wordList';
 import useSwr from 'swr'
 import Header from '../components/header';
-import Rankings from '../components/rankings';
-import { rankingLevels } from '../components/rankings';
+import Rankings from '../components/menu/rankings';
+import { rankingLevels } from '../components/menu/rankings';
 import UserRanking from '../components/userRanking';
-import HowTo from '../components/howTo';
+import HowTo from '../components/menu/howTo';
 import Loading from '../components/loading';
-import Hints from '../components/hints';
+import Hints from '../components/menu/hints';
 import AnswerList from '../components/answerList';
 import Realistic from '../components/realistic'
+import GameIndex from '../components';
 
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
-export const answerSum = (wordList, pangramCount) => {
-  let sum = 0;
+export default function Home() {
+  const { data, error } = useSwr('/api/bee', fetcher)
 
+  if (!data) {
+    return;
+  } 
+
+  return (
+    <GameIndex data={data.data.yesterday}/>
+  )
+}
+
+/* 
+export const answerSum = (wordList: string[], pangramCount: string[]) => {
+  let sum = 0;
   if (wordList?.length === undefined || wordList === null) {
     return sum
   }
-  
   if (pangramCount?.length > 0) {
     for (let i = 0; i < pangramCount.length; i++) {
       if (pangramCount[i].length > 0) {
@@ -31,7 +43,6 @@ export const answerSum = (wordList, pangramCount) => {
       }
     }
   } 
-  
   for (let i = 0; i < wordList?.length; i++) {
     if (wordList[i].length === 4) {
       sum += 1
@@ -57,6 +68,7 @@ export default function Home() {
   const [rankIndex, setRankIndex] = useState(0)
   const [currentPoints, setCurrentPoints] = useState(0)
   const [revealAnswers, setRevealAnswers] = useState(false)
+  const [showMenu, setShowMenu] = useState(false)
 
   const logKey = (e) => {
     if (e.keyCode === 8) {
@@ -125,9 +137,9 @@ export default function Home() {
 
   if (!data) { 
     return <Loading />
-  }
+  } 
   if (error) console.log(error)
-
+ 
   const clearWord = () => {
     setUserWord(userWord.substring(0, userWord.length - 1))
   }
@@ -223,7 +235,7 @@ export default function Home() {
       {showRanking && <Rankings data={data} showRankingsToggle={() => setShowRanking(!showRanking)}/>}
       {showHints && <Hints revealWords={() => setRevealAnswers(true)} showHints={() => setShowHints(!showHints)} pangrams={data && data.gameData.yesterday.pangrams} answers={data && data.gameData.yesterday.answers} foundWords={foundWords}/>}
 
-      <Header data={data} showRankings={() => setShowRanking(!showRanking)} showHowTo={() => setShowHowTo(!showHowTo)} showHints={() => setShowHints(!showHints)}/>
+      <Header date={data.gameData.yesterday.displayDate} editor={data.gameData.yesterday.editor} setShowMenu={() => setShowMenu(!showMenu)}/>
       <div className='flex flex-row w-full'>
       </div>
       <Realistic message={message}/>
@@ -232,7 +244,7 @@ export default function Home() {
           <UserRanking currentPoints={currentPoints} rankIndex={rankIndex} />
           {revealAnswers 
           ? <AnswerList words={foundWords} answers={data && data.gameData.yesterday.answers}/>
-          : <WordList words={foundWords} />
+          : <WordList words={foundWords.filter(i => i.length > 0)} />
         }
         </div>
         <div className='game-div'>
@@ -244,10 +256,10 @@ export default function Home() {
               {userWord.length < 1
               ? <h2 className='input self-center text-gray-300'><span className='cursor'>|</span>Type or click</h2>
               : <h2 className='input self-center'>{userWord.split('').map(i => <span key={i} className={i === data.gameData.yesterday.centerLetter.toUpperCase() ? "text-yellow-500" : data.gameData.yesterday.outerLetters.includes(i.toLowerCase()) ? "text-black" : "text-gray-300"}>{i}</span>)}<span className='cursor'>|</span></h2>}
-          <Letters data={data && data.gameData.yesterday} shuffledLetters={shuffledLetters === null ? data.gameData.yesterday.outerLetters.map(i => i.toUpperCase()) : shuffledLetters.map(i => i.toUpperCase())}  setLetter={e => setUserWord(userWord.concat(e))}/>
-          <Buttons revealedAnswers={revealAnswers} shuffle={() => shuffle()} clearWord={() => clearWord()} searchWord={() => searchWord()}/>
+              <Letters centerLetter={data.gameData.yesterday.centerLetter.toUpperCase()} shuffledLetters={shuffledLetters === null ? data.gameData.yesterday.outerLetters.map(i => i.toUpperCase()) : shuffledLetters.map(i => i.toUpperCase())}  setLetter={e => setUserWord(userWord.concat(e))}/>
+            <Buttons revealedAnswers={revealAnswers} shuffle={() => shuffle()} clearWord={() => clearWord()} searchWord={() => searchWord()}/>
         </div>
       </div>
       </div>
   )
-}
+} */

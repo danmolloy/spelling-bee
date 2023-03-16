@@ -1,26 +1,46 @@
-import { rankingLevels } from "./rankings";
+import { useState } from "react";
+import { rankingLevels } from "./menu/rankings";
+import { getPoints } from ".";
 
-export default function UserRanking({ rankIndex, currentPoints }) {
+interface UserRankingProps {
+  answers: string[]
+  userPoints: number
+}
+
+export const getRanking = (userPoints: number, answers: string[]): number => {
+  let ranking: number = 0
+  for (let i = 0; i < rankingLevels.length; i++) {
+    if (getPoints(answers) * rankingLevels[i].minScoreMultiplier <= userPoints) {
+      ranking = rankingLevels[i].keyIndex
+    } else if (getPoints(answers) * rankingLevels[i].minScoreMultiplier > userPoints) {
+      break;
+    }
+  }
+  return ranking
+}
+
+export default function UserRanking(props: UserRankingProps) {
+  const { userPoints, answers } = props;
 
   return (
     <div className='flex flex-row w-full items-center justify-center'>
-        <h3 className='flex items-center justify-center p-1  w-32 font-semibold'>{rankingLevels[rankIndex].name}</h3>
+        <h3 className='flex items-center justify-center p-1  w-32 font-semibold'>{rankingLevels[getRanking(userPoints, answers)].name}</h3>
         <div className="w-full">
           <div className="ranking-bar">
           {rankingLevels.map(i => (
             <div key={i.name}>
-              {rankingLevels.indexOf(i) === rankIndex 
-              ? <div className="current-rank-icon bounce">
-                  <p className="font-thin text-sm ">{currentPoints}</p>
-                </div>
-              : rankingLevels.indexOf(i) < rankIndex
-              ? <div className="past-rank-icon"></div>
-              : rankingLevels.indexOf(i) === rankingLevels.length - 1
-              ? <div className="final-rank-icon"></div>
-              : <div className="future-rank-icon"></div>
-            }
+              {
+                getRanking(userPoints, answers) === i.keyIndex
+                ? <div className="current-rank-icon bounce">
+                    <p className="font-thin text-sm ">{userPoints}</p>
+                  </div>
+                : getRanking(userPoints, answers) > i.keyIndex
+                ? <div className="past-rank-icon"></div>
+                : i.keyIndex === rankingLevels.length - 1 
+                ? <div className="final-rank-icon"></div>
+                : <div className="future-rank-icon"></div>
+              }
           </div>))}
-            
           </div>
           <div className="line"></div>
         </div>

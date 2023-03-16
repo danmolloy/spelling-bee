@@ -1,11 +1,17 @@
 import { AiOutlineClose } from 'react-icons/ai'
+import MenuPage from './menuPage'
 
-export default function HowTo({ showHowTo }) {
+interface HowToProps {
+  setShowMenuItem: (arg: null) => void
+}
+
+export default function HowTo(props: HowToProps) {
+  const { setShowMenuItem } = props;
   return (
-    <div className="slide-up how-to">
+    <MenuPage>
       <div className='flex flex-row w-full justify-between items-center'>
         <h1 className='text-2xl font-bold'>How to Play Spelling Bee</h1>
-        <button className='menu-icon' onClick={() => showHowTo()}>
+        <button className='menu-icon' onClick={() => setShowMenuItem(null)}>
           <AiOutlineClose />
         </button>
       </div>
@@ -24,6 +30,6 @@ export default function HowTo({ showHowTo }) {
         <p>Longer words earn 1 point per letter.</p>
         <p>Each puzzle contains at least one pangram, which is a word using each letter at least once. These are worth an additional 7 points.</p>
       </div>
-    </div>
+    </MenuPage>
   )
 }

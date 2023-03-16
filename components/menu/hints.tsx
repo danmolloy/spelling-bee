@@ -1,18 +1,28 @@
 import { AiOutlineClose } from 'react-icons/ai'
+import MenuPage from './menuPage'
 
-export default function Hints({ showHints, answers, pangrams, foundWords, revealWords }) {
-  
+interface HintsProps {
+  setShowMenuItem: (arg: string|null) => void
+  answers: string[]
+  pangrams: string[]
+  setRevealAnswers: () => void,
+  revealAnswers: boolean
+}
+
+export default function Hints(props: HintsProps) {
+  const { setShowMenuItem, answers, pangrams, setRevealAnswers } = props;
+
   const reveal = () => {
-    showHints();
-    revealWords();
+    setShowMenuItem(null)
+    setRevealAnswers();
     localStorage.setItem('revealed', "true");
   }
   
   return (
-    <div className="slide-up how-to">
+    <MenuPage>
       <div className='flex flex-row w-full justify-between items-center'>
         <h1 className='text-2xl font-bold'>Hints</h1>
-        <button className='menu-icon' onClick={() => showHints()}>
+        <button className='menu-icon' onClick={() => setShowMenuItem(null)}>
           <AiOutlineClose />
         </button>
       </div>
@@ -32,11 +42,11 @@ export default function Hints({ showHints, answers, pangrams, foundWords, reveal
         <p className='font-semithin'>Eight or more letters: <span className='font-medium'>{answers.filter(i => i.length >= 8).length}</span></p>
       </div> 
       <hr />
-      <h2 className='text-xl font-medium py-1 my-2'>Reveal Mode</h2>
+      <h2 className='text-xl font-medium py-1 my-2'>Reveal Answers</h2>
       <div className='how-to-section flex flex-col'>
         <p className='font-semithin'>Reveal the answer list for the current game.</p>
         <button className='self-center single-btn border-0 m-1 text-bold bg-yellow-300 hover:bg-yellow-200 active:bg-black active:text-yellow-300' onClick={() => reveal()}>Reveal</button>
       </div> 
-    </div>
+    </MenuPage>
   )
 }

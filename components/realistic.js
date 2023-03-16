@@ -12,13 +12,12 @@ const canvasStyles = {
 
 /* Copied from https://codesandbox.io/s/realistic-fn-react-canvas-confetti-2o3pe?file=/src/App.js */
 
-export default function Realistic({ message }) {
+export default function Realistic({ reaction }) {
   const refAnimationInstance = useRef(null);
 
   useEffect(() => {
-    message === "Pangram!" && fire()
-    
-  }, [message])
+    reaction === "Pangram!" && fire()
+  }, [reaction])
 
   const getInstance = useCallback((instance) => {
     refAnimationInstance.current = instance;
@@ -63,8 +62,8 @@ export default function Realistic({ message }) {
   }, [makeShot]);
 
   return (
-    <>
+    <div className="z-50">
       <ReactCanvasConfetti refConfetti={getInstance} style={canvasStyles} />
-    </>
+    </div>
   );
 }

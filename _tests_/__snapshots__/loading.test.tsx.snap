@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading Component Matches snapshot 1`] = `
+<div
+  class=" h-full w-full flex flex-col items-center"
+  data-testid="loading-div"
+>
+  <img
+    alt="Spinning wheel"
+    class="w-10 h-10 mt-12"
+    src="oval.svg"
+  />
+  <h2>
+    Loading...
+  </h2>
+</div>
+`;
