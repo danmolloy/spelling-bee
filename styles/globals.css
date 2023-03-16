@@ -200,7 +200,6 @@
   float: left;
   width: calc(60px * .75);
   height: calc(104px * .75);
-  background: rgb(229 231 235);
 }
 .hex-bottom { /* Right side triangle of each gray hex */
   float: left;
@@ -224,7 +223,6 @@
   float: left;
   width: calc(.75 * 60px);
   height: calc(.75 * 104px);
-  background-color: rgb(253 224 71);
 }
 .center-bottom {
   float: left;
@@ -266,7 +264,6 @@
     float: left;
     width: 60px;
     height: 104px;
-    background: rgb(229 231 235);
   }
   .hex-bottom {
     float: left;
@@ -290,7 +287,6 @@
     float: left;
     width: 60px;
     height: 104px;
-    background-color: rgb(253 224 71);
   }
   .center-bottom {
     float: left;

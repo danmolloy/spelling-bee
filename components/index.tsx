@@ -78,7 +78,7 @@ export default function GameIndex(props: GameIndexProps) {
     if (!data) {
       return;
     }
-    localStorage.clear()
+    
     if (localStorage.getItem("foundWords") !== null) {
       if (localStorage.getItem('revealed') === "true" 
       && data.answers.includes(localStorage.getItem('foundWords').split(',')[0].toLowerCase())) {
@@ -118,10 +118,6 @@ export default function GameIndex(props: GameIndexProps) {
       setMessage("Not in word list")
       setTimeout(() => setMessage(null), 750)
     }
-  }
-
-  if (!data) {
-   return <Loading />
   }
 
   return (
