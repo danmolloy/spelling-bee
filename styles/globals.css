@@ -97,9 +97,7 @@
   .how-to-section {
     @apply px-2
   }
-  .message {
-    @apply text-white m-2 font-extralight bg-black py-1 px-2 rounded
-  }
+
   .points-added {
     @apply text-xl font-semibold z-30
   }
@@ -155,9 +153,20 @@
   }
 }
 
+.points {
+  animation: moving-msg 1s linear;
+}
+@keyframes moving-msg {
+  from {
+    transform: translateY(50%);
+  }
+  to {
+    transform: translateY(-5%);
+  }
+}
+
 .message {
   animation: moving-msg 1s linear;
-
 }
 
 @keyframes moving-msg {
@@ -165,20 +174,20 @@
     transform: translateY(25%);
   }
   to {
-    transform: translateY(-10%);
+    transform: translateY(0%);
   }
 }
 @media (max-width: 767px) {
 .hex:active .hex-middle {
-  background-color: rgb(209 213 219);
+  background-color: rgb(228 228 231);
 }
 .hex:active .hex-top {
-  border-right: calc(.75 * 30px) solid rgb(209 213 219);
+  border-right: calc(.75 * 30px) solid rgb(228 228 231);
   border-top: calc(.75 * 52px) solid transparent;
   border-bottom: calc(.75 * 52px) solid transparent;
 }
 .hex:active .hex-bottom {
-  border-left: calc(.75 * 30px) solid rgb(209 213 219);
+  border-left: calc(.75 * 30px) solid rgb(228 228 231);
   border-top: calc(.75 * 52px) solid transparent;
   border-bottom: calc(.75 * 52px) solid transparent;
 }
@@ -192,7 +201,7 @@
 .hex-top { /* Left side triangle of each gray hex */
   float: left;
   width: 0;
-  border-right: calc(30px * .75) solid rgb(229 231 235);
+  border-right: calc(30px * .75) solid rgb(228 228 231);
   border-top: calc(.75*52px) solid transparent;
   border-bottom: calc(.75*52px) solid transparent;
 }
@@ -204,7 +213,7 @@
 .hex-bottom { /* Right side triangle of each gray hex */
   float: left;
   width: 0;
-  border-left: calc(.75 * 30px) solid rgb(229 231 235);
+  border-left: calc(.75 * 30px) solid rgb(228 228 231);
   border-top: calc(.75 * 52px) solid transparent;
   border-bottom: calc(.75 * 52px) solid transparent;
 }
@@ -235,15 +244,15 @@
 
 @media (min-width: 768px) {
   .hex:active .hex-middle {
-    background-color: rgb(209 213 219);
+    background-color: rgb(228 228 231);
   }
   .hex:active .hex-top {
-    border-right: 30px solid rgb(209 213 219);
+    border-right: 30px solid rgb(228 228 231);
     border-top: 52px solid transparent;
     border-bottom: 52px solid transparent;
   }
   .hex:active .hex-bottom {
-    border-left: 30px solid rgb(209 213 219);
+    border-left: 30px solid rgb(228 228 231);
     border-top: 52px solid transparent;
     border-bottom: 52px solid transparent;
   }
@@ -256,7 +265,7 @@
   .hex-top {
     float: left;
     width: 0;
-    border-right: 30px solid rgb(229 231 235);
+    border-right: 30px solid rgb(228 228 231);
     border-top: 52px solid transparent;
     border-bottom: 52px solid transparent;
   }
@@ -268,7 +277,7 @@
   .hex-bottom {
     float: left;
     width: 0;
-    border-left: 30px solid rgb(229 231 235);
+    border-left: 30px solid rgb(228 228 231);
     border-top: 52px solid transparent;
     border-bottom: 52px solid transparent;
   }

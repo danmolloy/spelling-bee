@@ -9,6 +9,7 @@ import Rankings from "./menu/rankings";
 import HowTo from "./menu/howTo";
 import Loading from "./loading";
 import Realistic from "./realistic";
+import Encouragement from "./encouragement";
 
 interface GameIndexProps {
   data?: {
@@ -73,6 +74,7 @@ export default function GameIndex(props: GameIndexProps) {
   const [revealWords, setRevealWords] = useState<boolean>(false)
   const [message, setMessage] = useState<string|null>(null)
   const [reaction, setReaction] = useState<string|null>(null)
+  const [addedPoints, setAddedPoints] = useState<number|null>(null)
 
   useEffect(() => {
     if (!data) {
@@ -85,7 +87,9 @@ export default function GameIndex(props: GameIndexProps) {
         setRevealWords(true);
         setFoundWords(localStorage.getItem('foundWords').split(','));
       } else if (data.answers.includes(localStorage.getItem('foundWords').split(',')[0].toLowerCase())) {
-        setFoundWords(localStorage.getItem('foundWords').split(','))
+        const foundedWords = localStorage.getItem('foundWords').split(',')
+        setFoundWords([...foundedWords])
+        setUserPoints(getPoints([...foundedWords]))
       } else {
         localStorage.clear()
       }
@@ -105,12 +109,16 @@ export default function GameIndex(props: GameIndexProps) {
       setUserPoints(getPoints([...foundWords, word]))
       setInputWord("")
       setReaction("Pangram!")
+      setAddedPoints(getPoints([word]))
+      setTimeout(() => setAddedPoints(null), 750)
       setTimeout(() => setReaction(null), 750)
     } else if (data.answers.includes(word.toLowerCase()) && !foundWords.includes(word)) {
       localStorage.setItem('foundWords', String([word, ...foundWords]))
       setFoundWords([word, ...foundWords])
       setUserPoints(getPoints([...foundWords, word]))
       setInputWord("")
+      setAddedPoints(getPoints([word]))
+      setTimeout(() => setAddedPoints(null), 750)
     } else if(foundWords.includes(word)) {
       setMessage("Already found")
       setTimeout(() => setMessage(null), 750)
@@ -136,6 +144,8 @@ export default function GameIndex(props: GameIndexProps) {
           <UserRanking answers={data.answers} userPoints={userPoints}/>
           <WordList answers={data.answers} pangrams={data.pangrams} revealWords={revealWords} words={foundWords}/>
         </div>
+        {addedPoints
+        && <Encouragement points={addedPoints}/>}
         <InputIndex 
         message={message}
         inputWord={inputWord}
@@ -145,6 +155,7 @@ export default function GameIndex(props: GameIndexProps) {
         enterWord={(word) => enterWord(word)} 
         outerLetters={data.outerLetters.map(i => i.toUpperCase())}/>
       </div>
+      
     </div>
   );
 }
