@@ -11,10 +11,11 @@ interface InputIndexProps {
   inputWord: string
   setInputWord: (str: string) => void
   message: string|null
+  isLoading?: boolean
 }
 
 export default function InputIndex(props: InputIndexProps) {
-  const { message, revealedAnswers, centerLetter, outerLetters, enterWord, setInputWord, inputWord } = props;
+  const { message, revealedAnswers, centerLetter, outerLetters, enterWord, setInputWord, inputWord, isLoading } = props;
   const [zeroToFive, setZeroToFive] = useState<number[]>([0, 1, 2, 3, 4, 5]);
 
   const shuffle = (): void => {
@@ -32,7 +33,7 @@ export default function InputIndex(props: InputIndexProps) {
       </div>}
       <Input outerLetters={outerLetters} centerLetter={centerLetter} revealedAnswers={revealedAnswers} shuffle={() => shuffle()} backSpace={() => backSpace()} searchWord={(word) => enterWord(word)} userWord={inputWord} setUserWord={(str) => setInputWord(str)} />
       <Letters letterIndex={zeroToFive} centerLetter={centerLetter} setLetter={(letter) => setInputWord(inputWord + letter)} outerLetters={outerLetters}/>
-      <Buttons revealedAnswers={revealedAnswers} shuffle={() => shuffle()} clearWord={() => backSpace()} searchWord={() => enterWord(inputWord)}/>
+      {!isLoading && <Buttons revealedAnswers={revealedAnswers} shuffle={() => shuffle()} clearWord={() => backSpace()} searchWord={() => enterWord(inputWord)}/>}
     </div>
   );
 }

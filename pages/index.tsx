@@ -1,12 +1,16 @@
+import useSWR from 'swr';
 import GameIndex from '../components';
-import Loading from '../components/loading';
+import LoadingGameIndex from '../components/loadingGameIndex';
 
+const fetcher = (url) => fetch(url).then((res) => res.json())
 
-
-export default function Home(data) {
+export default function Home(/* data */) {
+  const { data, error } = useSWR('/api/bee', fetcher)
 
   if (!data) {
-    return <Loading />
+    return (
+      <LoadingGameIndex />
+    )
   } 
 
   return (
@@ -14,15 +18,3 @@ export default function Home(data) {
   )
 }
  
-export async function getServerSideProps() {
-  const data = await fetch('https://www.nytimes.com/puzzles/spelling-bee')
-            .then(res => res.text())
-            .then(data => JSON.parse(data.slice(data.indexOf("gameData") + 11, data.indexOf("}}", data.indexOf("gameData")) + 2)))
-            //.then(data => ({ data: data }))
-  //console.log(beeData)
-  return {
-    props: {
-      data
-    }, // will be passed to the page component as props
-  }
-} 

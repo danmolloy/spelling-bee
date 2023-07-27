@@ -9,6 +9,7 @@ interface InputProps {
   shuffle: () => void
   outerLetters: string[]
   centerLetter: string
+  
 }
 
 export default function Input(props: InputProps) {
