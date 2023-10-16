@@ -38,7 +38,7 @@ export const getPoints = (wordList: string[]): number => {
     if (wordList[i].length === 4) {
       sum += 1
     } else if (wordList[i].length > 4) {
-      sum += wordList[i].length - 3
+      sum += wordList[i].length
     }
   }
 
@@ -139,13 +139,14 @@ export default function GameIndex(props: GameIndexProps) {
         {showMenuItem === "hints" && <Hints revealAnswers={revealWords} setRevealAnswers={() => setRevealWords(true)} setShowMenuItem={(arg) => setShowMenuItem(arg)} pangrams={data.pangrams} answers={data.answers} />}
         {showMenuItem === "rankings" && <Rankings setShowMenuItem={(arg) => setShowMenuItem(arg)} answers={data.answers}/>}
         <Realistic reaction={reaction} />
+        {addedPoints
+        && <Encouragement points={addedPoints}/>}
       <div className="flex flex-col md:flex-row-reverse w-full">
         <div className="flex flex-col md:w-1/2 w-full md:px-2 items-center">
           <UserRanking answers={data.answers} userPoints={userPoints}/>
           <WordList answers={data.answers} pangrams={data.pangrams} revealWords={revealWords} words={foundWords}/>
         </div>
-        {addedPoints
-        && <Encouragement points={addedPoints}/>}
+        
         <InputIndex 
         message={message}
         inputWord={inputWord}

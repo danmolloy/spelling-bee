@@ -4,7 +4,7 @@ export default function Encouragement(props: {
 
 
   return (
-    <div className=" z-30 self-center absolute mt-20 h-12 flex flex-row items-center">
+    <div className="z-50 self-center absolute mt-20 h-12 flex flex-row items-center">
       <div className="message px-2 py-1 h-8 flex items-center bg-white border rounded">
         {props.points > 5 
         ? <p>Epic!</p>
