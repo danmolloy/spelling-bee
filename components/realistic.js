@@ -18,7 +18,7 @@ export default function Realistic({ reaction }) {
   useEffect(() => {
     if (reaction === "Pangram!" ) {
       fire()
-    } else if (reaction !== "Bravo!") {
+    } else if (reaction === "Bravo!") {
       fire()
       setTimeout(() => fire(), 2000)
       setTimeout(() => fire(), 3000)
