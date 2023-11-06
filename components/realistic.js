@@ -16,7 +16,14 @@ export default function Realistic({ reaction }) {
   const refAnimationInstance = useRef(null);
 
   useEffect(() => {
-    reaction === "Pangram!" && fire()
+    if (reaction === "Pangram!" ) {
+      fire()
+    } else if (reaction !== "Bravo!") {
+      fire()
+      setTimeout(() => fire(), 2000)
+      setTimeout(() => fire(), 3000)
+    }
+
   }, [reaction])
 
   const getInstance = useCallback((instance) => {

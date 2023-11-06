@@ -10,6 +10,7 @@ import HowTo from "./menu/howTo";
 import Loading from "./loading";
 import Realistic from "./realistic";
 import Encouragement from "./encouragement";
+import ReactCanvasConfetti from "react-canvas-confetti";
 
 interface GameIndexProps {
   data?: {
@@ -80,6 +81,10 @@ export default function GameIndex(props: GameIndexProps) {
     if (!data) {
       return;
     }
+
+    if (data.answers.length === foundWords.length) {
+      setInputWord("Epic!")
+    }
     
     if (localStorage.getItem("foundWords") !== null) {
       if (localStorage.getItem('revealed') === "true" 
@@ -130,6 +135,7 @@ export default function GameIndex(props: GameIndexProps) {
 
   return (
     <div data-testid="game-index" className={"flex flex-col items-center"}>
+      
       <Header 
         date={data.displayDate} 
         editor={data.editor} 
@@ -138,6 +144,8 @@ export default function GameIndex(props: GameIndexProps) {
         {showMenuItem === "howTo" && <HowTo setShowMenuItem={(arg) => setShowMenuItem(arg)} />}
         {showMenuItem === "hints" && <Hints revealAnswers={revealWords} setRevealAnswers={() => setRevealWords(true)} setShowMenuItem={(arg) => setShowMenuItem(arg)} pangrams={data.pangrams} answers={data.answers} />}
         {showMenuItem === "rankings" && <Rankings setShowMenuItem={(arg) => setShowMenuItem(arg)} answers={data.answers}/>}
+        {data.answers.length === foundWords.length 
+        && <Realistic reaction={"Bravo!"} />}
         <Realistic reaction={reaction} />
         {addedPoints
         && <Encouragement points={addedPoints}/>}
