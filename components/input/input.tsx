@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-interface InputProps {
+export type InputProps = {
   userWord: string
   setUserWord: (arg: string) => void
   backSpace: () => void
@@ -9,10 +9,9 @@ interface InputProps {
   shuffle: () => void
   outerLetters: string[]
   centerLetter: string
-  
 }
 
-export default function Input(props: InputProps) {
+export default function TextInput(props: InputProps) {
   const { 
     userWord, 
     setUserWord, 
@@ -21,7 +20,8 @@ export default function Input(props: InputProps) {
     searchWord, 
     shuffle, 
     centerLetter, 
-    outerLetters } = props;
+    outerLetters 
+  } = props;
 
   const logKey = (e): void => {
     if (e.keyCode === 8) {
@@ -44,14 +44,20 @@ export default function Input(props: InputProps) {
   }, [logKey])
 
   return (
-    <div data-testid="input-div">
-      <h2 className='input self-center '>{userWord.split('').map(i => <span key={i} className={i === centerLetter.toUpperCase() ? "text-yellow-500" : outerLetters.includes(i.toUpperCase()) ? "text-black" : "text-gray-300"}>{i}</span>)}<span className='cursor'>|</span></h2>
-
-      {/* <input
-        data-testid="input-box"
-        className="font-bold text-2xl text-yellow-500 h-12 flex items-center justify-center" 
-        value={userWord} 
-        onChange={(e) => setUserWord(e.target.value)} /> */}
+    <div data-testid="text-input">
+      <h2 className='input self-center'>
+        {userWord.split('').map((i, index) => 
+          <span 
+            key={index} // Dangerous!
+            className={i === centerLetter.toUpperCase() 
+              ? "text-yellow-500" 
+              : outerLetters.includes(i.toUpperCase()) 
+              ? "text-black" 
+              : "text-gray-300"}>
+            {i}</span>
+            )}
+        <span className='cursor'>|</span>
+      </h2>
     </div>
   );
 }

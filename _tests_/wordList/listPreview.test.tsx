@@ -1,22 +1,22 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom"
-import ListPreview from "../../components/wordList/listPreview";
+import ListPreview, { ListPreviewProps } from "../../components/wordList/listPreview";
+import { mockData } from "../../_mocks_/gameData";
+import { capitalize } from "../../components/wordList";
 
-const randNum = Math.random()
 
-const mockProps = {
-  words: randNum < .3 
-    ? []
-    : randNum < .6 
-    ? ["Cat", "Bat", "Mat"]
-    : ["Car", "Bar", "Mat", "Door", "Hat", "Dog"]
+const mockProps: ListPreviewProps = {
+  words: mockData.answers.slice(0, 5),
+  showList: false,
+  revealWords: false,
+  answerLength: mockData.answers.length
 };
 
-describe("ListPreview component", () => {
+describe("<ListPreview />", () => {
   beforeEach(() => {
     render(<ListPreview {...mockProps}/>)
   })
-  it("Renders", () => {
+  it("list-preview is in the document", () => {
     const listPreview = screen.getByTestId("list-preview")
     expect(listPreview).toBeInTheDocument()
   })
@@ -26,26 +26,72 @@ describe("ListPreview component", () => {
       expect(listPreview.textContent).toMatch(/^Your words...$/)
     }
   })
-  it("All words in the document if word list length < 5", () => {
-    if (mockProps.words.length >= 1 && mockProps.words.length < 5) {
-      const listPreview = screen.getByTestId("list-preview")
-      for (let i = 0; i < mockProps.words.length; i++) {
-        expect(listPreview.textContent).toMatch(mockProps.words[i])
-      }
-    }
-  })
-  it("Slices if word list length >= 5", () => {
+
+  it("slices list if !showList and word list length >= 5", () => {
     if (mockProps.words.length > 4) {
       const listPreview = screen.getByTestId("list-preview")
       for (let i = 0; i < mockProps.words.length; i++) {
         if (i < 4) {
-          expect(listPreview.textContent).toMatch(mockProps.words[i])
+          expect(listPreview.textContent).toMatch(capitalize(mockProps.words[i]))
         } else if ( i >= 4) {
-          expect(listPreview.textContent).not.toMatch(mockProps.words[i])
+          expect(listPreview.textContent).not.toMatch(capitalize(mockProps.words[i]))
         }
       }
       expect(listPreview.textContent).toMatch(/...$/)
 
     }
+  })
+})
+
+describe("<ListPreview />", () => {
+  const mockProps: ListPreviewProps = {
+    words: mockData.answers.slice(0, 5),
+    showList: false,
+    revealWords: false,
+    answerLength: mockData.answers.length
+  };
+  beforeEach(() => {
+    render(<ListPreview {...mockProps}/>)
+  })
+  it("if showList, all words in the document if word list length < 5", () => {
+    if (mockProps.words.length >= 1 && mockProps.words.length < 5) {
+      const listPreview = screen.getByTestId("list-preview")
+      for (let i = 0; i < mockProps.words.length; i++) {
+        expect(listPreview.textContent).toMatch(capitalize(mockProps.words[i]))
+      }
+    }
+  })
+})
+
+describe("<ListPreview />", () => {
+  const mockProps: ListPreviewProps = {
+    words: mockData.answers.slice(0, 5),
+    showList: false,
+    revealWords: true,
+    answerLength: mockData.answers.length
+  };
+  beforeEach(() => {
+    render(<ListPreview {...mockProps}/>)
+  })
+  it("states 'The answers...' and no words if !showList and revealWords === true", () => {
+    const listPreview = screen.getByTestId("list-preview")
+    expect(listPreview.textContent).toMatch("The answers...")
+  })
+})
+
+
+describe("<ListPreview />", () => {
+  const mockProps: ListPreviewProps = {
+    words: mockData.answers.slice(0, 5),
+    showList: true,
+    revealWords: true,
+    answerLength: mockData.answers.length
+  };
+  beforeEach(() => {
+    render(<ListPreview {...mockProps}/>)
+  })
+  it("find count is in the document if showList and revealWords", () => {
+    const listPreview = screen.getByTestId("list-preview")
+    expect(listPreview.textContent).toMatch(`You found ${mockProps.words.length} of ${mockProps.answerLength} words`)
   })
 })

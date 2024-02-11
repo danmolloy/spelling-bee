@@ -1,10 +1,10 @@
 import { render, screen, act, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom"
-import Buttons from "../components/input/buttons";
+import Buttons, { ButtonsProps } from "../../components/input/buttons";
 
 
-describe("Buttons component", () => {
-  const mockProps = {
+describe("<Buttons />", () => {
+  const mockProps: ButtonsProps = {
     searchWord: jest.fn(),
     shuffle: jest.fn(),
     clearWord: jest.fn(),
@@ -13,37 +13,37 @@ describe("Buttons component", () => {
   beforeEach(() => {
     render(<Buttons {...mockProps} />)
   })
-  it("Renders", () => {
+  it("<Buttons /> is in the document", () => {
     const buttonsDiv = screen.getByTestId("buttons-div")
     expect(buttonsDiv).toBeInTheDocument()
   })
-  it("Delete button is in the document", () => {
+  it("delete button is in the document", () => {
     const deleteBtn = screen.getByText(/Delete/)
     expect(deleteBtn).toBeInTheDocument()
   })
-  it("Delete button calls clearWord on click", () => {
+  it("delete button calls clearWord() on click", () => {
     const deleteBtn = screen.getByText(/Delete/)
     act(() => {
       fireEvent.click(deleteBtn)
     })
     expect(mockProps.clearWord).toBeCalled()
   })
-  it("Shuffle button is in the document", () => {
+  it("shuffle button is in the document", () => {
     const shuffleBtn = screen.getByTestId("shuffle-btn")
     expect(shuffleBtn).toBeInTheDocument()
   })
-  it("Shuffle button calls shuffle on click", () => {
+  it("shuffle button calls shuffle() on click", () => {
     const shuffleBtn = screen.getByTestId("shuffle-btn")
     act(() => {
       fireEvent.click(shuffleBtn)
     })
     expect(mockProps.shuffle).toBeCalled()
   })
-  it("Enter button is in the document", () => {
+  it("enter button is in the document", () => {
     const enterBtn = screen.getByText(/Enter/)
     expect(enterBtn).toBeInTheDocument()
   })
-  it("Enter button calls searchWord on click", () => {
+  it("enter button calls searchWord on click", () => {
     const enterBtn = screen.getByText(/Enter/)
     act(() => {
       fireEvent.click(enterBtn)
@@ -52,8 +52,8 @@ describe("Buttons component", () => {
   })
 })
 
-describe("Buttons component with revealed answers", () => {
-  const mockProps = {
+describe("<Buttons />", () => {
+  const mockProps: ButtonsProps = {
     searchWord: jest.fn(),
     shuffle: jest.fn(),
     clearWord: jest.fn(),
@@ -62,11 +62,8 @@ describe("Buttons component with revealed answers", () => {
   beforeEach(() => {
     render(<Buttons {...mockProps} />)
   })
-  it("Renders", () => {
-    const buttonsDiv = screen.getByTestId("buttons-div")
-    expect(buttonsDiv).toBeInTheDocument()
-  })
-  it("Enter button is disabled and does not call searchWord on click", () => {
+
+  it("enter button is disabled if revealedAnswers === true", () => {
     const enterBtn = screen.getByText(/Enter/)
     act(() => {
       fireEvent.click(enterBtn)

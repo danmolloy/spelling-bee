@@ -51,7 +51,7 @@ export const rankingLevels = [
   },
 ]
 
-interface RankingsProps {
+export type RankingsProps = {
   answers: string[]
   setShowMenuItem: (arg: null) => void
 }
@@ -70,19 +70,19 @@ export default function Rankings(props: RankingsProps) {
 
   return (
       <MenuPage>
-      <div className='flex flex-row justify-between'>
+      <div data-testid="rankings-div" className='flex flex-row justify-between'>
         <h2 className="font-bold text-2xl">Rankings</h2>
-        <button className='menu-icon' onClick={() => setShowMenuItem(null)}>
+        <button data-testid="menu-icon" className='menu-icon' onClick={() => setShowMenuItem(null)}>
           <AiOutlineClose />
         </button>
       </div>
-      <div className='p-4 font-semithin text-lg'>   
-        <p >Below are the minimum scores for the rankings of the current puzzle.</p>
-        <p> Please refer to <i>How to Play</i> for scoring system.</p>
+      <div data-testid="help-text" className='p-4 font-semithin text-lg'>   
+        <p>Below are the minimum scores for the rankings of the current puzzle.</p>
+        <p>Please refer to <i>How to Play</i> for scoring system.</p>
       </div>
       <ul className="pl-4 font-semithin">
         {rankingLevels.map(i => (
-          <li key={i.name}>{i.name} (<span className='font-medium'>{Math.floor(answersSum *i.minScoreMultiplier)}</span>)</li>
+          <li data-testid={`${i.name}-level`} key={i.name}>{i.name} (<span className='font-medium'>{Math.floor(answersSum *i.minScoreMultiplier)}</span>)</li>
         ))}
       </ul>
     </MenuPage>

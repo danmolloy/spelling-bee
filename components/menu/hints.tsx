@@ -1,7 +1,7 @@
 import { AiOutlineClose } from 'react-icons/ai'
 import MenuPage from './menuPage'
 
-interface HintsProps {
+export type HintsProps = {
   setShowMenuItem: (arg: string|null) => void
   answers: string[]
   pangrams: string[]
@@ -20,17 +20,20 @@ export default function Hints(props: HintsProps) {
   
   return (
     <MenuPage>
+      <div data-testid="hints-div" >
       <div className='flex flex-row w-full justify-between items-center'>
         <h1 className='text-2xl font-bold'>Hints</h1>
-        <button className='menu-icon' onClick={() => setShowMenuItem(null)}>
+        <button data-testid="menu-icon" className='menu-icon' onClick={() => setShowMenuItem(null)}>
           <AiOutlineClose />
         </button>
       </div>
       <div className='p-2'>
         <p className='text-lg font-thin'>The current puzzle has {answers.length} words.</p>
-        {pangrams.length === 1 
-        ? <p className='text-lg font-thin'>There is {pangrams.length} pangram.</p>
-        : <p className='text-lg font-thin'>There are {pangrams.length} pangrams.</p>}
+        <p className='text-lg font-thin'>
+          {pangrams.length === 1 
+          ? `There is ${pangrams.length} pangram.`
+          : `There are ${pangrams.length} pangrams.`}
+        </p>
       </div>
 
       <h2 className='text-xl font-medium pb-1'>Number of words for each length</h2>
@@ -47,6 +50,7 @@ export default function Hints(props: HintsProps) {
         <p className='font-semithin'>Reveal the answer list for the current game.</p>
         <button className='self-center single-btn border-0 m-1 text-bold bg-yellow-300 hover:bg-yellow-200 active:bg-black active:text-yellow-300' onClick={() => reveal()}>Reveal</button>
       </div> 
+      </div>
     </MenuPage>
   )
 }

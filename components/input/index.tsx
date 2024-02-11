@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Buttons from "./buttons";
-import Input from "./input";
+import TextInput from "./input";
 import Letters from "./letters";
 
-interface InputIndexProps {
+export type InputIndexProps = {
   centerLetter: string
   revealedAnswers: boolean
   outerLetters: string[]
@@ -27,13 +27,31 @@ export default function InputIndex(props: InputIndexProps) {
   }
   
   return (
-    <div className="mt-16 flex flex-col items-center md:w-1/2">
-      {message && <div className="absolute -mt-10 z-30 bg-black text-white px-3 py-1 rounded font-light text-sm">
+    <div data-testid="input-index" className="mt-16 flex flex-col items-center md:w-1/2">
+      {message 
+      && <div data-testid="message" className="absolute -mt-10 z-30 bg-black text-white px-3 py-1 rounded font-light text-sm">
         <h3>{message}</h3>
       </div>}
-      <Input outerLetters={outerLetters} centerLetter={centerLetter} revealedAnswers={revealedAnswers} shuffle={() => shuffle()} backSpace={() => backSpace()} searchWord={(word) => enterWord(word)} userWord={inputWord} setUserWord={(str) => setInputWord(str)} />
-      <Letters letterIndex={zeroToFive} centerLetter={centerLetter} setLetter={(letter) => setInputWord(inputWord + letter)} outerLetters={outerLetters}/>
-      {!isLoading && <Buttons revealedAnswers={revealedAnswers} shuffle={() => shuffle()} clearWord={() => backSpace()} searchWord={() => enterWord(inputWord)}/>}
+      <TextInput 
+        outerLetters={outerLetters} 
+        centerLetter={centerLetter} 
+        revealedAnswers={revealedAnswers} 
+        shuffle={() => shuffle()} 
+        backSpace={() => backSpace()} 
+        searchWord={(word) => enterWord(word)} 
+        userWord={inputWord} 
+        setUserWord={(str) => setInputWord(str)} />
+      <Letters 
+        letterIndex={zeroToFive} 
+        centerLetter={centerLetter} 
+        setLetter={(letter) => setInputWord(inputWord + letter)} 
+        outerLetters={outerLetters}/>
+      {!isLoading 
+      && <Buttons 
+          revealedAnswers={revealedAnswers} 
+          shuffle={() => shuffle()} 
+          clearWord={() => backSpace()} 
+          searchWord={() => enterWord(inputWord)}/>}
     </div>
   );
 }

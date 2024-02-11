@@ -1,6 +1,6 @@
 import {FiRefreshCcw} from 'react-icons/fi'
 
-interface ButtonsProps {
+export type ButtonsProps = {
   searchWord: () => void
   shuffle: () => void
   clearWord: () => void

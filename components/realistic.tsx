@@ -1,16 +1,9 @@
 import React, { useCallback, useEffect, useRef } from "react";
 import ReactCanvasConfetti from "react-canvas-confetti";
 
-const canvasStyles = {
-  position: "fixed",
-  pointerEvents: "none",
-  width: "100%",
-  height: "100%",
-  top: 0,
-  left: 0
-};
-
 /* Copied from https://codesandbox.io/s/realistic-fn-react-canvas-confetti-2o3pe?file=/src/App.js */
+
+
 
 export default function Realistic({ reaction }) {
   const refAnimationInstance = useRef(null);
@@ -69,8 +62,17 @@ export default function Realistic({ reaction }) {
   }, [makeShot]);
 
   return (
-    <div className="z-50">
-      <ReactCanvasConfetti refConfetti={getInstance} style={canvasStyles} />
+    <div data-testid="realistic-div" className="z-50">
+      <ReactCanvasConfetti 
+        refConfetti={getInstance} 
+        style={{
+          position: "fixed",
+          pointerEvents: "none",
+          width: "100%",
+          height: "100%",
+          top: 0,
+          left: 0
+        }} />
     </div>
   );
 }

@@ -4,7 +4,7 @@ import WordList from "./wordList";
 
 export default function LoadingGameIndex() {
   return (
-    <div className="flex flex-col items-center">
+    <div data-testid="loading-index" className="flex flex-col items-center">
       <div className=" md:p-4 flex flex-row md:justify-between w-full md:items-start justify-end " data-testid="header-div">
       <div className='hidden md:flex flex-col'>
       <div className="flex flex-row items-end">

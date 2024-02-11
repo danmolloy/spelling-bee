@@ -1,0 +1,256 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LoadingGameIndex /> matches snapshot 1`] = `
+<div
+  class="flex flex-col items-center"
+  data-testid="loading-index"
+>
+  <div
+    class=" md:p-4 flex flex-row md:justify-between w-full md:items-start justify-end "
+    data-testid="header-div"
+  >
+    <div
+      class="hidden md:flex flex-col"
+    >
+      <div
+        class="flex flex-row items-end"
+      >
+        <div
+          class=" animate-pulse h-10 w-60 bg-zinc-200 rounded-md m-1"
+        />
+      </div>
+      <div>
+        <div
+          class=" animate-pulse h-4 w-48 bg-zinc-200 rounded-md m-1"
+        />
+        <div
+          class=" animate-pulse h-4 w-48 bg-zinc-200 rounded-md m-1"
+        />
+      </div>
+    </div>
+    <div
+      class=" h-10 w-10  rounded-md m-1"
+    />
+  </div>
+  <div
+    class="flex flex-col md:flex-row-reverse w-full"
+  >
+    <div
+      class="flex flex-col md:w-1/2 w-full md:px-2 items-center"
+    >
+      <div
+        class="flex flex-row w-full items-center justify-center"
+        data-testid="user-ranking"
+      >
+        <div
+          class=" animate-pulse h-8 w-24 bg-zinc-200 rounded-md m-1"
+        />
+        <div
+          class="w-full"
+        >
+          <div
+            class="ranking-bar"
+          >
+            <div>
+              <div
+                class="past-rank-icon"
+              />
+            </div>
+            <div>
+              <div
+                class="past-rank-icon"
+              />
+            </div>
+            <div>
+              <div
+                class="past-rank-icon"
+              />
+            </div>
+            <div>
+              <div
+                class="past-rank-icon"
+              />
+            </div>
+            <div>
+              <div
+                class="past-rank-icon"
+              />
+            </div>
+            <div>
+              <div
+                class="past-rank-icon"
+              />
+            </div>
+            <div>
+              <div
+                class="past-rank-icon"
+              />
+            </div>
+            <div>
+              <div
+                class="past-rank-icon"
+              />
+            </div>
+            <div>
+              <div
+                class="current-rank-icon bounce"
+              >
+                <p
+                  class="font-thin text-sm "
+                >
+                  100
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="line"
+          />
+        </div>
+      </div>
+      <div
+        class="w-full md:w-2/5 bg-white absolute z-30 border rounded-lg p-3 flex flex-row justify-between items-center font-light mt-10 "
+        data-testid="word-list"
+      >
+        <div
+          class=" animate-pulse h-4 w-full bg-zinc-200 rounded-md m-1"
+          data-testid="loading-div"
+        />
+      </div>
+    </div>
+    <div
+      class="mt-16 flex flex-col items-center md:w-1/2"
+      data-testid="input-index"
+    >
+      <div
+        data-testid="text-input"
+      >
+        <h2
+          class="input self-center"
+        >
+          <span
+            class="cursor"
+          >
+            |
+          </span>
+        </h2>
+      </div>
+      <div
+        class="w-full fill-gray-300 justify-center flex flex-row md:p-6"
+        data-testid="letters-div"
+      >
+        <div
+          class="left flex flex-col h-full "
+        >
+          <div
+            class="pulse hex active:scale-90 active:border-gray-50 my-16 rounded-full"
+            data-testid="undefined-hexagon-div"
+          >
+            <div
+              class="hex-top"
+            />
+            <div
+              class="hex-middle flex flex-col justify-center items-center bg-zinc-200"
+            />
+            <div
+              class="hex-bottom"
+            />
+          </div>
+          <div
+            class="pulse hex active:scale-90 active:border-gray-50 my-16 rounded-full"
+            data-testid="undefined-hexagon-div"
+          >
+            <div
+              class="hex-top"
+            />
+            <div
+              class="hex-middle flex flex-col justify-center items-center bg-zinc-200"
+            />
+            <div
+              class="hex-bottom"
+            />
+          </div>
+        </div>
+        <div
+          class=" flex flex-col h-full -mt-10 md:-mt-14"
+        >
+          <div
+            class="pulse hex active:scale-90 active:border-gray-50 my-16 rounded-full"
+            data-testid="undefined-hexagon-div"
+          >
+            <div
+              class="hex-top"
+            />
+            <div
+              class="hex-middle flex flex-col justify-center items-center bg-zinc-200"
+            />
+            <div
+              class="hex-bottom"
+            />
+          </div>
+          <div
+            class="pulse hex active:scale-90 active:border-gray-50 my-16 rounded-full"
+            data-testid="-hexagon-div"
+          >
+            <div
+              class="center-top"
+            />
+            <div
+              class="hex-center flex flex-col justify-center items-center bg-yellow-300"
+            />
+            <div
+              class="center-bottom"
+            />
+          </div>
+          <div
+            class="pulse hex active:scale-90 active:border-gray-50 my-16 rounded-full"
+            data-testid="undefined-hexagon-div"
+          >
+            <div
+              class="hex-top"
+            />
+            <div
+              class="hex-middle flex flex-col justify-center items-center bg-zinc-200"
+            />
+            <div
+              class="hex-bottom"
+            />
+          </div>
+        </div>
+        <div
+          class="flex flex-col"
+        >
+          <div
+            class="pulse hex active:scale-90 active:border-gray-50 my-16 rounded-full"
+            data-testid="undefined-hexagon-div"
+          >
+            <div
+              class="hex-top"
+            />
+            <div
+              class="hex-middle flex flex-col justify-center items-center bg-zinc-200"
+            />
+            <div
+              class="hex-bottom"
+            />
+          </div>
+          <div
+            class="pulse hex active:scale-90 active:border-gray-50 my-16 rounded-full"
+            data-testid="undefined-hexagon-div"
+          >
+            <div
+              class="hex-top"
+            />
+            <div
+              class="hex-middle flex flex-col justify-center items-center bg-zinc-200"
+            />
+            <div
+              class="hex-bottom"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

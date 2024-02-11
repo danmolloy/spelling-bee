@@ -1,29 +1,27 @@
 import { act, fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom"
-import AnswerList from "../components/answerList";
+import AnswerList, { AnswerListProps } from "../components/answerList";
+import { mockData } from "../_mocks_/gameData";
+import { capitalize } from "../components/wordList";
 
-const mockProps = {
+const mockProps: AnswerListProps = {
   words:  ["cat", "hat"],
-  answers: ["cat", "mattress", "hat", "bicycle", "train"]
+  answers: mockData.answers
 }
 
-describe("AnswerList component", () => {
+describe("<AnswerList />", () => {
   beforeEach(() => {
     render(<AnswerList {...mockProps} />)
   })
-  it("Renders", () => {
+  it("answer-list is in the document", () => {
     const answerList = screen.getByTestId("answer-list")
     expect(answerList).toBeInTheDocument()
   })
-  it("Preview shows first four answers", () => {
-    const answerList = screen.getByTestId("answer-list")
-    expect(answerList.textContent).toMatch(/CatHatTrainBicycle../)
-  })
-  it("ShowList button is in the document", () => {
+  it("showList button is in the document", () => {
     const arrowIcon = screen.getByTestId("arrow-icon")
     expect(arrowIcon).toBeInTheDocument()
   })
-  it("ShowList button shows all answers on click", () => {
+  it("showList button shows all answers on click", () => {
     const arrowIcon = screen.getByTestId("arrow-icon")
     act(() => {
       fireEvent.click(arrowIcon)
@@ -31,15 +29,21 @@ describe("AnswerList component", () => {
     const fullList = screen.getByTestId("full-answer-list")
     expect(fullList).toBeInTheDocument()
   })
-  it("Answers are sorted by length", () => {
+  it("if !showList, just first 4 answers are shown", () => {
+    const answerList = screen.getByTestId("answer-list")
+    const sortedAnswers = mockProps.answers.map(i => capitalize(i)).sort((a, b) => a.length - b.length).slice(0, 4).join("")
+    expect(answerList.textContent).toMatch(sortedAnswers)
+  })
+  it("answers are sorted by length", () => {
     const answerList = screen.getByTestId("answer-list")
     const arrowIcon = screen.getByTestId("arrow-icon")
     act(() => {
       fireEvent.click(arrowIcon)
     })
-    expect(answerList.textContent).toMatch(/CatHatTrainBicycleMattress/)
+    const sortedAnswers = mockProps.answers.map(i => capitalize(i)).sort((a, b) => a.length - b.length).join("")
+    expect(answerList.textContent).toMatch(sortedAnswers)
   })
-  it("States how many words the user found when showList === true", () => {
+  it("states how many words the user found when showList === true", () => {
     const answerList = screen.getByTestId("answer-list")
     const arrowIcon = screen.getByTestId("arrow-icon")
     act(() => {

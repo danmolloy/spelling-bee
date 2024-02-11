@@ -2,7 +2,7 @@ import ArrowIcon from "./wordList/arrowIcon"
 import { useState } from 'react'
 import { capitalize } from "./wordList"
 
-interface AnswerListProps {
+export type AnswerListProps = {
   words: string[]
   answers: string[]
 }

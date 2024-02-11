@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FullList /> matches snapshot 1`] = `
+<div
+  class="w-full"
+  data-testid="full-list-div"
+>
+  <div
+    class="w-full flex flex-col flex-wrap "
+  >
+    <p
+      class="px-1 border-b border-b-gray-300 py-2"
+    >
+      <span
+        class=""
+      >
+        Lorem
+      </span>
+    </p>
+    <p
+      class="px-1 border-b border-b-gray-300 py-2"
+    >
+      <span
+        class=""
+      >
+        Ipsum
+      </span>
+    </p>
+  </div>
+</div>
+`;

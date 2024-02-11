@@ -1,5 +1,5 @@
 
-interface ArrowIconProps {
+export type ArrowIconProps = {
   showList: () => void
 }
 

@@ -1,7 +1,7 @@
 import { capitalize } from ".";
 import ArrowIcon from "./arrowIcon";
 
-interface FullListProps {
+export type FullListProps = {
   words?: string[]
   revealWords: boolean
   answers?: string[]

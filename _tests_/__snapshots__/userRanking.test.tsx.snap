@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserRanking component matches snapshot 1`] = `
+<div
+  class="flex flex-row w-full items-center justify-center"
+  data-testid="user-ranking"
+>
+  <h3
+    class="flex items-center justify-center p-1  w-32 font-semibold"
+  >
+    Genius
+  </h3>
+  <div
+    class="w-full"
+  >
+    <div
+      class="ranking-bar"
+    >
+      <div>
+        <div
+          class="past-rank-icon"
+        />
+      </div>
+      <div>
+        <div
+          class="past-rank-icon"
+        />
+      </div>
+      <div>
+        <div
+          class="past-rank-icon"
+        />
+      </div>
+      <div>
+        <div
+          class="past-rank-icon"
+        />
+      </div>
+      <div>
+        <div
+          class="past-rank-icon"
+        />
+      </div>
+      <div>
+        <div
+          class="past-rank-icon"
+        />
+      </div>
+      <div>
+        <div
+          class="past-rank-icon"
+        />
+      </div>
+      <div>
+        <div
+          class="past-rank-icon"
+        />
+      </div>
+      <div>
+        <div
+          class="current-rank-icon bounce"
+        >
+          <p
+            class="font-thin text-sm "
+          >
+            20
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="line"
+    />
+  </div>
+</div>
+`;

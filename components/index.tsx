@@ -12,7 +12,7 @@ import Realistic from "./realistic";
 import Encouragement from "./encouragement";
 import ReactCanvasConfetti from "react-canvas-confetti";
 
-interface GameIndexProps {
+export type GameIndexProps = {
   data?: {
     displayWeekday: string
     displayDate: string
@@ -28,7 +28,7 @@ interface GameIndexProps {
   }
 }
 
-export const getPoints = (wordList: string[]): number => {
+export const getPoints = (wordList: string[]) => {
   let sum = 0;
   if (wordList === undefined) {
     return sum
@@ -55,10 +55,9 @@ export const getPoints = (wordList: string[]): number => {
 }
 
 export const checkLetters = (word: string, letters: string[]): boolean => {
-  console.log(letters)
-  let wordArr: string[] = word.split("")
+  let wordArr: string[] = word.split("").map(i => i.toUpperCase())
   for (let i = 0; i < wordArr.length; i++) {
-    if (!letters.includes(wordArr[i])) {
+    if (!letters.map(i => i.toUpperCase()).includes(wordArr[i])) {
       return false
     }
   }
@@ -81,11 +80,9 @@ export default function GameIndex(props: GameIndexProps) {
     if (!data) {
       return;
     }
-
     if (data.answers.length === foundWords.length) {
       setInputWord("Epic!")
     }
-    
     if (localStorage.getItem("foundWords") !== null) {
       if (localStorage.getItem('revealed') === "true" 
       && data.answers.includes(localStorage.getItem('foundWords').split(',')[0].toLowerCase())) {
@@ -105,7 +102,7 @@ export default function GameIndex(props: GameIndexProps) {
     if (word.length < 4) {
       setMessage("Too short")
       setTimeout(() => setMessage(null), 1000)
-    } else if (checkLetters(word, data.validLetters)) {
+    } else if (!checkLetters(word, data.validLetters)) {
       setMessage("Bad letters")
       setTimeout(() => setMessage(null), 1000)
     } else if (data.pangrams.includes(word.toLowerCase()) && !foundWords.includes(word)) {
@@ -135,12 +132,11 @@ export default function GameIndex(props: GameIndexProps) {
 
   return (
     <div data-testid="game-index" className={"flex flex-col items-center"}>
-      
       <Header 
         date={data.displayDate} 
         editor={data.editor} 
         setShowMenu={() => setShowMenuItem("navbar")} />
-        {showMenuItem === "navbar" && <Menu showMenuItem={showMenuItem} setShowMenuItem={(arg) => setShowMenuItem(arg)}/>}
+        {showMenuItem === "navbar" && <Menu setShowMenuItem={(arg) => setShowMenuItem(arg)}/>}
         {showMenuItem === "howTo" && <HowTo setShowMenuItem={(arg) => setShowMenuItem(arg)} />}
         {showMenuItem === "hints" && <Hints revealAnswers={revealWords} setRevealAnswers={() => setRevealWords(true)} setShowMenuItem={(arg) => setShowMenuItem(arg)} pangrams={data.pangrams} answers={data.answers} />}
         {showMenuItem === "rankings" && <Rankings setShowMenuItem={(arg) => setShowMenuItem(arg)} answers={data.answers}/>}
@@ -154,7 +150,6 @@ export default function GameIndex(props: GameIndexProps) {
           <UserRanking answers={data.answers} userPoints={userPoints}/>
           <WordList answers={data.answers} pangrams={data.pangrams} revealWords={revealWords} words={foundWords}/>
         </div>
-        
         <InputIndex 
         message={message}
         inputWord={inputWord}
@@ -164,7 +159,6 @@ export default function GameIndex(props: GameIndexProps) {
         enterWord={(word) => enterWord(word)} 
         outerLetters={data.outerLetters.map(i => i.toUpperCase())}/>
       </div>
-      
     </div>
   );
 }

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Loading Component Matches snapshot 1`] = `
+exports[`<Loading /> matches snapshot 1`] = `
 <div
   class=" h-full w-full flex flex-col items-center"
   data-testid="loading-div"

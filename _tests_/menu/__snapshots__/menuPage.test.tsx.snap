@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` matches snapshot 1`] = `
+<div
+  class="blur-none flex flex-col z-40 shadow p-6 rounded-2xl w-full md:w-4/5 lg:w-2/3 mt-8 absolute bg-white text-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:border dark:border-zinc-800"
+  data-testid="menu-page"
+>
+  <div
+    data-testid="mock-children"
+  />
+</div>
+`;

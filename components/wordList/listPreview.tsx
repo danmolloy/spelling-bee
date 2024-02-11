@@ -1,6 +1,6 @@
 import { capitalize } from ".";
 
-interface ListPreviewProps {
+export type ListPreviewProps = {
   words?: string[]
   showList: boolean
   revealWords: boolean
@@ -9,8 +9,6 @@ interface ListPreviewProps {
 
 export default function ListPreview(props: ListPreviewProps) {
   const { words, showList, revealWords, answerLength } = props;
-
-  
 
   return (
     <div className="w-full flex flex-row flex-wrap" data-testid="list-preview">

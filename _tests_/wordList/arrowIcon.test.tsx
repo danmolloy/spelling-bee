@@ -10,15 +10,19 @@ describe("ArrowIcon component", () => {
   beforeEach(() => {
     render(<ArrowIcon {...mockProps} />)
   })
-  it("Renders", () => {
+  it("arrow-icon is in the document", () => {
     const arrowIcon = screen.getByTestId("arrow-icon")
     expect(arrowIcon).toBeInTheDocument()
   })
-  it("Calls showList on click", () => {
+  it("showList() is called on click", () => {
     const arrowIcon = screen.getByTestId("arrow-icon")
     act(() => {
       fireEvent.click(arrowIcon)
     })
     expect(mockProps.showList).toHaveBeenCalled()
+  })
+  it("matches snapshot", () => {
+    const arrowIcon = screen.getByTestId("arrow-icon")
+    expect(arrowIcon).toMatchSnapshot()
   })
 })

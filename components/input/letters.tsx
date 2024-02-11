@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Hexagon from "./hexagon";
 
-interface LettersProps {
+export type LettersProps = {
   setLetter: (arg: string) => void
   centerLetter: string|undefined
   outerLetters: string[]
@@ -26,8 +26,6 @@ export default function Letters(props: LettersProps) {
         <Hexagon center={false} letter={outerLetters[letterIndex[5]]} setLetter={() => setLetter(outerLetters[letterIndex[5]])}/>
         <Hexagon center={false} letter={outerLetters[letterIndex[3]]} setLetter={() => setLetter(outerLetters[letterIndex[3]])}/>
       </div>
-      
-      
     </div>
   );
 }

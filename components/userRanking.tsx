@@ -2,7 +2,7 @@ import { useState } from "react";
 import { rankingLevels } from "./menu/rankings";
 import { getPoints } from ".";
 
-interface UserRankingProps {
+export type UserRankingProps = {
   answers: string[]
   userPoints: number
   isLoading?: boolean
@@ -24,7 +24,7 @@ export default function UserRanking(props: UserRankingProps) {
   const { userPoints, answers, isLoading } = props;
 
   return (
-    <div className='flex flex-row w-full items-center justify-center'>
+    <div data-testid="user-ranking" className='flex flex-row w-full items-center justify-center'>
         {isLoading
         ? <div className=" animate-pulse h-8 w-24 bg-zinc-200 rounded-md m-1"/>
         : <h3 className='flex items-center justify-center p-1  w-32 font-semibold'>{rankingLevels[getRanking(userPoints, answers)].name}</h3>}

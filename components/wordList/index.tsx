@@ -13,7 +13,7 @@ export const capitalize = (word: string): string => {
   return newWord
 }
 
-interface WordListProps {
+export type WordListProps = {
   words?: string[]
   revealWords: boolean
   answers: string[]
@@ -30,14 +30,12 @@ export default function WordList(props: WordListProps) {
       ? "md:w-2/5 bg-white absolute z-30 border rounded-lg p-3 justify-between items-center font-light w-full flex flex-col flex-wrap mt-10 " 
       : "w-full md:w-2/5 bg-white absolute z-30 border rounded-lg p-3 flex flex-row justify-between items-center font-light mt-10 "}>
       {isLoading 
-      ? <div className=" animate-pulse h-4 w-full bg-zinc-200 rounded-md m-1"/>
-
+      ? <div data-testid="loading-div" className=" animate-pulse h-4 w-full bg-zinc-200 rounded-md m-1"/>
       : <div className=" w-full flex flex-row">
         <ListPreview answerLength={answers.length} revealWords={revealWords} words={words} showList={showList}/>
         <ArrowIcon showList={() => setShowList(!showList)}/>
       </div>}
       {showList && <FullList answers={answers} pangrams={pangrams} revealWords={revealWords} words={words} />}
-
     </div>
   )
 }

@@ -1,20 +1,25 @@
 import { render, screen, fireEvent, act } from "@testing-library/react";
 import "@testing-library/jest-dom"
-import WordList, { capitalize } from "../../components/wordList";
+import WordList, { WordListProps, capitalize } from "../../components/wordList";
+import { mockData } from "../../_mocks_/gameData";
 
-const mockProps = {
-  words: ["Car", "Bar", "Mat", "Door", "Hat", "Dog"]
+const mockProps: WordListProps = {
+  words: mockData.answers.slice(0, 5),
+  revealWords: false,
+  answers: mockData.answers,
+  pangrams: mockData.pangrams,
+  isLoading: false
 }
 
-describe("WordList component", () => {
+describe("<WordList />", () => {
   beforeEach(() => {
     render(<WordList {...mockProps} />)
   })
-  it("Renders", () => {
+  it("word-list is in the document", () => {
     const wordList = screen.getByTestId("word-list")
     expect(wordList).toBeInTheDocument()
   })
-  it("ArrowIcon is in the document", () => {
+  it("<ArrowIcon /> is in the document", () => {
     const arrowIcon = screen.getByTestId("arrow-icon")
     expect(arrowIcon).toBeInTheDocument()
   })
@@ -22,24 +27,65 @@ describe("WordList component", () => {
     const listPreview = screen.getByTestId("list-preview")
     expect(listPreview).toBeInTheDocument()
   })
-  it("Shows/hides FullList on ArrowIcon click", () => {
+  it("full list shown/hidden on arrow icon click", async () => {
     const arrowIcon = screen.getByTestId("arrow-icon")
     const listPreview = screen.getByTestId("list-preview")
     expect(listPreview).toBeInTheDocument()
-    act(() => {
-      fireEvent.click(arrowIcon)
+    await act(async () => {
+      await fireEvent.click(arrowIcon)
     })
     const fullList = screen.getByTestId("full-list-div")
     expect(fullList).toBeInTheDocument()
-    expect(listPreview).not.toBeInTheDocument()
   })
 })
 
-describe("Capitalize function", () => {
-  it("Capitalizes words", () => {
+describe("<WordList />", () => {
+  const mockProps: WordListProps = {
+    words: mockData.answers.slice(0, 5),
+    revealWords: false,
+    answers: mockData.answers,
+    pangrams: mockData.pangrams,
+    isLoading: true
+  }
+  
+    beforeEach(() => {
+      render(<WordList {...mockProps} />)
+    })
+  it("loading-div is in the document if isLoading", () => {
+    const loadingDiv = screen.getByTestId("loading-div")
+    expect(loadingDiv).toBeInTheDocument()
+  })
+})
+
+describe("<WordList />", () => {
+  const mockProps: WordListProps = {
+    words: ["cat", "mat"],
+    revealWords: false,
+    answers: mockData.answers,
+    pangrams: mockData.pangrams,
+    isLoading: false
+  }
+  
+  beforeEach(() => {
+    render(<WordList {...mockProps} />)
+  })
+
+  it("matches snapshot", () => {
+    const wordList = screen.getByTestId("word-list")
+    expect(wordList).toMatchSnapshot()
+  })
+})
+
+
+describe("capitalize()", () => {
+  it("capitalizes words", () => {
     expect(capitalize("iron")).toMatch(/^Iron$/)
     expect(capitalize("IRON")).toMatch(/^Iron$/)
     expect(capitalize("Iron")).toMatch(/^Iron$/)
     expect(capitalize("iRON")).toMatch(/^Iron$/)
+    expect(capitalize("yarn")).toMatch(/^Yarn$/)
+    expect(capitalize("YARN")).toMatch(/^Yarn$/)
+    expect(capitalize("Yarn")).toMatch(/^Yarn$/)
+    expect(capitalize("yArN")).toMatch(/^Yarn$/)
   })
 })

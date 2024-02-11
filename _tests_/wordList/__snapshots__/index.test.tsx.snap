@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<WordList /> matches snapshot 1`] = `
+<div
+  class="w-full md:w-2/5 bg-white absolute z-30 border rounded-lg p-3 flex flex-row justify-between items-center font-light mt-10 "
+  data-testid="word-list"
+>
+  <div
+    class=" w-full flex flex-row"
+  >
+    <div
+      class="w-full flex flex-row flex-wrap"
+      data-testid="list-preview"
+    >
+      <p
+        class="px-1"
+      >
+        Cat
+      </p>
+      <p
+        class="px-1"
+      >
+        Mat
+      </p>
+    </div>
+    <div
+      class="w-8 h-8 flex justify-center items-center self-start rounded-full hover:bg-gray-100 active:bg-gray-200"
+      data-testid="arrow-icon"
+    >
+      <div
+        class="border-black border-r-2 border-b-2 h-3 w-3 self-end rotate-45 mb-3 "
+      />
+    </div>
+  </div>
+</div>
+`;
