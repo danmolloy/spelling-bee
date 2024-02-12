@@ -9,7 +9,7 @@ exports[`<Encouragement matches snapshot 1`] = `
     class="message px-2 py-1 h-8 flex items-center bg-white border rounded"
   >
     <p>
-      Epic!
+      Hooray!
     </p>
   </div>
   <div

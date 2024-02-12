@@ -2,7 +2,7 @@ import "@testing-library/jest-dom"
 import { screen, render, fireEvent, act } from "@testing-library/react"
 import Rankings, { RankingsProps, rankingLevels } from "../../components/menu/rankings"
 import { mockData } from "../../_mocks_/gameData"
-import { getPoints } from "../../components"
+import { getPoints } from "../../lib/functions" 
 
 const mockProps: RankingsProps = {
   answers: mockData.answers,

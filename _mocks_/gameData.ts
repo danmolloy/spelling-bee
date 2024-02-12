@@ -1,4 +1,5 @@
 import { faker } from "@faker-js/faker"
+import { GameData } from "../lib/functions"
 
 //const centerLetter = faker.string.alpha();
 //const outerLetters = faker.string.alpha(6).split("")
@@ -6,9 +7,8 @@ const expiration = Date.now() + 10000
 const answers = faker.word.words(25).toLowerCase().split("").filter(i => i !== " ")
 const lettersArr = Array.from(new Set(answers)).slice(0, 7)
 
-const validLetters = Array.from(new Set(faker.string.alpha(12).split(""))).slice(0, 7)
 
-export const mockData = {
+export const mockData: GameData = {
   expiration: expiration,
   displayWeekday:"Sunday",
   displayDate: "October 13, 1986",

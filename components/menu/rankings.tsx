@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { AiOutlineClose } from 'react-icons/ai'
-import { getPoints } from '..'
+import { getPoints } from '../../lib/functions'
 import MenuPage from './menuPage'
 
 export const rankingLevels = [

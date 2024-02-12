@@ -7,73 +7,21 @@ import Menu from "./menu/menu";
 import Hints from "./menu/hints";
 import Rankings from "./menu/rankings";
 import HowTo from "./menu/howTo";
-import Loading from "./loading";
 import Realistic from "./realistic";
 import Encouragement from "./encouragement";
-import ReactCanvasConfetti from "react-canvas-confetti";
+import { GameData, getPoints, handleSubmit } from "../lib/functions";
 
 export type GameIndexProps = {
-  data?: {
-    displayWeekday: string
-    displayDate: string
-    printDate: string
-    centerLetter: string
-    outerLetters: string[]
-    validLetters: string[]
-    pangrams: string[]
-    answers: string[]
-    id: string
-    freeExpiration: string
-    editor: string
-  }
+  data?: GameData
 }
-
-export const getPoints = (wordList: string[]) => {
-  let sum = 0;
-  if (wordList === undefined) {
-    return sum
-  }
-
-  
-  for (let i = 0; i < wordList?.length; i++) {
-    if (wordList[i].length === 4) {
-      sum += 1
-    } else if (wordList[i].length > 4) {
-      sum += wordList[i].length
-    }
-  }
-
-	let word: Set<string>;
-  for (let i = 0; i < wordList.length; i++) {
-    word = new Set(wordList[i].split(''))
-    if (word.size === 7) {
-      sum += 7
-    }
-  }
-  
-  return sum;
-}
-
-export const checkLetters = (word: string, letters: string[]): boolean => {
-  let wordArr: string[] = word.split("").map(i => i.toUpperCase())
-  for (let i = 0; i < wordArr.length; i++) {
-    if (!letters.map(i => i.toUpperCase()).includes(wordArr[i])) {
-      return false
-    }
-  }
-  return true
-}
-
 
 export default function GameIndex(props: GameIndexProps) {
   const { data } = props;
   const [showMenuItem, setShowMenuItem] = useState<string|null>(null)
   const [foundWords, setFoundWords] = useState<string[]>([])
-  const [userPoints, setUserPoints] = useState<number>(0)
   const [inputWord, setInputWord] = useState<string>("")
   const [revealWords, setRevealWords] = useState<boolean>(false)
   const [message, setMessage] = useState<string|null>(null)
-  const [reaction, setReaction] = useState<string|null>(null)
   const [addedPoints, setAddedPoints] = useState<number|null>(null)
 
   useEffect(() => {
@@ -91,42 +39,30 @@ export default function GameIndex(props: GameIndexProps) {
       } else if (data.answers.includes(localStorage.getItem('foundWords').split(',')[0].toLowerCase())) {
         const foundedWords = localStorage.getItem('foundWords').split(',')
         setFoundWords([...foundedWords])
-        setUserPoints(getPoints([...foundedWords]))
       } else {
         localStorage.clear()
       }
     }
   }, [data])
-  
-  const enterWord = (word: string): void => {
-    if (word.length < 4) {
-      setMessage("Too short")
-      setTimeout(() => setMessage(null), 1000)
-    } else if (!checkLetters(word, data.validLetters)) {
-      setMessage("Bad letters")
-      setTimeout(() => setMessage(null), 1000)
-    } else if (data.pangrams.includes(word.toLowerCase()) && !foundWords.includes(word)) {
-      localStorage.setItem('foundWords', String([word, ...foundWords]))
-      setFoundWords([word, ...foundWords])
-      setUserPoints(getPoints([...foundWords, word]))
-      setInputWord("")
-      setReaction("Pangram!")
-      setAddedPoints(getPoints([word]))
-      setTimeout(() => setAddedPoints(null), 750)
-      setTimeout(() => setReaction(null), 750)
-    } else if (data.answers.includes(word.toLowerCase()) && !foundWords.includes(word)) {
-      localStorage.setItem('foundWords', String([word, ...foundWords]))
-      setFoundWords([word, ...foundWords])
-      setUserPoints(getPoints([...foundWords, word]))
-      setInputWord("")
-      setAddedPoints(getPoints([word]))
-      setTimeout(() => setAddedPoints(null), 750)
-    } else if(foundWords.includes(word)) {
-      setMessage("Already found")
-      setTimeout(() => setMessage(null), 750)
+
+  const handleEnter = (word: string) => {
+    const submitObj = handleSubmit(word, data, foundWords)
+    if (submitObj.addedPoints === 0) {
+      setMessage(submitObj.message)
+      setTimeout(() => {
+        setInputWord(""); 
+        setMessage(null)
+      }, 750)
     } else {
-      setMessage("Not in word list")
-      setTimeout(() => setMessage(null), 750)
+      localStorage.setItem('foundWords', String([word, ...foundWords]))
+      setFoundWords([word, ...foundWords])
+      setMessage(submitObj.message)
+      setAddedPoints(getPoints([word]))
+      setTimeout(() => {
+        setAddedPoints(null); 
+        setMessage(null);
+        setInputWord("");
+      }, 1000)
     }
   }
 
@@ -142,22 +78,22 @@ export default function GameIndex(props: GameIndexProps) {
         {showMenuItem === "rankings" && <Rankings setShowMenuItem={(arg) => setShowMenuItem(arg)} answers={data.answers}/>}
         {data.answers.length === foundWords.length 
         && <Realistic reaction={"Bravo!"} />}
-        <Realistic reaction={reaction} />
-        {addedPoints
-        && <Encouragement points={addedPoints}/>}
+        {message === "Pangram!" && <Realistic reaction={message} />}
+        {addedPoints !== null
+        && <Encouragement text={message} points={addedPoints}/>}
       <div className="flex flex-col md:flex-row-reverse w-full">
         <div className="flex flex-col md:w-1/2 w-full md:px-2 items-center">
-          <UserRanking answers={data.answers} userPoints={userPoints}/>
+          <UserRanking answers={data.answers} userPoints={getPoints(foundWords)}/>
           <WordList answers={data.answers} pangrams={data.pangrams} revealWords={revealWords} words={foundWords}/>
         </div>
         <InputIndex 
-        message={message}
-        inputWord={inputWord}
-        setInputWord={(str) => setInputWord(str)}
-        centerLetter={data.centerLetter.toUpperCase()} 
-        revealedAnswers={revealWords} 
-        enterWord={(word) => enterWord(word)} 
-        outerLetters={data.outerLetters.map(i => i.toUpperCase())}/>
+          message={!addedPoints && message}
+          inputWord={inputWord}
+          setInputWord={(str) => setInputWord(str)}
+          centerLetter={data.centerLetter.toUpperCase()} 
+          revealedAnswers={revealWords} 
+          enterWord={(word) => handleEnter(word)} 
+          outerLetters={data.outerLetters.map(i => i.toUpperCase())}/>
       </div>
     </div>
   );

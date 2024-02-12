@@ -1,9 +1,10 @@
 import { render, screen, act, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom"
-import GameIndex, { GameIndexProps, checkLetters, getPoints } from "../components";
+import GameIndex, { GameIndexProps } from "../components";
 import { mockData } from "../_mocks_/gameData";
 import "react-canvas-confetti"
 import { capitalize } from "../components/wordList";
+import { getPoints } from "../lib/functions";
 
 jest.mock("react-canvas-confetti")
 
@@ -121,35 +122,13 @@ describe("enterWord()", () => {
     act(() => {
       fireEvent.click(enterBtn)
     })
+    const gameIndex = screen.getByTestId("game-index")
     const realistic = screen.getByTestId("realistic-div")
     expect(realistic).toBeInTheDocument()
-    const gameIndex = screen.getByTestId("game-index")
-    expect(gameIndex.textContent).toMatch("Epic!")
-  })
+    expect(gameIndex.textContent).toMatch("Pangram!")
+  }) 
   //it("states if word already found", () => {})
+  //it("endgame", () => {})
 })
 
-describe("checkLetters()", () => {
-  it("checkLetters() is truthy when expected", () => {
-    expect(checkLetters("hat", ["h", "a", "t"])).toBeTruthy()
-    expect(checkLetters("HAT", ["h", "a", "t"])).toBeTruthy()
-    expect(checkLetters("HAT", ["H", "A", "T"])).toBeTruthy()
-    expect(checkLetters("hat", ["H", "A", "T"])).toBeTruthy()
 
-  })
-  it("checkLetters() is false when expected", () => {
-    expect(checkLetters("mop", ["h", "a", "t"])).toBeFalsy()
-  })
-})
-describe("getPoints()", () => {
-  it("returns expected value", () => {
-    expect(getPoints(["word"])).toEqual(1)
-    expect(getPoints(["words"])).toEqual(5)
-    expect(getPoints(["wordie"])).toEqual(6)
-    expect(getPoints(["1234567"])).toEqual(14)// pangram
-    expect(getPoints(["12345678"])).toEqual(8) 
-    expect(getPoints(["bananas"])).toEqual(7)
-    expect(getPoints(["stables"])).toEqual(7)
-    expect(getPoints(["uneasiness"])).toEqual(10)
-  })
-})
