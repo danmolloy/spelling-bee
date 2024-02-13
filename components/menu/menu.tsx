@@ -25,8 +25,7 @@ export default function Menu(props: MenuProps) {
   
   return (
     <MenuPage>
-      <div data-testid="nav-menu" className="mb-2 flex flex-row justify-between dark:text-zinc-400">
-        <h2 className=" text-sm">Navigation</h2>
+      <div data-testid="nav-menu" className="mb-2 flex flex-row justify-end dark:text-zinc-400 ">
         <button className="text-lg dark:hover:text-zinc-300" onClick={() => setShowMenuItem(null)} data-testid="close-btn">
           <AiOutlineClose />
         </button>

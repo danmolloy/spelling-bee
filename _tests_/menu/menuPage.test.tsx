@@ -22,4 +22,8 @@ describe("", () => {
     const menuPage = screen.getByTestId("menu-page")
     expect(menuPage).toMatchSnapshot()
   })
+  /* it("page closes on blur", () => {})
+  it("font matches NYT", () => {})
+   */
 })
+

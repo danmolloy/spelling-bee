@@ -52,39 +52,56 @@ export const rankingLevels = [
 ]
 
 export type RankingsProps = {
-  answers: string[]
   setShowMenuItem: (arg: null) => void
+  geniusScore: number
+  currentScore: number
 }
 
 
 export default function Rankings(props: RankingsProps) {
-  const { answers, setShowMenuItem } = props;
-  const [answersSum, setAnswersSum] = useState(null)
+  const { setShowMenuItem, geniusScore, currentScore } = props;
 
-  useEffect(() => {
-    if (!answers) {
-      return
-    }
-    setAnswersSum(getPoints(answers));
-  }, [answers])
-
+  const currentRanking = rankingLevels[rankingLevels.filter(i => Math.floor(geniusScore * i.minScoreMultiplier) <= currentScore).length - 1]
+  const nextRanking = rankingLevels[rankingLevels.filter(i => Math.floor(geniusScore * i.minScoreMultiplier) <= currentScore).length]
   return (
       <MenuPage>
-      <div data-testid="rankings-div" className='flex flex-row justify-between'>
+      <div data-testid="rankings-div" className='flex flex-row justify-between '>
         <h2 className="font-bold text-2xl">Rankings</h2>
         <button data-testid="menu-icon" className='menu-icon' onClick={() => setShowMenuItem(null)}>
           <AiOutlineClose />
         </button>
       </div>
       <div data-testid="help-text" className='p-4 font-semithin text-lg'>   
-        <p>Below are the minimum scores for the rankings of the current puzzle.</p>
-        <p>Please refer to <i>How to Play</i> for scoring system.</p>
+        <p>Ranks are based on a percentage of possible points in a puzzle.</p>
       </div>
-      <ul className="pl-4 font-semithin">
-        {rankingLevels.map(i => (
-          <li data-testid={`${i.name}-level`} key={i.name}>{i.name} (<span className='font-medium'>{Math.floor(answersSum *i.minScoreMultiplier)}</span>)</li>
-        ))}
-      </ul>
+      <div>
+        <div className='flex flex-row font-bold justify-between px-2'>
+          <p className='ml-12 '>Rank</p>
+          <p >Minimum score</p>
+        </div>
+        <div className=' '>
+          {rankingLevels.map(i => (
+            <div data-testid={`${i.name}-level`} key={i.name} className={`${i.minScoreMultiplier === currentRanking.minScoreMultiplier ? "bg-yellow-300 rounded-full font-bold" : i.minScoreMultiplier < currentRanking.minScoreMultiplier ? "text-gray-400" : ""} px-4 py-2 flex flex-row justify-between items-center`}>
+              {i.minScoreMultiplier === currentRanking.minScoreMultiplier 
+              ? <div className='m-2 flex '>
+                  <p>{currentScore}</p>
+                </div>
+              : <div className={` w-2 h-2 m-2 mx-4 ${i.minScoreMultiplier < currentRanking.minScoreMultiplier ? "bg-yellow-300 rounded-full" : i.minScoreMultiplier < 1 ? "bg-gray-300 rounded-full" :  "bg-gray-300"}  flex items-center justify-center`} />}
+              <div>
+                <p>{i.name}</p>
+                {i.minScoreMultiplier === currentRanking.minScoreMultiplier 
+                && <div className='text-xs font-normal'>
+                    <p>{Math.floor(geniusScore *  nextRanking.minScoreMultiplier)} points to next rank, {geniusScore - currentScore} points to Genius</p>
+                  </div>}
+              </div>
+              <div className=' flex flex-grow items-center px-4'>
+                {i.name !== currentRanking.name && <hr className='hidden md:flex w-full'/>}
+              </div>
+              <p>{Math.floor(i.minScoreMultiplier * geniusScore)}</p>
+            </div>
+          )).reverse()}
+        </div>
+      </div>
     </MenuPage>
     
   )

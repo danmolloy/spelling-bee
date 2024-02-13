@@ -23,7 +23,7 @@ export default function GameIndex(props: GameIndexProps) {
   const [revealWords, setRevealWords] = useState<boolean>(false)
   const [message, setMessage] = useState<string|null>(null)
   const [addedPoints, setAddedPoints] = useState<number|null>(null)
-
+  const [foundPangram, setFoundPangram] = useState<boolean>(false)
   useEffect(() => {
     if (!data) {
       return;
@@ -58,11 +58,15 @@ export default function GameIndex(props: GameIndexProps) {
       setFoundWords([word, ...foundWords])
       setMessage(submitObj.message)
       setAddedPoints(getPoints([word]))
+      submitObj.message === "Pangram!" && setFoundPangram(true)
       setTimeout(() => {
         setAddedPoints(null); 
         setMessage(null);
         setInputWord("");
       }, 1000)
+      setTimeout(() => {
+        setFoundPangram(false)
+      }, 4000)
     }
   }
 
@@ -75,10 +79,10 @@ export default function GameIndex(props: GameIndexProps) {
         {showMenuItem === "navbar" && <Menu setShowMenuItem={(arg) => setShowMenuItem(arg)}/>}
         {showMenuItem === "howTo" && <HowTo setShowMenuItem={(arg) => setShowMenuItem(arg)} />}
         {showMenuItem === "hints" && <Hints revealAnswers={revealWords} setRevealAnswers={() => setRevealWords(true)} setShowMenuItem={(arg) => setShowMenuItem(arg)} pangrams={data.pangrams} answers={data.answers} />}
-        {showMenuItem === "rankings" && <Rankings setShowMenuItem={(arg) => setShowMenuItem(arg)} answers={data.answers}/>}
+        {showMenuItem === "rankings" && <Rankings currentScore={getPoints(foundWords)} geniusScore={getPoints(data.answers)} setShowMenuItem={(arg) => setShowMenuItem(arg)} />}
         {data.answers.length === foundWords.length 
         && <Realistic reaction={"Bravo!"} />}
-        {message === "Pangram!" && <Realistic reaction={message} />}
+        {foundPangram === true && <Realistic reaction={message} />}
         {addedPoints !== null
         && <Encouragement text={message} points={addedPoints}/>}
       <div className="flex flex-col md:flex-row-reverse w-full">

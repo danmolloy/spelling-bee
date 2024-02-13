@@ -5,8 +5,9 @@ import { mockData } from "../../_mocks_/gameData"
 import { getPoints } from "../../lib/functions" 
 
 const mockProps: RankingsProps = {
-  answers: mockData.answers,
-  setShowMenuItem: jest.fn()
+  geniusScore: 96,
+  setShowMenuItem: jest.fn(),
+  currentScore: Math.floor(Math.random() * 97)
 }
 
 describe("", () => {
@@ -32,11 +33,10 @@ describe("", () => {
   it("helpful text is in the document", () => {
     const helpText = screen.getByTestId("help-text")
     expect(helpText).toBeInTheDocument()
-    expect(helpText.textContent).toMatch("Below are the minimum scores for the rankings of the current puzzle.")
-    expect(helpText.textContent).toMatch("Please refer to How to Play for scoring system.")
+    expect(helpText.textContent).toMatch("Ranks are based on a percentage of possible points in a puzzle.")
   })
   it("all ranking levels with min score is in the document", () => {
-    const numPoints = getPoints(mockProps.answers)
+    const numPoints = mockProps.geniusScore
     for (let i = 0; i < rankingLevels.length; i ++) {
       const level = screen.getByTestId(`${rankingLevels[i].name}-level`)
       expect(level).toBeInTheDocument()
@@ -44,4 +44,6 @@ describe("", () => {
       expect(level.textContent).toMatch(String(Math.floor(numPoints * rankingLevels[i].minScoreMultiplier)))
     }
   })
+  //it("text states num points to next ranking", () => {})
+  //it("text states num points to Genius", () => {})
 })
