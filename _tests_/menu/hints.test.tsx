@@ -52,6 +52,11 @@ describe("<Hints />", () => {
     expect(helpTable).toBeInTheDocument()
   })
 
+  it("two-letter list is in the document", () => {
+    const twoLetterList = screen.getByTestId("two-letter-list")
+    expect(twoLetterList).toBeInTheDocument()
+  })
+
   it("reveal btn is in the document and calls setRevealAnswers & setShowMenuItem on click", () => {
     const revealBtn = screen.getByText("Reveal")
     expect(revealBtn).toBeInTheDocument()
@@ -66,8 +71,8 @@ describe("<Hints />", () => {
 
 describe("<Hints />", () => {
   const mockProps: HintsProps = {
-    centerLetter: mockData.centerLetter,
-    validLetters: mockData.validLetters,
+    centerLetter: "a",
+    validLetters: ["q", "a", "b", "c", "d", "e", "f"],
     setShowMenuItem: jest.fn(),
     answers: ["four", "funf", "sixsix", "seventy", "eighty"],
     pangrams: ["lorem", "ipsum"],

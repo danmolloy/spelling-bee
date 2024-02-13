@@ -2,6 +2,7 @@ import { AiOutlineClose } from 'react-icons/ai'
 import MenuPage from './menuPage'
 import HelpTable from './helpTable'
 import { getPoints } from '../../lib/functions'
+import TwoLetterList from './twoLetterList'
 
 export type HintsProps = {
   setShowMenuItem: (arg: string|null) => void
@@ -39,7 +40,7 @@ export default function Hints(props: HintsProps) {
       <div className='flex flex-col items-center py-2'>
         <HelpTable validLetters={validLetters} centerLetter={centerLetter} answers={answers} />
       </div>
-      
+      <TwoLetterList answers={answers} />
       <hr />
       <h2 className='text-xl font-medium py-1 my-2'>Reveal Answers</h2>
       <div className='how-to-section flex flex-col'>

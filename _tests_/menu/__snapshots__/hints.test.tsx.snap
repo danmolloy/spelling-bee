@@ -102,16 +102,16 @@ exports[`<Hints /> matches snapshot 1`] = `
       <tbody>
         <tr
           class=""
-          data-testid="s-row"
+          data-testid="q-row"
         >
           <td
             class="font-bold"
           >
-            S
+            Q
           </td>
           <td
             class=""
-            data-testid="4-s"
+            data-testid="4-q"
           >
             <p
               class="text-center"
@@ -121,46 +121,7 @@ exports[`<Hints /> matches snapshot 1`] = `
           </td>
           <td
             class=""
-            data-testid="6-s"
-          >
-            <p
-              class="text-center"
-            >
-              1
-            </p>
-          </td>
-          <td
-            class=""
-            data-testid="7-s"
-          >
-            <p
-              class="text-center"
-            >
-              1
-            </p>
-          </td>
-          <td
-            data-testid="s-total"
-          >
-            <p
-              class="text-center"
-            >
-              2
-            </p>
-          </td>
-        </tr>
-        <tr
-          class=""
-          data-testid="h-row"
-        >
-          <td
-            class="font-bold"
-          >
-            H
-          </td>
-          <td
-            class=""
-            data-testid="4-h"
+            data-testid="6-q"
           >
             <p
               class="text-center"
@@ -170,7 +131,7 @@ exports[`<Hints /> matches snapshot 1`] = `
           </td>
           <td
             class=""
-            data-testid="6-h"
+            data-testid="7-q"
           >
             <p
               class="text-center"
@@ -179,17 +140,7 @@ exports[`<Hints /> matches snapshot 1`] = `
             </p>
           </td>
           <td
-            class=""
-            data-testid="7-h"
-          >
-            <p
-              class="text-center"
-            >
-              -
-            </p>
-          </td>
-          <td
-            data-testid="h-total"
+            data-testid="q-total"
           >
             <p
               class="text-center"
@@ -200,16 +151,16 @@ exports[`<Hints /> matches snapshot 1`] = `
         </tr>
         <tr
           class=""
-          data-testid="o-row"
+          data-testid="a-row"
         >
           <td
             class="font-bold"
           >
-            O
+            A
           </td>
           <td
             class=""
-            data-testid="4-o"
+            data-testid="4-a"
           >
             <p
               class="text-center"
@@ -219,7 +170,7 @@ exports[`<Hints /> matches snapshot 1`] = `
           </td>
           <td
             class=""
-            data-testid="6-o"
+            data-testid="6-a"
           >
             <p
               class="text-center"
@@ -229,7 +180,7 @@ exports[`<Hints /> matches snapshot 1`] = `
           </td>
           <td
             class=""
-            data-testid="7-o"
+            data-testid="7-a"
           >
             <p
               class="text-center"
@@ -238,7 +189,7 @@ exports[`<Hints /> matches snapshot 1`] = `
             </p>
           </td>
           <td
-            data-testid="o-total"
+            data-testid="a-total"
           >
             <p
               class="text-center"
@@ -249,16 +200,16 @@ exports[`<Hints /> matches snapshot 1`] = `
         </tr>
         <tr
           class=""
-          data-testid="u-row"
+          data-testid="b-row"
         >
           <td
             class="font-bold"
           >
-            U
+            B
           </td>
           <td
             class=""
-            data-testid="4-u"
+            data-testid="4-b"
           >
             <p
               class="text-center"
@@ -268,7 +219,7 @@ exports[`<Hints /> matches snapshot 1`] = `
           </td>
           <td
             class=""
-            data-testid="6-u"
+            data-testid="6-b"
           >
             <p
               class="text-center"
@@ -278,7 +229,7 @@ exports[`<Hints /> matches snapshot 1`] = `
           </td>
           <td
             class=""
-            data-testid="7-u"
+            data-testid="7-b"
           >
             <p
               class="text-center"
@@ -287,7 +238,7 @@ exports[`<Hints /> matches snapshot 1`] = `
             </p>
           </td>
           <td
-            data-testid="u-total"
+            data-testid="b-total"
           >
             <p
               class="text-center"
@@ -298,16 +249,16 @@ exports[`<Hints /> matches snapshot 1`] = `
         </tr>
         <tr
           class=""
-          data-testid="l-row"
+          data-testid="c-row"
         >
           <td
             class="font-bold"
           >
-            L
+            C
           </td>
           <td
             class=""
-            data-testid="4-l"
+            data-testid="4-c"
           >
             <p
               class="text-center"
@@ -317,7 +268,7 @@ exports[`<Hints /> matches snapshot 1`] = `
           </td>
           <td
             class=""
-            data-testid="6-l"
+            data-testid="6-c"
           >
             <p
               class="text-center"
@@ -327,7 +278,7 @@ exports[`<Hints /> matches snapshot 1`] = `
           </td>
           <td
             class=""
-            data-testid="7-l"
+            data-testid="7-c"
           >
             <p
               class="text-center"
@@ -336,7 +287,7 @@ exports[`<Hints /> matches snapshot 1`] = `
             </p>
           </td>
           <td
-            data-testid="l-total"
+            data-testid="c-total"
           >
             <p
               class="text-center"
@@ -444,6 +395,55 @@ exports[`<Hints /> matches snapshot 1`] = `
           </td>
         </tr>
         <tr
+          class=""
+          data-testid="f-row"
+        >
+          <td
+            class="font-bold"
+          >
+            F
+          </td>
+          <td
+            class=""
+            data-testid="4-f"
+          >
+            <p
+              class="text-center"
+            >
+              2
+            </p>
+          </td>
+          <td
+            class=""
+            data-testid="6-f"
+          >
+            <p
+              class="text-center"
+            >
+              -
+            </p>
+          </td>
+          <td
+            class=""
+            data-testid="7-f"
+          >
+            <p
+              class="text-center"
+            >
+              -
+            </p>
+          </td>
+          <td
+            data-testid="f-total"
+          >
+            <p
+              class="text-center"
+            >
+              2
+            </p>
+          </td>
+        </tr>
+        <tr
           data-testid="total-row"
         >
           <td
@@ -487,6 +487,56 @@ exports[`<Hints /> matches snapshot 1`] = `
         </tr>
       </tbody>
     </table>
+  </div>
+  <div
+    class="p-2 my-2"
+    data-testid="two-letter-list"
+  >
+    <p
+      class="font-bold"
+    >
+      Two letter list:
+    </p>
+    <div
+      class="flex flex-row "
+      data-testid="e-row"
+    >
+      <p
+        class="pr-1"
+      >
+        EI-1
+      </p>
+    </div>
+    <div
+      class="flex flex-row "
+      data-testid="f-row"
+    >
+      <p
+        class="pr-1"
+      >
+        FO-1
+      </p>
+      <p
+        class="pr-1"
+      >
+        FU-1
+      </p>
+    </div>
+    <div
+      class="flex flex-row "
+      data-testid="s-row"
+    >
+      <p
+        class="pr-1"
+      >
+        SE-1
+      </p>
+      <p
+        class="pr-1"
+      >
+        SI-1
+      </p>
+    </div>
   </div>
   <hr />
   <h2
