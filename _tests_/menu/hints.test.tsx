@@ -2,11 +2,14 @@ import "@testing-library/jest-dom"
 import { screen, render, act, fireEvent } from "@testing-library/react"
 import Hints, { HintsProps } from "../../components/menu/hints"
 import { mockData } from "../../_mocks_/gameData"
+import { getPoints } from "../../lib/functions"
 
 jest.spyOn(Storage.prototype, 'setItem')
 Storage.prototype.setItem = jest.fn()
 
 const mockProps: HintsProps = {
+  centerLetter: mockData.centerLetter,
+  validLetters: mockData.validLetters,
   setShowMenuItem: jest.fn(),
   answers: mockData.answers,
   pangrams: ['lorem'],
@@ -30,23 +33,25 @@ describe("<Hints />", () => {
     const menuIcon = screen.getByTestId("menu-icon")
     expect(menuIcon).toBeInTheDocument()
   })
-  it("states how many answers are in puzzle", () => {
+  it("states number of pangrams", () => {
     const hintsDiv = screen.getByTestId("hints-div")
-    expect(hintsDiv.textContent).toMatch(`The current puzzle has ${mockProps.answers.length} words.`)
+    expect(hintsDiv.textContent).toMatch(`Pangrams: ${mockData.pangrams.length}`)
   })
-  it("states number of pangrams in the singular", () => {
+  it("states number of answers", () => {
     const hintsDiv = screen.getByTestId("hints-div")
-    expect(hintsDiv.textContent).toMatch(`There is 1 pangram.`)
+    expect(hintsDiv.textContent).toMatch(`Words: ${mockData.answers.length}`)
+  })
 
-  })
-  it("states number of words for each length", () => {
+  it("states number of possible points", () => {
     const hintsDiv = screen.getByTestId("hints-div")
-    expect(hintsDiv.textContent).toMatch(`Four letters: ${mockProps.answers.filter(i => i.length === 4).length}`)
-    expect(hintsDiv.textContent).toMatch(`Five letters: ${mockProps.answers.filter(i => i.length === 5).length}`)
-    expect(hintsDiv.textContent).toMatch(`Six letters: ${mockProps.answers.filter(i => i.length === 6).length}`)
-    expect(hintsDiv.textContent).toMatch(`Seven letters: ${mockProps.answers.filter(i => i.length === 7).length}`)
-    expect(hintsDiv.textContent).toMatch(`Eight or more letters: ${mockProps.answers.filter(i => i.length >= 8).length}`)
+    expect(hintsDiv.textContent).toMatch(`Points: ${getPoints(mockData.answers)}`)
   })
+  
+  it("help-table is in the document", () => {
+    const helpTable = screen.getByTestId("help-table")
+    expect(helpTable).toBeInTheDocument()
+  })
+
   it("reveal btn is in the document and calls setRevealAnswers & setShowMenuItem on click", () => {
     const revealBtn = screen.getByText("Reveal")
     expect(revealBtn).toBeInTheDocument()
@@ -56,12 +61,13 @@ describe("<Hints />", () => {
     expect(mockProps.setRevealAnswers).toHaveBeenCalled()
     expect(mockProps.setShowMenuItem).toHaveBeenCalledWith(null)
     expect(localStorage.setItem).toHaveBeenCalledWith("revealed", "true")
-
   })
 })
 
 describe("<Hints />", () => {
   const mockProps: HintsProps = {
+    centerLetter: mockData.centerLetter,
+    validLetters: mockData.validLetters,
     setShowMenuItem: jest.fn(),
     answers: ["four", "funf", "sixsix", "seventy", "eighty"],
     pangrams: ["lorem", "ipsum"],
@@ -71,10 +77,7 @@ describe("<Hints />", () => {
   beforeEach(() => {
     render(<Hints {...mockProps} />)
   })
-  it("states number of pangrams in the plural", () => {
-    const hintsDiv = screen.getByTestId("hints-div")
-    expect(hintsDiv.textContent).toMatch(`There are 2 pangrams.`)
-  })
+  
   it("matches snapshot", () => {
     const hintsDiv = screen.getByTestId("hints-div")
     expect(hintsDiv).toMatchSnapshot()

@@ -1,5 +1,7 @@
 import { AiOutlineClose } from 'react-icons/ai'
 import MenuPage from './menuPage'
+import HelpTable from './helpTable'
+import { getPoints } from '../../lib/functions'
 
 export type HintsProps = {
   setShowMenuItem: (arg: string|null) => void
@@ -7,10 +9,12 @@ export type HintsProps = {
   pangrams: string[]
   setRevealAnswers: () => void,
   revealAnswers: boolean
+  centerLetter: string
+  validLetters: string[]
 }
 
 export default function Hints(props: HintsProps) {
-  const { setShowMenuItem, answers, pangrams, setRevealAnswers } = props;
+  const { centerLetter, validLetters, setShowMenuItem, answers, pangrams, setRevealAnswers } = props;
 
   const reveal = () => {
     setShowMenuItem(null)
@@ -28,22 +32,14 @@ export default function Hints(props: HintsProps) {
         </button>
       </div>
       <div className='p-2'>
-        <p className='text-lg font-thin'>The current puzzle has {answers.length} words.</p>
-        <p className='text-lg font-thin'>
-          {pangrams.length === 1 
-          ? `There is ${pangrams.length} pangram.`
-          : `There are ${pangrams.length} pangrams.`}
-        </p>
+        <p className='text-lg font-thin'>Words: {answers.length}</p>
+        <p className='text-lg font-thin'>Pangrams: {pangrams.length}</p>
+        <p className='text-lg font-thin'>Points: {getPoints(answers)}</p>
       </div>
-
-      <h2 className='text-xl font-medium pb-1'>Number of words for each length</h2>
-      <div className='how-to-section pb-3'>
-        <p className='font-semithin'>Four letters: <span className='font-medium'>{answers.filter(i => i.length === 4).length}</span></p>
-        <p className='font-semithin'>Five letters: <span className='font-medium'>{answers.filter(i => i.length === 5).length}</span></p>
-        <p className='font-semithin'>Six letters: <span className='font-medium'>{answers.filter(i => i.length === 6).length}</span></p>
-        <p className='font-semithin'>Seven letters: <span className='font-medium'>{answers.filter(i => i.length === 7).length}</span></p>
-        <p className='font-semithin'>Eight or more letters: <span className='font-medium'>{answers.filter(i => i.length >= 8).length}</span></p>
-      </div> 
+      <div className='flex flex-col items-center py-2'>
+        <HelpTable validLetters={validLetters} centerLetter={centerLetter} answers={answers} />
+      </div>
+      
       <hr />
       <h2 className='text-xl font-medium py-1 my-2'>Reveal Answers</h2>
       <div className='how-to-section flex flex-col'>
