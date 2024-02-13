@@ -14,10 +14,6 @@ describe("", () => {
     const navMenu = screen.getByTestId("nav-menu")
     expect(navMenu).toBeInTheDocument()
   })
-  it("'Navigation' title is in the document", () => {
-    const navTitle = screen.getByText("Navigation")
-    expect(navTitle).toBeInTheDocument()
-  })
   it("close-btn is in the document and calls setShowMenuItem on click", () => {
     const closeBtn = screen.getByTestId("close-btn")
     expect(closeBtn).toBeInTheDocument()

@@ -18,12 +18,12 @@ export default function AnswerList(props: AnswerListProps) {
           <p className="slide-in-text pb-4 w-full">You found {words.length} out of {answers.length} words</p>
           <div className="expanded-list-words">
           {[...answers].sort((a, b) => a.length - b.length).map(i => (
-            <p key={i} className={words.includes(i.toUpperCase()) ? "expanded-list-word font-bold" :"expanded-list-word"}>{capitalize(i)}</p>
+            <p key={`${i}-answer`} className={words.includes(i.toUpperCase()) ? "expanded-list-word font-bold" :"expanded-list-word"}>{capitalize(i)}</p>
           ))}
           </div>
         </div>
         : <div className="word-list-words"> {[...answers].sort((a, b) => a.length - b.length).slice(0, 4).map(i => (
-          <p key={i} className={words.includes(i.toUpperCase()) ? "list-word line-through" :"list-word"}>{capitalize(i)}</p>
+          <p key={`${i}-found-word`} className={words.includes(i.toUpperCase()) ? "list-word line-through" :"list-word"}>{capitalize(i)}</p>
         ))}
           <span className="text-gray-400 ">...</span>
           </div>}
