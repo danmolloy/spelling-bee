@@ -39,9 +39,13 @@ describe("<HelpTable />", () => {
       expect(letterRow).toBeInTheDocument()
 
       for (let j = 0; j < wordArr.length; j ++) {
+        const cellWordCount = wordArr[j].words.filter(x => x[0].toLowerCase() === mockProps.validLetters[i].toLowerCase()).length > 0 
+          ? String(wordArr[j].words.filter(x => x[0].toLowerCase() === mockProps.validLetters[i].toLowerCase()).length)
+          : "";
+          
         const countCell = screen.getByTestId(`${wordArr[j].length}-${mockProps.validLetters[i]}`)
         expect(countCell).toBeInTheDocument()
-        expect(countCell.textContent).toMatch(String(wordArr[j].words.filter(x => x[0].toLowerCase() === mockProps.validLetters[i].toLowerCase()).length))
+        expect(countCell.textContent).toMatch(cellWordCount)
       }
       const letterTotal = screen.getByTestId(`${mockProps.validLetters[i]}-total`)
       expect(letterTotal).toBeInTheDocument()
