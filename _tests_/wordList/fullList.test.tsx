@@ -3,14 +3,15 @@ import "@testing-library/jest-dom"
 import FullList, { FullListProps } from "../../components/wordList/fullList";
 import { mockData } from "../../_mocks_/gameData";
 
-const mockProps: FullListProps =  {
+
+
+describe("<FullList />", () => {
+  const mockProps: FullListProps =  {
   words: ["dfw", "weow"],
   revealWords: false,
   answers: mockData.answers,
   pangrams: mockData.pangrams
 }
-
-describe("<FullList />", () => {
   beforeEach(() => {
     render(<FullList {...mockProps} />)
   })
@@ -67,4 +68,4 @@ describe("<FullList />", () => {
     const fullList = screen.getByTestId("full-list-div")
     expect(fullList).toMatchSnapshot()
   })
-})
+}) 

@@ -42,11 +42,14 @@ export default function Hints(props: HintsProps) {
       </div>
       <TwoLetterList answers={answers} />
       <hr />
-      <h2 className='text-xl font-medium py-1 my-2'>Reveal Answers</h2>
-      <div className='how-to-section flex flex-col'>
-        <p className='font-semithin'>Reveal the answer list for the current game.</p>
-        <button className='self-center single-btn border-0 m-1 text-bold bg-yellow-300 hover:bg-yellow-200 active:bg-black active:text-yellow-300' onClick={() => reveal()}>Reveal</button>
-      </div> 
+      <div className='my-2'>
+        <h2 className='text-xl font-medium py-1 my-2'>Reveal Answers</h2>
+        <div className='how-to-section flex flex-col'>
+          <p className='font-semithin'>Reveal the answer list for the current game.</p>
+          <p className='font-semithin'>This will end your gameplay until the next game.</p>
+          <button className='self-center single-btn border-0 m-1 text-bold bg-yellow-300 hover:bg-yellow-200 active:bg-black active:text-yellow-300' onClick={() => reveal()}>Reveal</button>
+        </div> 
+      </div>
       </div>
     </MenuPage>
   )

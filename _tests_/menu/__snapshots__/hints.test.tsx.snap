@@ -539,24 +539,33 @@ exports[`<Hints /> matches snapshot 1`] = `
     </div>
   </div>
   <hr />
-  <h2
-    class="text-xl font-medium py-1 my-2"
-  >
-    Reveal Answers
-  </h2>
   <div
-    class="how-to-section flex flex-col"
+    class="my-2"
   >
-    <p
-      class="font-semithin"
+    <h2
+      class="text-xl font-medium py-1 my-2"
     >
-      Reveal the answer list for the current game.
-    </p>
-    <button
-      class="self-center single-btn border-0 m-1 text-bold bg-yellow-300 hover:bg-yellow-200 active:bg-black active:text-yellow-300"
+      Reveal Answers
+    </h2>
+    <div
+      class="how-to-section flex flex-col"
     >
-      Reveal
-    </button>
+      <p
+        class="font-semithin"
+      >
+        Reveal the answer list for the current game.
+      </p>
+      <p
+        class="font-semithin"
+      >
+        This will end your gameplay until the next game.
+      </p>
+      <button
+        class="self-center single-btn border-0 m-1 text-bold bg-yellow-300 hover:bg-yellow-200 active:bg-black active:text-yellow-300"
+      >
+        Reveal
+      </button>
+    </div>
   </div>
 </div>
 `;
