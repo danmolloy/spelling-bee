@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { AiOutlineClose } from 'react-icons/ai'
 
 export type HowToProps = {
@@ -6,17 +7,22 @@ export type HowToProps = {
 
 export default function HowTo(props: HowToProps) {
   const { setShowMenuItem } = props;
-  return (
-    <div data-testid="menu-page" className="mt-[7vh] h-[93vh] md:mt-[14vh] md:h-[86vh] z-40 shadow w-full backdrop-blur-sm absolute">
-      <div className="mt-8 p-2 md:mx-24 lg:mx-60 shadow-md border flex flex-col  bg-white text-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:border dark:border-zinc-800">
+  const ref = useRef(null)
 
-      <div data-testid="how-to-play" className='flex flex-row w-full justify-between items-center'>
-        <h1 className='text-2xl font-bold font-display'>How to Play Spelling Bee</h1>
+  useEffect(() => {
+    ref.current.focus()
+  }, [])
+
+  return (
+    <div data-testid="menu-page" className="h-screen z-40 shadow w-full backdrop-blur-sm absolute flex flex-col items-center">
+      <div tabIndex={-1}  ref={ref} onBlur={() => setTimeout(() => setShowMenuItem(null), 120)} className="rounded mx-2 mt-24 p-4 pb-8 md:mx-24 lg:mx-60 shadow-md border flex flex-col  bg-white text-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:border dark:border-zinc-800">
+      <div className='flex flex-row w-full justify-between items-center'>
+        <h1 className='text-2xl font-bold font-display'>How to Play </h1>
         <button data-testid="close-btn" className='hover:bg-gray-100 active:bg-gray-200 text-2xl m-2 w-10 h-10 rounded-full flex items-center justify-center' onClick={() => setShowMenuItem(null)}>
           <AiOutlineClose />
         </button>
       </div>
-      <p className='text-lg p-2 font-thin'>Create words using letters from the hive.</p>
+      <p className='text-lg  '>Create words using letters from the hive.</p>
       <div data-testid="rules-section">
         <h2 className='text-xl font-semibold'>Rules</h2>
         <div className='px-2 pb-2'>

@@ -10,6 +10,7 @@ import HowTo from "./howTo";
 import Realistic from "./effects/realistic";
 import Encouragement from "./effects/encouragement";
 import { GameData, getPoints, handleSubmit } from "../lib/functions";
+import Footer from "./layout/footer";
 
 export type GameIndexProps = {
   data?: GameData
@@ -51,7 +52,9 @@ export default function GameIndex(props: GameIndexProps) {
     if (submitObj.addedPoints === 0) {
       setMessage(submitObj.message)
       setTimeout(() => {
-        setInputWord(""); 
+        setInputWord("");
+      }, 500)
+      setTimeout(() => {
         setMessage(null)
       }, 750)
     } else {
@@ -61,9 +64,11 @@ export default function GameIndex(props: GameIndexProps) {
       setAddedPoints(getPoints([word]))
       submitObj.message === "Pangram!" && setFoundPangram(true)
       setTimeout(() => {
+        setInputWord("");
+      }, 500)
+      setTimeout(() => {
         setAddedPoints(null); 
         setMessage(null);
-        setInputWord("");
       }, 1000)
       setTimeout(() => {
         setFoundPangram(false)
@@ -72,7 +77,7 @@ export default function GameIndex(props: GameIndexProps) {
   }
 
   return (
-    <div data-testid="game-index" className={"flex flex-col items-center"}>
+    <div data-testid="game-index" className={"flex flex-col items-center justify-start min-h-screen"}>
       <Header 
         date={data.displayDate} 
         editor={data.editor} 
@@ -86,7 +91,7 @@ export default function GameIndex(props: GameIndexProps) {
         {foundPangram === true && <Realistic reaction={message} />}
         {addedPoints !== null
         && <Encouragement text={message} points={addedPoints}/>}
-      <div className="flex flex-col md:flex-row-reverse w-full">
+      <div className="flex flex-col md:flex-row-reverse w-full pb-12">
         <div className="flex flex-col md:w-1/2 w-full md:px-2 items-center">
           <UserRanking answers={data.answers} userPoints={getPoints(foundWords)}/>
           <WordList answers={data.answers} pangrams={data.pangrams} /* revealWords={revealWords} */ words={foundWords}/>
@@ -100,6 +105,7 @@ export default function GameIndex(props: GameIndexProps) {
           enterWord={(word) => handleEnter(word)} 
           outerLetters={data.outerLetters.map(i => i.toUpperCase())}/>
       </div>
+      {/* <Footer /> */}
     </div>
   );
 }

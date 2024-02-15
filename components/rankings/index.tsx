@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { AiOutlineClose } from 'react-icons/ai'
-import { getPoints } from '../../lib/functions'
 
 export const rankingLevels = [
   {
@@ -59,14 +58,19 @@ export type RankingsProps = {
 
 export default function Rankings(props: RankingsProps) {
   const { setShowMenuItem, geniusScore, currentScore } = props;
+  const ref = useRef(null)
 
+  useEffect(() => {
+    ref.current.focus()
+  }, [])
+  
   const currentRanking = rankingLevels[rankingLevels.filter(i => Math.floor(geniusScore * i.minScoreMultiplier) <= currentScore).length - 1]
   const nextRanking = rankingLevels[rankingLevels.filter(i => Math.floor(geniusScore * i.minScoreMultiplier) <= currentScore).length]
   return (
-    <div data-testid="menu-page" className="mt-[7vh] h-[93vh] md:mt-[14vh] md:h-[86vh] z-40 shadow w-full backdrop-blur-sm absolute">
-    <div className="mt-8 p-2 md:mx-24 lg:mx-60 shadow-md border flex flex-col  bg-white text-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:border dark:border-zinc-800">
+    <div data-testid="menu-page" className="h-screen z-40 shadow w-full backdrop-blur-sm absolute flex flex-col items-center">
+    <div tabIndex={-1}  ref={ref} onBlur={() => setTimeout(() => setShowMenuItem(null), 120)} data-testid="rankings-div" className="rounded mx-2 mt-24 p-4 pb-8 md:mx-24 lg:mx-60 shadow-md border flex flex-col  bg-white text-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:border dark:border-zinc-800">
 
-      <div data-testid="rankings-div" className='flex flex-row justify-between '>
+      <div  className='flex flex-row justify-between '>
         <h2 className="font-bold text-2xl font-display">Rankings</h2>
         <button data-testid="menu-icon" className='hover:bg-gray-100 active:bg-gray-200 text-2xl m-2 w-10 h-10 rounded-full flex items-center justify-center' onClick={() => setShowMenuItem(null)}>
           <AiOutlineClose />
@@ -92,7 +96,7 @@ export default function Rankings(props: RankingsProps) {
                 <p>{i.name}</p>
                 {i.minScoreMultiplier === currentRanking.minScoreMultiplier 
                 && <div className='text-xs font-normal'>
-                    <p>{Math.floor(geniusScore *  nextRanking.minScoreMultiplier)} points to next rank, {geniusScore - currentScore} points to Genius</p>
+                    <p>{Math.floor(geniusScore *  nextRanking.minScoreMultiplier) - currentScore} points to next rank, {geniusScore - currentScore} points to Genius</p>
                   </div>}
               </div>
               <div className=' flex flex-grow items-center px-4'>
