@@ -4,11 +4,11 @@ export type ButtonsProps = {
   searchWord: () => void
   shuffle: () => void
   clearWord: () => void
-  revealedAnswers: boolean
+  //revealedAnswers: boolean
 }
 
 export default function Buttons(props: ButtonsProps) {
-  const { searchWord, shuffle, clearWord, revealedAnswers } = props;
+  const { searchWord, shuffle, clearWord, /* revealedAnswers */ } = props;
 
   return (
     <div className="mt-16 flex flex-row items-center justify-center " data-testid="buttons-div">
@@ -24,7 +24,7 @@ export default function Buttons(props: ButtonsProps) {
       </button>
       <button onClick={() => searchWord()} 
         className="border m-2 py-3 px-4 rounded-full active:bg-gray-100 disabled:active:bg-white select-none" 
-        disabled={revealedAnswers}>
+        /* disabled={revealedAnswers} */>
           Enter</button>
     </div>
   );

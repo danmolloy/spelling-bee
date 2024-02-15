@@ -7,20 +7,20 @@ export type HintsProps = {
   setShowMenuItem: (arg: string|null) => void
   answers: string[]
   pangrams: string[]
-  setRevealAnswers: () => void,
-  revealAnswers: boolean
+  //setRevealAnswers: () => void,
+  //revealAnswers: boolean
   centerLetter: string
   validLetters: string[]
 }
 
 export default function Hints(props: HintsProps) {
-  const { centerLetter, validLetters, setShowMenuItem, answers, pangrams, setRevealAnswers } = props;
+  const { centerLetter, validLetters, setShowMenuItem, answers, pangrams/* , setRevealAnswers */ } = props;
 
-  const reveal = () => {
+/*   const reveal = () => {
     setShowMenuItem(null)
     setRevealAnswers();
     localStorage.setItem('revealed', "true");
-  }
+  } */
   
   return (
     <div data-testid="menu-page" className="mt-[7vh] h-[93vh] md:mt-[14vh] md:h-[86vh] z-40 shadow w-full backdrop-blur-sm absolute">
@@ -43,14 +43,14 @@ export default function Hints(props: HintsProps) {
       </div>
       <TwoLetterList answers={answers} />
       <hr />
-      <div className='my-2'>
+      {/* <div className='my-2'>
         <h2 className='text-xl font-medium py-1 my-2'>Reveal Answers</h2>
         <div className='px-2 flex flex-col'>
           <p className='font-semithin'>Reveal the answer list for the current game.</p>
           <p className='font-semithin'>This will end your gameplay until the next game.</p>
           <button className='self-center  py-3 px-4 rounded-full  disabled:active:bg-white border-0 m-1 text-bold bg-yellow-300 hover:bg-yellow-200 active:bg-black active:text-yellow-300' onClick={() => reveal()}>Reveal</button>
         </div> 
-      </div>
+      </div> */}
       </div>
     </div>
     </div>

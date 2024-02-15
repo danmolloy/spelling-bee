@@ -20,7 +20,7 @@ export default function GameIndex(props: GameIndexProps) {
   const [showMenuItem, setShowMenuItem] = useState<string|null>(null)
   const [foundWords, setFoundWords] = useState<string[]>([])
   const [inputWord, setInputWord] = useState<string>("")
-  const [revealWords, setRevealWords] = useState<boolean>(false)
+  //const [revealWords, setRevealWords] = useState<boolean>(false)
   const [message, setMessage] = useState<string|null>(null)
   const [addedPoints, setAddedPoints] = useState<number|null>(null)
   const [foundPangram, setFoundPangram] = useState<boolean>(false)
@@ -32,11 +32,12 @@ export default function GameIndex(props: GameIndexProps) {
       setInputWord("Epic!")
     }
     if (localStorage.getItem("foundWords") !== null) {
-      if (localStorage.getItem('revealed') === "true" 
+      /* if (localStorage.getItem('revealed') === "true" 
       && data.answers.includes(localStorage.getItem('foundWords').split(',')[0].toLowerCase())) {
         setRevealWords(true);
         setFoundWords(localStorage.getItem('foundWords').split(','));
-      } else if (data.answers.includes(localStorage.getItem('foundWords').split(',')[0].toLowerCase())) {
+      } else */ 
+      if (data.answers.includes(localStorage.getItem('foundWords').split(',')[0].toLowerCase())) {
         const foundedWords = localStorage.getItem('foundWords').split(',')
         setFoundWords([...foundedWords])
       } else {
@@ -78,7 +79,7 @@ export default function GameIndex(props: GameIndexProps) {
         setShowMenu={() => setShowMenuItem("navbar")} />
         {showMenuItem === "navbar" && <Menu setShowMenuItem={(arg) => setShowMenuItem(arg)}/>}
         {showMenuItem === "howTo" && <HowTo setShowMenuItem={(arg) => setShowMenuItem(arg)} />}
-        {showMenuItem === "hints" && <Hints validLetters={data.validLetters} centerLetter={data.centerLetter} revealAnswers={revealWords} setRevealAnswers={() => setRevealWords(true)} setShowMenuItem={(arg) => setShowMenuItem(arg)} pangrams={data.pangrams} answers={data.answers} />}
+        {showMenuItem === "hints" && <Hints validLetters={data.validLetters} centerLetter={data.centerLetter} /* revealAnswers={revealWords} *//*  setRevealAnswers={() => setRevealWords(true)} */ setShowMenuItem={(arg) => setShowMenuItem(arg)} pangrams={data.pangrams} answers={data.answers} />}
         {showMenuItem === "rankings" && <Rankings currentScore={getPoints(foundWords)} geniusScore={getPoints(data.answers)} setShowMenuItem={(arg) => setShowMenuItem(arg)} />}
         {data.answers.length === foundWords.length 
         && <Realistic reaction={"Bravo!"} />}
@@ -88,14 +89,14 @@ export default function GameIndex(props: GameIndexProps) {
       <div className="flex flex-col md:flex-row-reverse w-full">
         <div className="flex flex-col md:w-1/2 w-full md:px-2 items-center">
           <UserRanking answers={data.answers} userPoints={getPoints(foundWords)}/>
-          <WordList answers={data.answers} pangrams={data.pangrams} revealWords={revealWords} words={foundWords}/>
+          <WordList answers={data.answers} pangrams={data.pangrams} /* revealWords={revealWords} */ words={foundWords}/>
         </div>
         <InputIndex 
           message={!addedPoints && message}
           inputWord={inputWord}
           setInputWord={(str) => setInputWord(str)}
           centerLetter={data.centerLetter.toUpperCase()} 
-          revealedAnswers={revealWords} 
+          //revealedAnswers={revealWords} 
           enterWord={(word) => handleEnter(word)} 
           outerLetters={data.outerLetters.map(i => i.toUpperCase())}/>
       </div>

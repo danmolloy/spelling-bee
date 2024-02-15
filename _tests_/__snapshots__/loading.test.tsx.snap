@@ -1,8 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`<Loading /> matches snapshot 1`] = `
-<div
-  class=" animate-pulse h-4 w-full bg-zinc-200 rounded-md m-1"
-  data-testid="loading-div"
-/>
-`;

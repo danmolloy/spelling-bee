@@ -7,8 +7,8 @@ const mockProps: InputProps = {
   userWord: "",
   setUserWord: jest.fn(),
   backSpace: jest.fn(),
-  revealedAnswers: false,
-  searchWord: jest.fn(),
+/*   revealedAnswers: false,
+ */  searchWord: jest.fn(),
   shuffle: jest.fn(),
   outerLetters: mockData.outerLetters,
   centerLetter: mockData.centerLetter
@@ -36,8 +36,8 @@ describe("<TextInput />", () => {
     userWord: "mockUserWord",
     setUserWord: jest.fn(),
     backSpace: jest.fn(),
-    revealedAnswers: false,
-    searchWord: jest.fn(),
+/*     revealedAnswers: false,
+ */    searchWord: jest.fn(),
     shuffle: jest.fn(),
     outerLetters: mockData.outerLetters,
     centerLetter: mockData.centerLetter

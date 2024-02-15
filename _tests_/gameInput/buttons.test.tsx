@@ -8,7 +8,7 @@ describe("<Buttons />", () => {
     searchWord: jest.fn(),
     shuffle: jest.fn(),
     clearWord: jest.fn(),
-    revealedAnswers: false
+    /* revealedAnswers: false */
   }
   beforeEach(() => {
     render(<Buttons {...mockProps} />)
@@ -52,12 +52,12 @@ describe("<Buttons />", () => {
   })
 })
 
-describe("<Buttons />", () => {
+/* describe("<Buttons />", () => {
   const mockProps: ButtonsProps = {
     searchWord: jest.fn(),
     shuffle: jest.fn(),
     clearWord: jest.fn(),
-    revealedAnswers: true
+    //revealedAnswers: true
   }
   beforeEach(() => {
     render(<Buttons {...mockProps} />)
@@ -70,4 +70,4 @@ describe("<Buttons />", () => {
     })
     expect(mockProps.searchWord).not.toBeCalled()
   })
-})
+}) */

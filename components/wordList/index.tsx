@@ -15,14 +15,14 @@ export const capitalize = (word: string): string => {
 
 export type WordListProps = {
   words?: string[]
-  revealWords: boolean
+  //revealWords: boolean
   answers: string[]
   pangrams: string[]
   isLoading?: boolean
 }
 
 export default function WordList(props: WordListProps) {
-  const { words, revealWords, answers, pangrams, isLoading } = props
+  const { words, /* revealWords, */ answers, pangrams, isLoading } = props
   const [showList, setShowList] = useState(false)
 
   return (
@@ -33,10 +33,10 @@ export default function WordList(props: WordListProps) {
       {isLoading 
       ? <div data-testid="loading-div" className=" animate-pulse h-4 w-full bg-zinc-200 rounded-md m-1"/>
       : <div className=" w-full flex flex-row ">
-        <ListPreview answerLength={answers.length} revealWords={revealWords} words={words} showList={showList}/>
+        <ListPreview answerLength={answers.length} /* revealWords={revealWords} */ words={words} showList={showList}/>
         <ArrowIcon showList={() => setShowList(!showList)}/>
       </div>}
-      {showList && <FullList answers={answers} pangrams={pangrams} revealWords={revealWords} words={words} />}
+      {showList && <FullList answers={answers} pangrams={pangrams} /* revealWords={revealWords} */ words={words} />}
     </div>
   )
 }

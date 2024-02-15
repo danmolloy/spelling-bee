@@ -8,7 +8,7 @@ import { mockData } from "../../_mocks_/gameData";
 describe("<FullList />", () => {
   const mockProps: FullListProps =  {
   words: ["dfw", "weow"],
-  revealWords: false,
+  //revealWords: false,
   answers: mockData.answers,
   pangrams: mockData.pangrams
 }
@@ -35,10 +35,10 @@ describe("<FullList />", () => {
   })
 })
 
-describe("<FullList />", () => {
+/* describe("<FullList />", () => {
   const mockProps: FullListProps =  {
     words: [],
-    revealWords: true,
+    //revealWords: true,
     answers: mockData.answers,
     pangrams: mockData.pangrams
   }
@@ -52,12 +52,12 @@ describe("<FullList />", () => {
       expect(fullList.textContent).toMatch(capitalizedWord)
     }
   })
-})
+}) */
 
 describe("<FullList />", () => {
   const mockProps: FullListProps =  {
     words: [],
-    revealWords: true,
+    //revealWords: true,
     answers: ["lorem", "ipsum"],
     pangrams: []
   }

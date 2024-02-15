@@ -7,25 +7,6 @@ exports[`<FullList /> matches snapshot 1`] = `
 >
   <div
     class="w-full flex flex-col flex-wrap "
-  >
-    <p
-      class="px-1 border-b border-b-gray-300 py-2"
-    >
-      <span
-        class=""
-      >
-        Lorem
-      </span>
-    </p>
-    <p
-      class="px-1 border-b border-b-gray-300 py-2"
-    >
-      <span
-        class=""
-      >
-        Ipsum
-      </span>
-    </p>
-  </div>
+  />
 </div>
 `;

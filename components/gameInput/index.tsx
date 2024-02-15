@@ -5,7 +5,7 @@ import Letters from "./hive";
 
 export type InputIndexProps = {
   centerLetter: string
-  revealedAnswers: boolean
+  //revealedAnswers: boolean
   outerLetters: string[]
   enterWord: (word: string) => void
   inputWord: string
@@ -15,7 +15,7 @@ export type InputIndexProps = {
 }
 
 export default function InputIndex(props: InputIndexProps) {
-  const { message, revealedAnswers, centerLetter, outerLetters, enterWord, setInputWord, inputWord, isLoading } = props;
+  const { message, /* revealedAnswers, */ centerLetter, outerLetters, enterWord, setInputWord, inputWord, isLoading } = props;
   const [zeroToFive, setZeroToFive] = useState<number[]>([0, 1, 2, 3, 4, 5]);
   const [shuffling, setShuffling] = useState<boolean>(false);
 
@@ -38,7 +38,7 @@ export default function InputIndex(props: InputIndexProps) {
       <TextInput 
         outerLetters={outerLetters} 
         centerLetter={centerLetter} 
-        revealedAnswers={revealedAnswers} 
+        /* revealedAnswers={revealedAnswers}  */
         shuffle={() => shuffle()} 
         backSpace={() => backSpace()} 
         searchWord={(word) => enterWord(word)} 
@@ -51,7 +51,7 @@ export default function InputIndex(props: InputIndexProps) {
         outerLetters={outerLetters}/>
       {!isLoading 
       && <Buttons 
-          revealedAnswers={revealedAnswers} 
+          /* revealedAnswers={revealedAnswers}  */
           shuffle={() => shuffle()} 
           clearWord={() => backSpace()} 
           searchWord={() => enterWord(inputWord)}/>}

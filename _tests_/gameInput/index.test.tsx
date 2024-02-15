@@ -10,8 +10,8 @@ import { mockData } from "../../_mocks_/gameData";
 describe("<InputIndex />", () => {
   const mockProps: InputIndexProps = {
     centerLetter: mockData.centerLetter,
-    revealedAnswers: false,
-    outerLetters: mockData.outerLetters,
+/*     revealedAnswers: false,
+ */    outerLetters: mockData.outerLetters,
     enterWord: jest.fn(),
     inputWord: mockData.answers[0],
     setInputWord: jest.fn(),

@@ -5,7 +5,7 @@ import { mockData } from "../../_mocks_/gameData";
 
 const mockProps: WordListProps = {
   words: mockData.answers.slice(0, 5),
-  revealWords: false,
+  //revealWords: false,
   answers: mockData.answers,
   pangrams: mockData.pangrams,
   isLoading: false
@@ -42,7 +42,7 @@ describe("<WordList />", () => {
 describe("<WordList />", () => {
   const mockProps: WordListProps = {
     words: mockData.answers.slice(0, 5),
-    revealWords: false,
+    //revealWords: false,
     answers: mockData.answers,
     pangrams: mockData.pangrams,
     isLoading: true
@@ -60,7 +60,7 @@ describe("<WordList />", () => {
 describe("<WordList />", () => {
   const mockProps: WordListProps = {
     words: ["cat", "mat"],
-    revealWords: false,
+    //revealWords: false,
     answers: mockData.answers,
     pangrams: mockData.pangrams,
     isLoading: false

@@ -4,7 +4,7 @@ export type InputProps = {
   userWord: string
   setUserWord: (arg: string) => void
   backSpace: () => void
-  revealedAnswers: boolean
+  //revealedAnswers: boolean
   searchWord: (word: string) => void
   shuffle: () => void
   outerLetters: string[]
@@ -16,7 +16,7 @@ export default function TextInput(props: InputProps) {
     userWord, 
     setUserWord, 
     backSpace, 
-    revealedAnswers, 
+   /*  revealedAnswers,  */
     searchWord, 
     shuffle, 
     centerLetter, 
@@ -30,7 +30,7 @@ export default function TextInput(props: InputProps) {
     else if (e.keyCode > 64 && e.keyCode < 91) {
       setUserWord(userWord.concat(e.key.toUpperCase()))
     } else if (e.keyCode === 13) {
-      !revealedAnswers && searchWord(userWord)
+      /* !revealedAnswers && */ searchWord(userWord)
     } else if (e.keyCode === 32) {
       shuffle()
     }

@@ -13,8 +13,8 @@ const mockProps: HintsProps = {
   setShowMenuItem: jest.fn(),
   answers: mockData.answers,
   pangrams: ['lorem'],
-  setRevealAnswers: jest.fn(),
-  revealAnswers: false
+  //setRevealAnswers: jest.fn(),
+  //revealAnswers: false
 }
 
 describe("<Hints />", () => {
@@ -57,7 +57,7 @@ describe("<Hints />", () => {
     expect(twoLetterList).toBeInTheDocument()
   })
 
-  it("reveal btn is in the document and calls setRevealAnswers & setShowMenuItem on click", () => {
+  /* it("reveal btn is in the document and calls setRevealAnswers & setShowMenuItem on click", () => {
     const revealBtn = screen.getByText("Reveal")
     expect(revealBtn).toBeInTheDocument()
     act(() => {
@@ -66,7 +66,7 @@ describe("<Hints />", () => {
     expect(mockProps.setRevealAnswers).toHaveBeenCalled()
     expect(mockProps.setShowMenuItem).toHaveBeenCalledWith(null)
     expect(localStorage.setItem).toHaveBeenCalledWith("revealed", "true")
-  })
+  }) */
 })
 
 describe("<Hints />", () => {
@@ -76,8 +76,8 @@ describe("<Hints />", () => {
     setShowMenuItem: jest.fn(),
     answers: ["four", "funf", "sixsix", "seventy", "eighty"],
     pangrams: ["lorem", "ipsum"],
-    setRevealAnswers: jest.fn(),
-    revealAnswers: false
+    //setRevealAnswers: jest.fn(),
+    //revealAnswers: false
   }
   beforeEach(() => {
     render(<Hints {...mockProps} />)

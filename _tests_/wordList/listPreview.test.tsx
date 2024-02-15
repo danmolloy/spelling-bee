@@ -8,7 +8,7 @@ import { capitalize } from "../../components/wordList";
 const mockProps: ListPreviewProps = {
   words: mockData.answers.slice(0, 5),
   showList: false,
-  revealWords: false,
+  //revealWords: false,
   answerLength: mockData.answers.length
 };
 
@@ -47,7 +47,7 @@ describe("<ListPreview />", () => {
   const mockProps: ListPreviewProps = {
     words: mockData.answers.slice(0, 5),
     showList: false,
-    revealWords: false,
+    //revealWords: false,
     answerLength: mockData.answers.length
   };
   beforeEach(() => {
@@ -63,11 +63,11 @@ describe("<ListPreview />", () => {
   })
 })
 
-describe("<ListPreview />", () => {
+/* describe("<ListPreview />", () => {
   const mockProps: ListPreviewProps = {
     words: mockData.answers.slice(0, 5),
     showList: false,
-    revealWords: true,
+    //revealWords: true,
     answerLength: mockData.answers.length
   };
   beforeEach(() => {
@@ -78,13 +78,13 @@ describe("<ListPreview />", () => {
     expect(listPreview.textContent).toMatch("The answers...")
   })
 })
+ */
 
-
-describe("<ListPreview />", () => {
+/* describe("<ListPreview />", () => {
   const mockProps: ListPreviewProps = {
     words: mockData.answers.slice(0, 5),
     showList: true,
-    revealWords: true,
+    //revealWords: true,
     answerLength: mockData.answers.length
   };
   beforeEach(() => {
@@ -94,4 +94,4 @@ describe("<ListPreview />", () => {
     const listPreview = screen.getByTestId("list-preview")
     expect(listPreview.textContent).toMatch(`You found ${mockProps.words.length} of ${mockProps.answerLength} words`)
   })
-})
+}) */

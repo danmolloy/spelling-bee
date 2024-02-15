@@ -3,37 +3,37 @@ import { capitalize } from ".";
 export type ListPreviewProps = {
   words?: string[]
   showList: boolean
-  revealWords: boolean
+  //revealWords: boolean
   answerLength: number
 }
 
 export default function ListPreview(props: ListPreviewProps) {
-  const { words, showList, revealWords, answerLength } = props;
+  const { words, showList, /* revealWords, */ answerLength } = props;
 
   return (
     <div className="w-full flex flex-row flex-wrap transition-all duration-500" data-testid="list-preview">
       {showList 
       ? <p className="slide-in-text pb-4 w-full">
-        {revealWords 
+        {/* revealWords 
         ? `You found ${words.length} of ${answerLength} words`
-        : `You have found ${words.length} words`}
+        :  */`You have found ${words.length} words`}
         </p>
       : words === undefined || words.length < 1 
         ? <p className="text-gray-400">
-          {revealWords 
+          {/* revealWords 
           ? "The answers..."
-          : "Your words..."}
+          :  */"Your words..."}
           </p> 
         : words.length < 5
         ? words.map(i => (
           <p key={i} className="px-1">{capitalize(i)}</p>
         ))
-        : !revealWords
-        ? <div className=" w-full flex flex-row flex-wrap">{[...words].slice(0, 4).map(i => (
+        : /* !revealWords
+        ?  */<div className=" w-full flex flex-row flex-wrap">{[...words].slice(0, 4).map(i => (
           <p key={i} className="px-1 ">{capitalize(i)}</p>))}
           <span className="text-gray-400 ">...</span>
           </div>
-        : <p className="text-gray-400">The answers...</p> }
+        /* : <p className="text-gray-400">The answers...</p>  */}
       </div>
   );
 }
