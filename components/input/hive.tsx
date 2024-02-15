@@ -10,7 +10,6 @@ export type LettersProps = {
 
 export default function Letters(props: LettersProps) {
   const { setLetter, centerLetter = undefined, outerLetters = [], letterIndex } = props;
-
   return (
     <div data-testid="letters-div" className="w-full fill-gray-300 justify-center flex flex-row md:p-6">
       <div className="left flex flex-col h-full ">

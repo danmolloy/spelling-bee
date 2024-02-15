@@ -6,7 +6,7 @@ exports[`<LoadingGameIndex /> matches snapshot 1`] = `
   data-testid="loading-index"
 >
   <div
-    class=" md:p-4 flex flex-row md:justify-between w-full md:items-start justify-end "
+    class=" md:p-4 flex flex-row md:justify-between w-full md:items-start justify-end"
     data-testid="header-div"
   >
     <div
@@ -21,7 +21,7 @@ exports[`<LoadingGameIndex /> matches snapshot 1`] = `
       </div>
       <div>
         <div
-          class=" animate-pulse h-4 w-48 bg-zinc-200 rounded-md m-1"
+          class=" animate-pulse h-4 w-48 bg-zinc-200 rounded-md m-1 "
         />
         <div
           class=" animate-pulse h-4 w-48 bg-zinc-200 rounded-md m-1"
@@ -39,77 +39,22 @@ exports[`<LoadingGameIndex /> matches snapshot 1`] = `
       class="flex flex-col md:w-1/2 w-full md:px-2 items-center"
     >
       <div
-        class="flex flex-row w-full items-center justify-center"
+        class="flex flex-row w-full items-center justify-center "
         data-testid="user-ranking"
       >
         <div
           class=" animate-pulse h-8 w-24 bg-zinc-200 rounded-md m-1"
         />
         <div
-          class="w-full"
+          class="w-full "
         >
           <div
-            class="ranking-bar"
-          >
-            <div>
-              <div
-                class="past-rank-icon"
-              />
-            </div>
-            <div>
-              <div
-                class="past-rank-icon"
-              />
-            </div>
-            <div>
-              <div
-                class="past-rank-icon"
-              />
-            </div>
-            <div>
-              <div
-                class="past-rank-icon"
-              />
-            </div>
-            <div>
-              <div
-                class="past-rank-icon"
-              />
-            </div>
-            <div>
-              <div
-                class="past-rank-icon"
-              />
-            </div>
-            <div>
-              <div
-                class="past-rank-icon"
-              />
-            </div>
-            <div>
-              <div
-                class="past-rank-icon"
-              />
-            </div>
-            <div>
-              <div
-                class="current-rank-icon bounce"
-              >
-                <p
-                  class="font-thin text-sm "
-                >
-                  100
-                </p>
-              </div>
-            </div>
-          </div>
-          <div
-            class="line"
+            class=" flex flex-row justify-between items-center z-10 mr-2 "
           />
         </div>
       </div>
       <div
-        class="w-full md:w-2/5 bg-white absolute z-30 border rounded-lg p-3 flex flex-row justify-between items-center font-light mt-10 "
+        class="w-full md:w-2/5 bg-white absolute z-30 border rounded-lg p-3 flex flex-row justify-between items-center font-light mt-10 transition-all duration-300"
         data-testid="word-list"
       >
         <div
@@ -126,10 +71,10 @@ exports[`<LoadingGameIndex /> matches snapshot 1`] = `
         data-testid="text-input"
       >
         <h2
-          class="input self-center"
+          class="font-bold text-2xl text-yellow-500 h-12 flex items-center justify-center  self-center"
         >
           <span
-            class="cursor"
+            class="flex text-yellow-300 text-3xl font-medium z-20 w-3 items-center justify-center mb-1 cursor"
           >
             |
           </span>
@@ -144,7 +89,7 @@ exports[`<LoadingGameIndex /> matches snapshot 1`] = `
         >
           <div
             class="pulse hex active:scale-90 active:border-gray-50 my-16 rounded-full"
-            data-testid="undefined-hexagon-div"
+            data-testid="-hexagon-div"
           >
             <div
               class="hex-top"
@@ -158,7 +103,7 @@ exports[`<LoadingGameIndex /> matches snapshot 1`] = `
           </div>
           <div
             class="pulse hex active:scale-90 active:border-gray-50 my-16 rounded-full"
-            data-testid="undefined-hexagon-div"
+            data-testid="-hexagon-div"
           >
             <div
               class="hex-top"
@@ -176,7 +121,7 @@ exports[`<LoadingGameIndex /> matches snapshot 1`] = `
         >
           <div
             class="pulse hex active:scale-90 active:border-gray-50 my-16 rounded-full"
-            data-testid="undefined-hexagon-div"
+            data-testid="-hexagon-div"
           >
             <div
               class="hex-top"
@@ -204,7 +149,7 @@ exports[`<LoadingGameIndex /> matches snapshot 1`] = `
           </div>
           <div
             class="pulse hex active:scale-90 active:border-gray-50 my-16 rounded-full"
-            data-testid="undefined-hexagon-div"
+            data-testid="-hexagon-div"
           >
             <div
               class="hex-top"
@@ -222,7 +167,7 @@ exports[`<LoadingGameIndex /> matches snapshot 1`] = `
         >
           <div
             class="pulse hex active:scale-90 active:border-gray-50 my-16 rounded-full"
-            data-testid="undefined-hexagon-div"
+            data-testid="-hexagon-div"
           >
             <div
               class="hex-top"
@@ -236,7 +181,7 @@ exports[`<LoadingGameIndex /> matches snapshot 1`] = `
           </div>
           <div
             class="pulse hex active:scale-90 active:border-gray-50 my-16 rounded-full"
-            data-testid="undefined-hexagon-div"
+            data-testid="-hexagon-div"
           >
             <div
               class="hex-top"

@@ -2,7 +2,7 @@
 
 exports[`UserRanking component matches snapshot 1`] = `
 <div
-  class="flex flex-row w-full items-center justify-center"
+  class="flex flex-row w-full items-center justify-center "
   data-testid="user-ranking"
 >
   <h3
@@ -11,57 +11,57 @@ exports[`UserRanking component matches snapshot 1`] = `
     Genius
   </h3>
   <div
-    class="w-full"
+    class="w-full "
   >
     <div
-      class="ranking-bar"
+      class=" flex flex-row justify-between items-center z-10 mr-2 "
     >
       <div>
         <div
-          class="past-rank-icon"
+          class="w-2 h-2 rounded-full  bg-yellow-300 flex items-center justify-center"
         />
       </div>
       <div>
         <div
-          class="past-rank-icon"
+          class="w-2 h-2 rounded-full  bg-yellow-300 flex items-center justify-center"
         />
       </div>
       <div>
         <div
-          class="past-rank-icon"
+          class="w-2 h-2 rounded-full  bg-yellow-300 flex items-center justify-center"
         />
       </div>
       <div>
         <div
-          class="past-rank-icon"
+          class="w-2 h-2 rounded-full  bg-yellow-300 flex items-center justify-center"
         />
       </div>
       <div>
         <div
-          class="past-rank-icon"
+          class="w-2 h-2 rounded-full  bg-yellow-300 flex items-center justify-center"
         />
       </div>
       <div>
         <div
-          class="past-rank-icon"
+          class="w-2 h-2 rounded-full  bg-yellow-300 flex items-center justify-center"
         />
       </div>
       <div>
         <div
-          class="past-rank-icon"
+          class="w-2 h-2 rounded-full  bg-yellow-300 flex items-center justify-center"
         />
       </div>
       <div>
         <div
-          class="past-rank-icon"
+          class="w-2 h-2 rounded-full  bg-yellow-300 flex items-center justify-center"
         />
       </div>
       <div>
         <div
-          class="current-rank-icon bounce"
+          class="w-8 h-8 rounded-full  bg-yellow-300 flex items-center justify-center bounce"
         >
           <p
-            class="font-thin text-sm "
+            class="font-thin text-sm  "
           >
             20
           </p>
@@ -69,7 +69,7 @@ exports[`UserRanking component matches snapshot 1`] = `
       </div>
     </div>
     <div
-      class="line"
+      class="border-t mx-1 mb-4 -mt-4 mr-2 "
     />
   </div>
 </div>

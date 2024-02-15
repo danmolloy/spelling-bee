@@ -14,7 +14,7 @@ export default function Header(props: HeaderProps) {
     <div className="md:p-4 flex flex-row md:justify-between w-full md:items-start justify-end " data-testid="header-div">
       <div className='hidden md:flex flex-col'>
       <div className="flex flex-row items-end">
-        <h1 className="font-extrabold text-4xl pr-4">Spelling Bee</h1>
+        <h1 className="font-display font-bold text-4xl pr-4">Spelling Bee</h1>
         {date && <h2 className='font-thin'>{date} (Yesterday)</h2>}
       </div>
       {editor &&

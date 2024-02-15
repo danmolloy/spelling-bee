@@ -8,12 +8,12 @@ exports[`<Hints /> matches snapshot 1`] = `
     class="flex flex-row w-full justify-between items-center"
   >
     <h1
-      class="text-2xl font-bold"
+      class="text-2xl font-bold font-display"
     >
       Hints
     </h1>
     <button
-      class="menu-icon"
+      class="hover:bg-gray-100 active:bg-gray-200 text-2xl m-2 w-10 h-10 rounded-full flex items-center justify-center"
       data-testid="menu-icon"
     >
       <svg
@@ -548,7 +548,7 @@ exports[`<Hints /> matches snapshot 1`] = `
       Reveal Answers
     </h2>
     <div
-      class="how-to-section flex flex-col"
+      class="px-2 flex flex-col"
     >
       <p
         class="font-semithin"
@@ -561,7 +561,7 @@ exports[`<Hints /> matches snapshot 1`] = `
         This will end your gameplay until the next game.
       </p>
       <button
-        class="self-center single-btn border-0 m-1 text-bold bg-yellow-300 hover:bg-yellow-200 active:bg-black active:text-yellow-300"
+        class="self-center  py-3 px-4 rounded-full  disabled:active:bg-white border-0 m-1 text-bold bg-yellow-300 hover:bg-yellow-200 active:bg-black active:text-yellow-300"
       >
         Reveal
       </button>

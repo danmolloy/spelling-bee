@@ -1,6 +1,6 @@
 import { render, screen, act, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom"
-import Letters, { LettersProps } from "../../components/input/letters";
+import Letters, { LettersProps } from "../../components/input/hive";
 import { mockData } from "../../_mocks_/gameData";
 
 const mockProps: LettersProps = {

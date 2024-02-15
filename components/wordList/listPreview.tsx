@@ -11,7 +11,7 @@ export default function ListPreview(props: ListPreviewProps) {
   const { words, showList, revealWords, answerLength } = props;
 
   return (
-    <div className="w-full flex flex-row flex-wrap" data-testid="list-preview">
+    <div className="w-full flex flex-row flex-wrap transition-all duration-500" data-testid="list-preview">
       {showList 
       ? <p className="slide-in-text pb-4 w-full">
         {revealWords 
@@ -29,8 +29,8 @@ export default function ListPreview(props: ListPreviewProps) {
           <p key={i} className="px-1">{capitalize(i)}</p>
         ))
         : !revealWords
-        ? <div className="w-full flex flex-row flex-wrap">{[...words].slice(0, 4).map(i => (
-          <p key={i} className="px-1">{capitalize(i)}</p>))}
+        ? <div className=" w-full flex flex-row flex-wrap">{[...words].slice(0, 4).map(i => (
+          <p key={i} className="px-1 ">{capitalize(i)}</p>))}
           <span className="text-gray-400 ">...</span>
           </div>
         : <p className="text-gray-400">The answers...</p> }

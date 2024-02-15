@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
-import LoadingGameIndex from "../components/loadingGameIndex"
+import LoadingGameIndex from "../../components/loading"
 
 describe("<LoadingGameIndex />", () => {
   beforeEach(() => {

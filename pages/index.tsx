@@ -1,6 +1,6 @@
 import useSWR from 'swr';
 import GameIndex from '../components';
-import LoadingGameIndex from '../components/loadingGameIndex';
+import LoadingGameIndex from '../components/loading/index';
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 

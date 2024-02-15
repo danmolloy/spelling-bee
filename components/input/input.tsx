@@ -45,7 +45,7 @@ export default function TextInput(props: InputProps) {
 
   return (
     <div data-testid="text-input">
-      <h2 className='input self-center'>
+      <h2 className='font-bold text-2xl text-yellow-500 h-12 flex items-center justify-center  self-center'>
         {userWord.split('').map((i, index) => 
           <span 
             key={index} // Dangerous!
@@ -56,7 +56,7 @@ export default function TextInput(props: InputProps) {
               : "text-gray-300"}>
             {i}</span>
             )}
-        <span className='cursor'>|</span>
+        <span className='flex text-yellow-300 text-3xl font-medium z-20 w-3 items-center justify-center mb-1 cursor'>|</span>
       </h2>
     </div>
   );

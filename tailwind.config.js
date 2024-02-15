@@ -8,7 +8,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        custom: [ /* '"Press Start 2P"', */ 'Rubik', 'Poppins', 'Nunito', ...defaultTheme.fontFamily.serif]
+        custom: [ /* '"Press Start 2P"', */ 'Rubik', 'Poppins', 'Nunito', ...defaultTheme.fontFamily.serif],
+        display: ['var(--font-cutive)', ...defaultTheme.fontFamily.serif]
       }
     },
   },

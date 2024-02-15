@@ -6,12 +6,12 @@ exports[` matches snapshot 1`] = `
   data-testid="how-to-play"
 >
   <h1
-    class="text-2xl font-bold"
+    class="text-2xl font-bold font-display"
   >
     How to Play Spelling Bee
   </h1>
   <button
-    class="menu-icon"
+    class="hover:bg-gray-100 active:bg-gray-200 text-2xl m-2 w-10 h-10 rounded-full flex items-center justify-center"
     data-testid="close-btn"
   >
     <svg

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Buttons from "./buttons";
 import TextInput from "./input";
-import Letters from "./letters";
+import Letters from "./hive";
 
 export type InputIndexProps = {
   centerLetter: string
@@ -17,9 +17,12 @@ export type InputIndexProps = {
 export default function InputIndex(props: InputIndexProps) {
   const { message, revealedAnswers, centerLetter, outerLetters, enterWord, setInputWord, inputWord, isLoading } = props;
   const [zeroToFive, setZeroToFive] = useState<number[]>([0, 1, 2, 3, 4, 5]);
+  const [shuffling, setShuffling] = useState<boolean>(false);
 
   const shuffle = (): void => {
+    setShuffling(true)
     setZeroToFive([...zeroToFive].sort((() => Math.random() - 0.5)))
+    setTimeout(() => setShuffling(false), 1000)
   }
   
   const backSpace = (): void => {

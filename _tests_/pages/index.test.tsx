@@ -1,6 +1,6 @@
 import useSWR from 'swr';
 import GameIndex from '../../components';
-import LoadingGameIndex from '../../components/loadingGameIndex';
+import LoadingGameIndex from '../../components/loading';
 import { mockData } from '../../_mocks_/gameData';
 import Home from '../../pages';
 import { act, render, screen, waitFor } from '@testing-library/react';
