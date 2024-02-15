@@ -1,5 +1,4 @@
 import { AiOutlineClose } from 'react-icons/ai'
-import MenuPage from './menuPage'
 import HelpTable from './helpTable'
 import { getPoints } from '../../lib/functions'
 import TwoLetterList from './twoLetterList'
@@ -24,7 +23,9 @@ export default function Hints(props: HintsProps) {
   }
   
   return (
-    <MenuPage>
+    <div data-testid="menu-page" className="mt-[7vh] h-[93vh] md:mt-[14vh] md:h-[86vh] z-40 shadow w-full backdrop-blur-sm absolute">
+      <div className="mt-8 p-2 md:mx-24 lg:mx-60 shadow-md border flex flex-col  bg-white text-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:border dark:border-zinc-800">
+
       <div data-testid="hints-div" >
       <div className='flex flex-row w-full justify-between items-center'>
         <h1 className='text-2xl font-bold font-display'>Hints</h1>
@@ -51,6 +52,7 @@ export default function Hints(props: HintsProps) {
         </div> 
       </div>
       </div>
-    </MenuPage>
+    </div>
+    </div>
   )
 }

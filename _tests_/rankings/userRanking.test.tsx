@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom"
-import UserRanking, { UserRankingProps, getRanking } from "../components/userRanking";
-import { mockData } from "../_mocks_/gameData";
-import { rankingLevels } from "../components/menu/rankings";
+import UserRanking, { UserRankingProps, getRanking } from "../../components/rankings/userRanking";
+import { mockData } from "../../_mocks_/gameData";
+import { rankingLevels } from "../../components/rankings";
 
 const mockProps: UserRankingProps = {
   answers: mockData.answers,

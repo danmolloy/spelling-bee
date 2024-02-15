@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { rankingLevels } from "./menu/rankings";
-import { getPoints } from "../lib/functions";
+import { rankingLevels } from ".";
+import { getPoints } from "../../lib/functions";
 
 export type UserRankingProps = {
   answers: string[]

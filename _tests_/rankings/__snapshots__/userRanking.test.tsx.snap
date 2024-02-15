@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserRanking component matches snapshot 1`] = `
+<div
+  class="flex flex-row w-full items-center justify-center "
+  data-testid="user-ranking"
+>
+  <h3
+    class="flex items-center justify-center p-1  w-32 font-semibold"
+  >
+    Genius
+  </h3>
+  <div
+    class="w-full "
+  >
+    <div
+      class=" flex flex-row justify-between items-center z-10 mr-2 "
+    >
+      <div>
+        <div
+          class="w-2 h-2 rounded-full  bg-yellow-300 flex items-center justify-center"
+        />
+      </div>
+      <div>
+        <div
+          class="w-2 h-2 rounded-full  bg-yellow-300 flex items-center justify-center"
+        />
+      </div>
+      <div>
+        <div
+          class="w-2 h-2 rounded-full  bg-yellow-300 flex items-center justify-center"
+        />
+      </div>
+      <div>
+        <div
+          class="w-2 h-2 rounded-full  bg-yellow-300 flex items-center justify-center"
+        />
+      </div>
+      <div>
+        <div
+          class="w-2 h-2 rounded-full  bg-yellow-300 flex items-center justify-center"
+        />
+      </div>
+      <div>
+        <div
+          class="w-2 h-2 rounded-full  bg-yellow-300 flex items-center justify-center"
+        />
+      </div>
+      <div>
+        <div
+          class="w-2 h-2 rounded-full  bg-yellow-300 flex items-center justify-center"
+        />
+      </div>
+      <div>
+        <div
+          class="w-2 h-2 rounded-full  bg-yellow-300 flex items-center justify-center"
+        />
+      </div>
+      <div>
+        <div
+          class="w-8 h-8 rounded-full  bg-yellow-300 flex items-center justify-center bounce"
+        >
+          <p
+            class="font-thin text-sm  "
+          >
+            20
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="border-t mx-1 mb-4 -mt-4 mr-2 "
+    />
+  </div>
+</div>
+`;

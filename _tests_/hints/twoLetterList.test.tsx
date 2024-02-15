@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
-import TwoLetterList, { TwoLetterListProps } from "../../components/menu/twoLetterList"
+import TwoLetterList, { TwoLetterListProps } from "../../components/hints/twoLetterList"
 import { mockData } from "../../_mocks_/gameData"
 
 const mockProps: TwoLetterListProps = {

@@ -1,6 +1,6 @@
 import { render, screen, act, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom"
-import InputIndex, { InputIndexProps } from "../../components/input";
+import InputIndex, { InputIndexProps } from "../../components/gameInput";
 import { mockData } from "../../_mocks_/gameData";
 
 

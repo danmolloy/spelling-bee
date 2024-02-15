@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { AiOutlineClose } from 'react-icons/ai'
 import { getPoints } from '../../lib/functions'
-import MenuPage from './menuPage'
 
 export const rankingLevels = [
   {
@@ -64,7 +63,9 @@ export default function Rankings(props: RankingsProps) {
   const currentRanking = rankingLevels[rankingLevels.filter(i => Math.floor(geniusScore * i.minScoreMultiplier) <= currentScore).length - 1]
   const nextRanking = rankingLevels[rankingLevels.filter(i => Math.floor(geniusScore * i.minScoreMultiplier) <= currentScore).length]
   return (
-      <MenuPage>
+    <div data-testid="menu-page" className="mt-[7vh] h-[93vh] md:mt-[14vh] md:h-[86vh] z-40 shadow w-full backdrop-blur-sm absolute">
+    <div className="mt-8 p-2 md:mx-24 lg:mx-60 shadow-md border flex flex-col  bg-white text-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:border dark:border-zinc-800">
+
       <div data-testid="rankings-div" className='flex flex-row justify-between '>
         <h2 className="font-bold text-2xl font-display">Rankings</h2>
         <button data-testid="menu-icon" className='hover:bg-gray-100 active:bg-gray-200 text-2xl m-2 w-10 h-10 rounded-full flex items-center justify-center' onClick={() => setShowMenuItem(null)}>
@@ -102,7 +103,7 @@ export default function Rankings(props: RankingsProps) {
           )).reverse()}
         </div>
       </div>
-    </MenuPage>
+    </div></div>
     
   )
 }

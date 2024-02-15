@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-import Header from "./header";
+import Header from "./layout/header";
 import WordList from "./wordList";
-import UserRanking from "./userRanking";
-import InputIndex from "./input";
+import UserRanking from "./rankings/userRanking";
+import InputIndex from "./gameInput";
 import Menu from "./menu/menu";
-import Hints from "./menu/hints";
-import Rankings from "./menu/rankings";
-import HowTo from "./menu/howTo";
-import Realistic from "./realistic";
-import Encouragement from "./encouragement";
+import Hints from "./hints";
+import Rankings from "./rankings";
+import HowTo from "./howTo";
+import Realistic from "./effects/realistic";
+import Encouragement from "./effects/encouragement";
 import { GameData, getPoints, handleSubmit } from "../lib/functions";
 
 export type GameIndexProps = {

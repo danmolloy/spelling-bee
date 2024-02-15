@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom"
 import { screen, render, act, fireEvent } from "@testing-library/react"
-import Hints, { HintsProps } from "../../components/menu/hints"
+import Hints, { HintsProps } from "../../components/hints"
 import { mockData } from "../../_mocks_/gameData"
 import { getPoints } from "../../lib/functions"
 

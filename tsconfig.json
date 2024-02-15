@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "pages/index.tsx", "components/completion.jsx", "components/realistic.tsx"  ],
+, "pages/index.tsx", "components/effects/completioncomponents/effects/realistic.tsxstic.tsx"  ],
   "exclude": [
     "node_modules"
   ]

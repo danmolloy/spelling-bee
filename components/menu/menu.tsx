@@ -1,5 +1,4 @@
 import { AiOutlineClose } from "react-icons/ai";
-import MenuPage from "./menuPage";
 
 export const menuItems = [
   {
@@ -24,7 +23,8 @@ export default function Menu(props: MenuProps) {
   const { setShowMenuItem  } = props;
   
   return (
-    <MenuPage>
+  <div data-testid="menu-page" className="mt-[7vh] h-[93vh] md:mt-[14vh] md:h-[86vh] z-40 shadow w-full backdrop-blur-sm absolute">
+      <div className="mt-8 p-2 md:mx-24 lg:mx-60 shadow-md border flex flex-col  bg-white text-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:border dark:border-zinc-800">
       <div data-testid="nav-menu" className="mb-2 flex flex-row justify-end dark:text-zinc-400 ">
         <button className="text-lg dark:hover:text-zinc-300" onClick={() => setShowMenuItem(null)} data-testid="close-btn">
           <AiOutlineClose />
@@ -35,6 +35,7 @@ export default function Menu(props: MenuProps) {
           <p>{i.name}</p>
         </button>
       ))}
-    </MenuPage>
+    </div>
+    </div>
   )
 }

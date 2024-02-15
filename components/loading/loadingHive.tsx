@@ -1,4 +1,4 @@
-import Hexagon from "../input/hexagon";
+import Hexagon from "../gameInput/hexagon";
 
 export default function LoadingHive() {
   return (
