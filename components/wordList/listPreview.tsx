@@ -11,8 +11,8 @@ export default function ListPreview(props: ListPreviewProps) {
   const { words, showList, /* revealWords, */ answerLength } = props;
 
   return (
-    <div className="w-full flex flex-row flex-wrap transition-all duration-500" data-testid="list-preview">
-      {showList 
+    <div className="w-full flex flex-row flex-wrap " data-testid="list-preview">
+      {showList  && words
       ? <p className="slide-in-text pb-4 w-full">
         {/* revealWords 
         ? `You found ${words.length} of ${answerLength} words`
