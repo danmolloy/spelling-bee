@@ -9,15 +9,15 @@ export default function HowTo(props: HowToProps) {
   const { setShowMenuItem } = props;
   const ref = useRef(null)
 
-  useEffect(() => {
+  /* useEffect(() => {
     ref.current.focus()
-  }, [])
+  }, []) */
 
   return (
     <div data-testid="menu-page" className="h-screen z-40 shadow w-full backdrop-blur-sm absolute flex flex-col items-center">
-      <div tabIndex={-1}  ref={ref} onBlur={() => setTimeout(() => setShowMenuItem(null), 120)} className="rounded mx-2 mt-24 p-4 pb-8 md:mx-24 lg:mx-60 shadow-md border flex flex-col  bg-white text-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:border dark:border-zinc-800">
+      <div /* tabIndex={-1}  ref={ref} onBlur={() => setTimeout(() => setShowMenuItem(null), 120)} */ className="rounded mx-2 mt-24 p-4 pb-8 md:mx-24 lg:mx-60 shadow-md border flex flex-col  bg-white text-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:border dark:border-zinc-800">
       <div className='flex flex-row w-full justify-between items-center'>
-        <h1 className='text-2xl font-bold font-display'>How to Play </h1>
+        <h1 className='text-2xl font-bold '>How to Play </h1>
         <button data-testid="close-btn" className='hover:bg-gray-100 active:bg-gray-200 text-2xl m-2 w-10 h-10 rounded-full flex items-center justify-center' onClick={() => setShowMenuItem(null)}>
           <AiOutlineClose />
         </button>

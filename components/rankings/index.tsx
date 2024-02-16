@@ -60,18 +60,18 @@ export default function Rankings(props: RankingsProps) {
   const { setShowMenuItem, geniusScore, currentScore } = props;
   const ref = useRef(null)
 
-  useEffect(() => {
+  /* useEffect(() => {
     ref.current.focus()
-  }, [])
+  }, []) */
   
   const currentRanking = rankingLevels[rankingLevels.filter(i => Math.floor(geniusScore * i.minScoreMultiplier) <= currentScore).length - 1]
   const nextRanking = rankingLevels[rankingLevels.filter(i => Math.floor(geniusScore * i.minScoreMultiplier) <= currentScore).length]
   return (
     <div data-testid="menu-page" className="h-screen z-40 shadow w-full backdrop-blur-sm absolute flex flex-col items-center">
-    <div tabIndex={-1}  ref={ref} onBlur={() => setTimeout(() => setShowMenuItem(null), 120)} data-testid="rankings-div" className="rounded mx-2 mt-24 p-4 pb-8 md:mx-24 lg:mx-60 shadow-md border flex flex-col  bg-white text-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:border dark:border-zinc-800">
+    <div /* tabIndex={-1}  ref={ref} onBlur={() => setTimeout(() => setShowMenuItem(null), 120)} */ data-testid="rankings-div" className="rounded mx-2 mt-24 p-4 pb-8 md:mx-24 lg:mx-60 shadow-md border flex flex-col  bg-white text-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:border dark:border-zinc-800">
 
       <div  className='flex flex-row justify-between '>
-        <h2 className="font-bold text-2xl font-display">Rankings</h2>
+        <h2 className="font-bold text-2xl">Rankings</h2>
         <button data-testid="menu-icon" className='hover:bg-gray-100 active:bg-gray-200 text-2xl m-2 w-10 h-10 rounded-full flex items-center justify-center' onClick={() => setShowMenuItem(null)}>
           <AiOutlineClose />
         </button>
