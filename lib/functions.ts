@@ -13,11 +13,11 @@ export type GameData = {
   editor: string
 }
 
-export const handleSubmit = (word: string, gameData: GameData, foundWords: string[]): {
-  message: string|null
-  addedPoints: number
-} => {
-  const submitObj =  {
+export const handleSubmit = (word: string, gameData: GameData, foundWords: string[]) => {
+  const submitObj: {
+    message: string|null
+    addedPoints: number
+  } =  {
     message: "",
     addedPoints: 0,
   }
