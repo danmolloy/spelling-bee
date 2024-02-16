@@ -2,11 +2,11 @@
 
 exports[` matches snapshot 1`] = `
 <div
-  class="mb-2 flex flex-row justify-end dark:text-zinc-400 "
+  class=" flex flex-row justify-end dark:text-zinc-400 "
   data-testid="nav-menu"
 >
   <button
-    class="text-lg dark:hover:text-zinc-300"
+    class="text-lg dark:hover:text-zinc-300 hover:text-yellow-500 p-1 rounded-full"
     data-testid="close-btn"
   >
     <svg

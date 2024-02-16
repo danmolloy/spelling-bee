@@ -2,14 +2,14 @@
 
 exports[`<WordList /> matches snapshot 1`] = `
 <div
-  class="w-full md:w-2/5 bg-white absolute z-30 border rounded-lg p-3 flex flex-row justify-between items-center font-light mt-10 transition-all duration-300"
+  class="w-[96vw] md:w-2/5 h-12 bg-white absolute z-30 border rounded-lg p-2 flex flex-col justify-start overflow-hidden items-center font-light mt-10 transition-all duration-400"
   data-testid="word-list"
 >
   <div
-    class=" w-full flex flex-row "
+    class=" w-full flex flex-row items-center "
   >
     <div
-      class="w-full flex flex-row flex-wrap transition-all duration-500"
+      class="w-full flex flex-row flex-wrap "
       data-testid="list-preview"
     >
       <p

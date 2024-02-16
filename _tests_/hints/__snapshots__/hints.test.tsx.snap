@@ -14,7 +14,7 @@ exports[`<Hints /> matches snapshot 1`] = `
       Hints
     </h1>
     <button
-      class="hover:bg-gray-100 active:bg-gray-200 text-2xl m-2 w-10 h-10 rounded-full flex items-center justify-center"
+      class="hover:text-yellow-500 text-2xl m-2 w-10 h-10 rounded-full flex items-center justify-center"
       data-testid="menu-icon"
     >
       <svg

@@ -6,7 +6,7 @@ import ReactCanvasConfetti from "react-canvas-confetti";
 
 
 export default function Realistic({ reaction }) {
-  const refAnimationInstance = useRef(null);
+  const refAnimationInstance = useRef<any>(null);
 
   useEffect(() => {
     if (reaction === "Pangram!" ) {
