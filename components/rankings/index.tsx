@@ -72,7 +72,7 @@ export default function Rankings(props: RankingsProps) {
 
       <div  className='flex flex-row justify-between '>
         <h2 className="font-bold text-2xl">Rankings</h2>
-        <button data-testid="menu-icon" className='hover:bg-gray-100 active:bg-gray-200 text-2xl m-2 w-10 h-10 rounded-full flex items-center justify-center' onClick={() => setShowMenuItem(null)}>
+        <button data-testid="menu-icon" className='hover:text-yellow-500 text-2xl m-2 w-10 h-10 rounded-full flex items-center justify-center' onClick={() => setShowMenuItem(null)}>
           <AiOutlineClose />
         </button>
       </div>

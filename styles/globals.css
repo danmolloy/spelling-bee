@@ -4,11 +4,11 @@
 
 
 .fade-in {
-  animation: fadeIn .2s;
+  animation: fadeIn .3s;
 }
 
 .fade-out {
-  animation: fadeOut .2s;
+  animation: fadeOut .3s;
 }
 
 .pulse {

@@ -21,8 +21,10 @@ export default function InputIndex(props: InputIndexProps) {
 
   const shuffle = (): void => {
     setShuffling(true)
-    setZeroToFive([...zeroToFive].sort((() => Math.random() - 0.5)))
-    setTimeout(() => setShuffling(false), 1000)
+    setTimeout(() => {
+      setZeroToFive([...zeroToFive].sort((() => Math.random() - 0.5)))
+    }, 300)
+    setTimeout(() => setShuffling(false), 300)
   }
   
   const backSpace = (): void => {
@@ -45,6 +47,7 @@ export default function InputIndex(props: InputIndexProps) {
         userWord={inputWord} 
         setUserWord={(str) => setInputWord(str)} />
       <Letters 
+        shuffling={shuffling}
         letterIndex={zeroToFive} 
         centerLetter={centerLetter} 
         setLetter={(letter) => setInputWord(inputWord + letter)} 
