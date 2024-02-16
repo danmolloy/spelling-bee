@@ -10,7 +10,7 @@ export type InputIndexProps = {
   enterWord: (word: string) => void
   inputWord: string
   setInputWord: (str: string) => void
-  message: string|null
+  message?: string|null
   isLoading?: boolean
 }
 
@@ -31,7 +31,7 @@ export default function InputIndex(props: InputIndexProps) {
   
   return (
     <div data-testid="input-index" className="mt-16 flex flex-col items-center md:w-1/2">
-      {message 
+      {message !== undefined && message
       && <div data-testid="message" className="absolute -mt-10 z-30 bg-black text-white px-3 py-1 rounded font-light text-sm">
         <h3>{message}</h3>
       </div>}

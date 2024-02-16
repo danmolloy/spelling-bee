@@ -13,7 +13,7 @@ import { GameData, getPoints, handleSubmit } from "../lib/functions";
 import Footer from "./layout/footer";
 
 export type GameIndexProps = {
-  data?: GameData
+  data: GameData
 }
 
 export default function GameIndex(props: GameIndexProps) {
@@ -33,13 +33,8 @@ export default function GameIndex(props: GameIndexProps) {
       setInputWord("Epic!")
     }
     if (localStorage.getItem("foundWords") !== null) {
-      /* if (localStorage.getItem('revealed') === "true" 
-      && data.answers.includes(localStorage.getItem('foundWords').split(',')[0].toLowerCase())) {
-        setRevealWords(true);
-        setFoundWords(localStorage.getItem('foundWords').split(','));
-      } else */ 
-      if (data.answers.includes(localStorage.getItem('foundWords').split(',')[0].toLowerCase())) {
-        const foundedWords = localStorage.getItem('foundWords').split(',')
+      if (data.answers.includes(localStorage.getItem('foundWords')!.split(',')[0].toLowerCase())) {
+        const foundedWords = localStorage.getItem('foundWords')!.split(',')
         setFoundWords([...foundedWords])
       } else {
         localStorage.clear()
@@ -48,6 +43,9 @@ export default function GameIndex(props: GameIndexProps) {
   }, [data])
 
   const handleEnter = (word: string) => {
+    if (word.length === 0 || data === undefined) {
+      return;
+    }
     const submitObj = handleSubmit(word, data, foundWords)
     if (submitObj.addedPoints === 0) {
       setMessage(submitObj.message)
@@ -89,7 +87,7 @@ export default function GameIndex(props: GameIndexProps) {
         {data.answers.length === foundWords.length 
         && <Realistic reaction={"Bravo!"} />}
         {foundPangram === true && <Realistic reaction={message} />}
-        {addedPoints !== null
+        {addedPoints !== null && message !== null
         && <Encouragement text={message} points={addedPoints}/>}
       <div className="flex flex-col md:flex-row-reverse w-full pb-12">
         <div className="flex flex-col md:w-1/2 w-full md:px-2 items-center">
@@ -97,7 +95,7 @@ export default function GameIndex(props: GameIndexProps) {
           <WordList answers={data.answers} pangrams={data.pangrams} /* revealWords={revealWords} */ words={foundWords}/>
         </div>
         <InputIndex 
-          message={!addedPoints && message}
+          message={!addedPoints ? message : undefined}
           inputWord={inputWord}
           setInputWord={(str) => setInputWord(str)}
           centerLetter={data.centerLetter.toUpperCase()} 

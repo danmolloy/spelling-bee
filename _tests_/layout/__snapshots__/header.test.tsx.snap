@@ -2,7 +2,7 @@
 
 exports[`Header component matches snapshot 1`] = `
 <div
-  class="md:p-4 flex flex-row md:justify-between w-full md:items-start justify-end "
+  class=" md:p-4 flex flex-row md:justify-between w-full md:items-start justify-end "
   data-testid="header-div"
 >
   <div

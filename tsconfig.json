@@ -17,13 +17,22 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "strictNullChecks": true
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "pages/index.tsx", "components/effects/completioncomponents/effects/realistic.tsxstic.tsx"  ],
+    "**/*.tsx",
+    "pages/index.tsx",
+    "components/effects/completioncomponents/effects/realistic.tsxstic.tsx",
+    ".next/types/**/*.ts"
+  ],
   "exclude": [
     "node_modules"
   ]

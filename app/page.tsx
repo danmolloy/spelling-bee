@@ -1,3 +1,5 @@
+'use client'
+
 import useSWR from 'swr';
 import GameIndex from '../components';
 import LoadingGameIndex from '../components/loading/index';
@@ -17,4 +19,3 @@ export default function Home() {
     <GameIndex data={data.data.yesterday}/>
   )
 }
- 

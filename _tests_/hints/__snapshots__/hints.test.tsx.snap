@@ -2,6 +2,7 @@
 
 exports[`<Hints /> matches snapshot 1`] = `
 <div
+  class="rounded mx-2 mt-24 p-4 pb-8 md:mx-24 lg:mx-60 shadow-md border flex flex-col  bg-white text-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:border dark:border-zinc-800"
   data-testid="hints-div"
 >
   <div
@@ -35,19 +36,19 @@ exports[`<Hints /> matches snapshot 1`] = `
     class="p-2"
   >
     <p
-      class="text-lg font-thin"
+      class="text-lg"
     >
       Words: 
       5
     </p>
     <p
-      class="text-lg font-thin"
+      class="text-lg"
     >
       Pangrams: 
       2
     </p>
     <p
-      class="text-lg font-thin"
+      class="text-lg"
     >
       Points: 
       21
@@ -538,6 +539,5 @@ exports[`<Hints /> matches snapshot 1`] = `
       </p>
     </div>
   </div>
-  <hr />
 </div>
 `;
