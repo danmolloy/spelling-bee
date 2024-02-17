@@ -2,7 +2,7 @@ import useSWR from 'swr';
 import GameIndex from '../../components';
 import LoadingGameIndex from '../../components/loading';
 import { mockData } from '../../_mocks_/gameData';
-import Home from '../../pages';
+import Home from '../../app/page';
 import { act, render, screen, waitFor } from '@testing-library/react';
 
 global.fetch = jest.fn(() =>

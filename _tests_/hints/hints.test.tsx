@@ -12,6 +12,7 @@ const mockProps: HintsProps = {
   validLetters: mockData.validLetters,
   setShowMenuItem: jest.fn(),
   answers: mockData.answers,
+  foundWords: mockData.answers.slice(0, 5),
   pangrams: ['lorem'],
   //setRevealAnswers: jest.fn(),
   //revealAnswers: false
@@ -35,16 +36,16 @@ describe("<Hints />", () => {
   })
   it("states number of pangrams", () => {
     const hintsDiv = screen.getByTestId("hints-div")
-    expect(hintsDiv.textContent).toMatch(`Pangrams: ${mockData.pangrams.length}`)
+    expect(hintsDiv.textContent).toMatch(`Pangrams: ${mockProps.foundWords.filter(i => mockProps.pangrams.map(j => j.toLowerCase()).includes(i.toLowerCase())).length}/${mockData.pangrams.length}`)
   })
   it("states number of answers", () => {
     const hintsDiv = screen.getByTestId("hints-div")
-    expect(hintsDiv.textContent).toMatch(`Words: ${mockData.answers.length}`)
+    expect(hintsDiv.textContent).toMatch(`Words: ${mockProps.foundWords.length}/${mockData.answers.length}`)
   })
 
   it("states number of possible points", () => {
     const hintsDiv = screen.getByTestId("hints-div")
-    expect(hintsDiv.textContent).toMatch(`Points: ${getPoints(mockData.answers)}`)
+    expect(hintsDiv.textContent).toMatch(`Points: ${getPoints(mockProps.foundWords)}/${getPoints(mockData.answers)}`)
   })
   
   it("help-table is in the document", () => {
@@ -56,17 +57,6 @@ describe("<Hints />", () => {
     const twoLetterList = screen.getByTestId("two-letter-list")
     expect(twoLetterList).toBeInTheDocument()
   })
-
-  /* it("reveal btn is in the document and calls setRevealAnswers & setShowMenuItem on click", () => {
-    const revealBtn = screen.getByText("Reveal")
-    expect(revealBtn).toBeInTheDocument()
-    act(() => {
-      fireEvent.click(revealBtn)
-    })
-    expect(mockProps.setRevealAnswers).toHaveBeenCalled()
-    expect(mockProps.setShowMenuItem).toHaveBeenCalledWith(null)
-    expect(localStorage.setItem).toHaveBeenCalledWith("revealed", "true")
-  }) */
 })
 
 describe("<Hints />", () => {
@@ -74,10 +64,9 @@ describe("<Hints />", () => {
     centerLetter: "a",
     validLetters: ["q", "a", "b", "c", "d", "e", "f"],
     setShowMenuItem: jest.fn(),
+    foundWords: mockData.answers.slice(0, 5),
     answers: ["four", "funf", "sixsix", "seventy", "eighty"],
-    pangrams: ["lorem", "ipsum"],
-    //setRevealAnswers: jest.fn(),
-    //revealAnswers: false
+    pangrams: ["lorem", "ipsum"]
   }
   beforeEach(() => {
     render(<Hints {...mockProps} />)

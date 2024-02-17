@@ -2,14 +2,14 @@
 
 exports[`<Hints /> matches snapshot 1`] = `
 <div
-  class="rounded mx-2 mt-24 p-4 pb-8 md:mx-24 lg:mx-60 shadow-md border flex flex-col  bg-white text-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:border dark:border-zinc-800"
+  class="rounded mx-2 mt-24 p-4 pb-8 md:mx-24 lg:mx-60 shadow-md border flex flex-col  bg-white dark:bg-zinc-900 dark:text-zinc-300 dark:border dark:border-zinc-800"
   data-testid="hints-div"
 >
   <div
     class="flex flex-row w-full justify-between items-center"
   >
     <h1
-      class="text-2xl font-bold font-display"
+      class="text-2xl font-bold "
     >
       Hints
     </h1>
@@ -39,24 +39,73 @@ exports[`<Hints /> matches snapshot 1`] = `
       class="text-lg"
     >
       Words: 
-      5
+      5/5
     </p>
     <p
       class="text-lg"
     >
-      Pangrams: 
-      2
+      Pangrams: 0/2
     </p>
     <p
       class="text-lg"
     >
       Points: 
-      21
+      36/21
     </p>
   </div>
   <div
     class="flex flex-col items-center py-2"
   >
+    <div
+      class="flex flex-row justify-between md:w-1/2 self-start md:self-auto "
+    >
+      <div
+        class="flex flex-row items-center"
+        data-testid="letter-label"
+      >
+        <svg
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 448 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M413.1 222.5l22.2 22.2c9.4 9.4 9.4 24.6 0 33.9L241 473c-9.4 9.4-24.6 9.4-33.9 0L12.7 278.6c-9.4-9.4-9.4-24.6 0-33.9l22.2-22.2c9.5-9.5 25-9.3 34.3.4L184 343.4V56c0-13.3 10.7-24 24-24h32c13.3 0 24 10.7 24 24v287.4l114.8-120.5c9.3-9.8 24.8-10 34.3-.4z"
+          />
+        </svg>
+        <p
+          class="ml-1"
+        >
+          Initial Letter
+        </p>
+      </div>
+      <div
+        class="flex flex-row items-center"
+        data-testid="length-label"
+      >
+        <p
+          class="mx-2"
+        >
+          Length of Word
+        </p>
+        <svg
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 448 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+          />
+        </svg>
+      </div>
+    </div>
     <table
       class="w-2/3 md:w-1/2"
       data-testid="help-table"
@@ -65,425 +114,476 @@ exports[`<Hints /> matches snapshot 1`] = `
         data-testid="table-head"
       >
         <tr
-          class="font-bold"
+          class="font-bold border-b"
         >
           <td
+            class="w-10 h-10"
             data-testid="letter-col"
           />
-          <td>
+          <td
+            class="w-10 h-10"
+          >
             <p
-              class="text-center"
+              class="text-center  w-full h-full flex items-center justify-center"
             >
               4
             </p>
           </td>
-          <td>
+          <td
+            class="w-10 h-10"
+          >
             <p
-              class="text-center"
+              class="text-center  w-full h-full flex items-center justify-center"
             >
               6
             </p>
           </td>
-          <td>
+          <td
+            class="w-10 h-10"
+          >
             <p
-              class="text-center"
+              class="text-center  w-full h-full flex items-center justify-center"
             >
               7
             </p>
           </td>
-          <td>
+          <td
+            class="w-10 h-10"
+          >
             <p
-              class="text-center"
+              class="text-center w-full h-full flex items-center justify-center"
             >
-              ∑
+              Total
             </p>
           </td>
         </tr>
       </thead>
       <tbody>
         <tr
-          class=""
+          class="border-b"
           data-testid="q-row"
         >
           <td
-            class="font-bold"
+            class="font-bold w-10 h-10"
           >
-            Q
+            <div
+              class="text-center w-full h-full flex items-center justify-center"
+            >
+              Q
+            </div>
           </td>
           <td
-            class=""
+            class="border-l w-10 h-10"
             data-testid="4-q"
           >
-            <p
-              class="text-center"
-            >
-              -
-            </p>
+            <div
+              class=""
+            />
           </td>
           <td
-            class=""
+            class="border-l w-10 h-10"
             data-testid="6-q"
           >
-            <p
-              class="text-center"
-            >
-              -
-            </p>
+            <div
+              class=""
+            />
           </td>
           <td
-            class=""
+            class="border-l w-10 h-10"
             data-testid="7-q"
           >
-            <p
-              class="text-center"
-            >
-              -
-            </p>
+            <div
+              class=""
+            />
           </td>
           <td
+            class="border-l w-10 h-10"
             data-testid="q-total"
           >
-            <p
-              class="text-center"
+            <div
+              class="text-center w-full h-full flex items-center justify-center"
             >
-              0
-            </p>
+              <p>
+                -
+              </p>
+            </div>
           </td>
         </tr>
         <tr
-          class=""
+          class="border-b"
           data-testid="a-row"
         >
           <td
-            class="font-bold"
+            class="font-bold w-10 h-10"
           >
-            A
+            <div
+              class="text-center w-full h-full flex items-center justify-center"
+            >
+              A
+            </div>
           </td>
           <td
-            class=""
+            class="border-l w-10 h-10"
             data-testid="4-a"
           >
-            <p
-              class="text-center"
-            >
-              -
-            </p>
+            <div
+              class=""
+            />
           </td>
           <td
-            class=""
+            class="border-l w-10 h-10"
             data-testid="6-a"
           >
-            <p
-              class="text-center"
-            >
-              -
-            </p>
+            <div
+              class=""
+            />
           </td>
           <td
-            class=""
+            class="border-l w-10 h-10"
             data-testid="7-a"
           >
-            <p
-              class="text-center"
-            >
-              -
-            </p>
+            <div
+              class=""
+            />
           </td>
           <td
+            class="border-l w-10 h-10"
             data-testid="a-total"
           >
-            <p
-              class="text-center"
+            <div
+              class="text-center w-full h-full flex items-center justify-center"
             >
-              0
-            </p>
+              <p>
+                -
+              </p>
+            </div>
           </td>
         </tr>
         <tr
-          class=""
+          class="border-b"
           data-testid="b-row"
         >
           <td
-            class="font-bold"
+            class="font-bold w-10 h-10"
           >
-            B
+            <div
+              class="text-center w-full h-full flex items-center justify-center"
+            >
+              B
+            </div>
           </td>
           <td
-            class=""
+            class="border-l w-10 h-10"
             data-testid="4-b"
           >
-            <p
-              class="text-center"
-            >
-              -
-            </p>
+            <div
+              class=""
+            />
           </td>
           <td
-            class=""
+            class="border-l w-10 h-10"
             data-testid="6-b"
           >
-            <p
-              class="text-center"
-            >
-              -
-            </p>
+            <div
+              class=""
+            />
           </td>
           <td
-            class=""
+            class="border-l w-10 h-10"
             data-testid="7-b"
           >
-            <p
-              class="text-center"
-            >
-              -
-            </p>
+            <div
+              class=""
+            />
           </td>
           <td
+            class="border-l w-10 h-10"
             data-testid="b-total"
           >
-            <p
-              class="text-center"
+            <div
+              class="text-center w-full h-full flex items-center justify-center"
             >
-              0
-            </p>
+              <p>
+                -
+              </p>
+            </div>
           </td>
         </tr>
         <tr
-          class=""
+          class="border-b"
           data-testid="c-row"
         >
           <td
-            class="font-bold"
+            class="font-bold w-10 h-10"
           >
-            C
+            <div
+              class="text-center w-full h-full flex items-center justify-center"
+            >
+              C
+            </div>
           </td>
           <td
-            class=""
+            class="border-l w-10 h-10"
             data-testid="4-c"
           >
-            <p
-              class="text-center"
-            >
-              -
-            </p>
+            <div
+              class=""
+            />
           </td>
           <td
-            class=""
+            class="border-l w-10 h-10"
             data-testid="6-c"
           >
-            <p
-              class="text-center"
-            >
-              -
-            </p>
+            <div
+              class=""
+            />
           </td>
           <td
-            class=""
+            class="border-l w-10 h-10"
             data-testid="7-c"
           >
-            <p
-              class="text-center"
-            >
-              -
-            </p>
+            <div
+              class=""
+            />
           </td>
           <td
+            class="border-l w-10 h-10"
             data-testid="c-total"
           >
-            <p
-              class="text-center"
+            <div
+              class="text-center w-full h-full flex items-center justify-center"
             >
-              0
-            </p>
+              <p>
+                -
+              </p>
+            </div>
           </td>
         </tr>
         <tr
-          class=""
+          class="border-b"
           data-testid="d-row"
         >
           <td
-            class="font-bold"
+            class="font-bold w-10 h-10"
           >
-            D
+            <div
+              class="text-center w-full h-full flex items-center justify-center"
+            >
+              D
+            </div>
           </td>
           <td
-            class=""
+            class="border-l w-10 h-10"
             data-testid="4-d"
           >
-            <p
-              class="text-center"
-            >
-              -
-            </p>
+            <div
+              class=""
+            />
           </td>
           <td
-            class=""
+            class="border-l w-10 h-10"
             data-testid="6-d"
           >
-            <p
-              class="text-center"
-            >
-              -
-            </p>
+            <div
+              class=""
+            />
           </td>
           <td
-            class=""
+            class="border-l w-10 h-10"
             data-testid="7-d"
           >
-            <p
-              class="text-center"
-            >
-              -
-            </p>
+            <div
+              class=""
+            />
           </td>
           <td
+            class="border-l w-10 h-10"
             data-testid="d-total"
           >
-            <p
-              class="text-center"
+            <div
+              class="text-center w-full h-full flex items-center justify-center"
             >
-              0
-            </p>
+              <p>
+                -
+              </p>
+            </div>
           </td>
         </tr>
         <tr
-          class=""
+          class="border-b"
           data-testid="e-row"
         >
           <td
-            class="font-bold"
+            class="font-bold w-10 h-10"
           >
-            E
+            <div
+              class="text-center w-full h-full flex items-center justify-center"
+            >
+              E
+            </div>
           </td>
           <td
-            class=""
+            class="border-l w-10 h-10"
             data-testid="4-e"
           >
-            <p
-              class="text-center"
-            >
-              -
-            </p>
+            <div
+              class=""
+            />
           </td>
           <td
-            class=""
+            class="border-l w-10 h-10"
             data-testid="6-e"
           >
             <p
-              class="text-center"
+              class="text-center w-full h-full flex items-center justify-center"
             >
               1
             </p>
           </td>
           <td
-            class=""
+            class="border-l w-10 h-10"
             data-testid="7-e"
           >
-            <p
-              class="text-center"
-            >
-              -
-            </p>
+            <div
+              class=""
+            />
           </td>
           <td
+            class="border-l w-10 h-10"
             data-testid="e-total"
           >
-            <p
-              class="text-center"
+            <div
+              class="text-center w-full h-full flex items-center justify-center"
             >
               1
-            </p>
+            </div>
           </td>
         </tr>
         <tr
-          class=""
+          class="border-b"
           data-testid="f-row"
         >
           <td
-            class="font-bold"
+            class="font-bold w-10 h-10"
           >
-            F
+            <div
+              class="text-center w-full h-full flex items-center justify-center"
+            >
+              F
+            </div>
           </td>
           <td
-            class=""
+            class="border-l w-10 h-10"
             data-testid="4-f"
           >
             <p
-              class="text-center"
+              class="text-center w-full h-full flex items-center justify-center"
             >
               2
             </p>
           </td>
           <td
-            class=""
+            class="border-l w-10 h-10"
             data-testid="6-f"
           >
-            <p
-              class="text-center"
-            >
-              -
-            </p>
+            <div
+              class=""
+            />
           </td>
           <td
-            class=""
+            class="border-l w-10 h-10"
             data-testid="7-f"
           >
-            <p
-              class="text-center"
-            >
-              -
-            </p>
+            <div
+              class=""
+            />
           </td>
           <td
+            class="border-l w-10 h-10"
             data-testid="f-total"
           >
-            <p
-              class="text-center"
+            <div
+              class="text-center w-full h-full flex items-center justify-center"
             >
               2
-            </p>
+            </div>
           </td>
         </tr>
         <tr
           data-testid="total-row"
         >
           <td
-            class="font-bold"
+            class=" w-10 h-10"
           >
-            ∑
+            <div
+              class="text-center w-full h-full flex items-center justify-center"
+            >
+              Total
+            </div>
           </td>
           <td
+            class="border-l w-10 h-10"
             data-testid="4-total"
           >
             <p
-              class="text-center"
-            >
-              2
-            </p>
-          </td>
-          <td
-            data-testid="6-total"
-          >
-            <p
-              class="text-center"
-            >
-              2
-            </p>
-          </td>
-          <td
-            data-testid="7-total"
-          >
-            <p
-              class="text-center"
+              class="text-center w-full h-full flex items-center justify-center"
             >
               1
             </p>
           </td>
           <td
-            class="text-center"
+            class="border-l w-10 h-10"
+            data-testid="6-total"
+          >
+            <p
+              class="text-center w-full h-full flex items-center justify-center"
+            >
+              2
+            </p>
+          </td>
+          <td
+            class="border-l w-10 h-10"
+            data-testid="7-total"
+          >
+            <div
+              class="text-center text-2xl text-black w-full h-full bg-yellow-300  flex items-center justify-center"
+            >
+              <svg
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 512 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M362.6 192.9L345 174.8c-.7-.8-1.8-1.2-2.8-1.2-1.1 0-2.1.4-2.8 1.2l-122 122.9-44.4-44.4c-.8-.8-1.8-1.2-2.8-1.2-1 0-2 .4-2.8 1.2l-17.8 17.8c-1.6 1.6-1.6 4.1 0 5.7l56 56c3.6 3.6 8 5.7 11.7 5.7 5.3 0 9.9-3.9 11.6-5.5h.1l133.7-134.4c1.4-1.7 1.4-4.2-.1-5.7z"
+                />
+              </svg>
+            </div>
+          </td>
+          <td
+            class="text-center border-l w-10 h-10"
             data-testid="total-words"
           >
-            5
+            <div
+              class="text-center text-2xl text-black w-full h-full bg-yellow-300  flex items-center justify-center"
+            >
+              <svg
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 512 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M362.6 192.9L345 174.8c-.7-.8-1.8-1.2-2.8-1.2-1.1 0-2.1.4-2.8 1.2l-122 122.9-44.4-44.4c-.8-.8-1.8-1.2-2.8-1.2-1 0-2 .4-2.8 1.2l-17.8 17.8c-1.6 1.6-1.6 4.1 0 5.7l56 56c3.6 3.6 8 5.7 11.7 5.7 5.3 0 9.9-3.9 11.6-5.5h.1l133.7-134.4c1.4-1.7 1.4-4.2-.1-5.7z"
+                />
+              </svg>
+            </div>
           </td>
         </tr>
       </tbody>
@@ -496,47 +596,110 @@ exports[`<Hints /> matches snapshot 1`] = `
     <p
       class="font-bold"
     >
-      Two letter list:
+      Two-Letter List:
+    </p>
+    <p>
+      How many words remain for each pair of starting letters.
     </p>
     <div
       class="flex flex-row "
       data-testid="e-row"
     >
-      <p
-        class="pr-1"
+      <div
+        class=" flex flex-row border-b m-1 h-7  items-center"
+        data-testid="EI-cell"
       >
-        EI-1
-      </p>
+        <p
+          class="px-1"
+        >
+          EI
+        </p>
+        <div
+          class="h-full w-7 flex items-center justify-center "
+        >
+          <p>
+            1
+          </p>
+        </div>
+      </div>
     </div>
     <div
       class="flex flex-row "
       data-testid="f-row"
     >
-      <p
-        class="pr-1"
+      <div
+        class=" flex flex-row border-b m-1 h-7  items-center"
+        data-testid="FO-cell"
       >
-        FO-1
-      </p>
-      <p
-        class="pr-1"
+        <p
+          class="px-1"
+        >
+          FO
+        </p>
+        <div
+          class="h-full w-7 flex items-center justify-center "
+        >
+          <p>
+            1
+          </p>
+        </div>
+      </div>
+      <div
+        class=" flex flex-row border-b m-1 h-7  items-center"
+        data-testid="FU-cell"
       >
-        FU-1
-      </p>
+        <p
+          class="px-1"
+        >
+          FU
+        </p>
+        <div
+          class="h-full w-7 flex items-center justify-center "
+        >
+          <p>
+            1
+          </p>
+        </div>
+      </div>
     </div>
     <div
       class="flex flex-row "
       data-testid="s-row"
     >
-      <p
-        class="pr-1"
+      <div
+        class=" flex flex-row border-b m-1 h-7  items-center"
+        data-testid="SE-cell"
       >
-        SE-1
-      </p>
-      <p
-        class="pr-1"
+        <p
+          class="px-1"
+        >
+          SE
+        </p>
+        <div
+          class="h-full w-7 flex items-center justify-center "
+        >
+          <p>
+            1
+          </p>
+        </div>
+      </div>
+      <div
+        class=" flex flex-row border-b m-1 h-7  items-center"
+        data-testid="SI-cell"
       >
-        SI-1
-      </p>
+        <p
+          class="px-1"
+        >
+          SI
+        </p>
+        <div
+          class="h-full w-7 flex items-center justify-center "
+        >
+          <p>
+            1
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </div>

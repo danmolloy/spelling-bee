@@ -82,7 +82,7 @@ export default function GameIndex(props: GameIndexProps) {
         setShowMenu={() => setShowMenuItem("navbar")} />
         {showMenuItem === "navbar" && <Menu setShowMenuItem={(arg) => setShowMenuItem(arg)}/>}
         {showMenuItem === "howTo" && <HowTo setShowMenuItem={(arg) => setShowMenuItem(arg)} />}
-        {showMenuItem === "hints" && <Hints validLetters={data.validLetters} centerLetter={data.centerLetter} /* revealAnswers={revealWords} *//*  setRevealAnswers={() => setRevealWords(true)} */ setShowMenuItem={(arg) => setShowMenuItem(arg)} pangrams={data.pangrams} answers={data.answers} />}
+        {showMenuItem === "hints" && <Hints foundWords={foundWords} validLetters={data.validLetters} centerLetter={data.centerLetter} /* revealAnswers={revealWords} *//*  setRevealAnswers={() => setRevealWords(true)} */ setShowMenuItem={(arg) => setShowMenuItem(arg)} pangrams={data.pangrams} answers={data.answers} />}
         {showMenuItem === "rankings" && <Rankings currentScore={getPoints(foundWords)} geniusScore={getPoints(data.answers)} setShowMenuItem={(arg) => setShowMenuItem(arg)} />}
         {data.answers.length === foundWords.length 
         && <Realistic reaction={"Bravo!"} />}
