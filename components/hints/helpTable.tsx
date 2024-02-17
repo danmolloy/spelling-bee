@@ -28,9 +28,9 @@ export default function HelpTable(props: HelpTableProps) {
   }
 
   return (
-    <div className='flex flex-col items-center py-2 '>
-      <div className="flex flex-row justify-between md:w-1/2 self-start md:self-auto ">
-        <div className="flex flex-row items-center" data-testid="letter-label">
+    <div className='font-light flex flex-col items-center py-2 '>
+      <div className="text-sm flex flex-row justify-between md:w-1/2 self-start md:self-auto ">
+        <div className="flex  flex-row items-center" data-testid="letter-label">
           <FaArrowDown />
           <p className="ml-1">Initial Letter</p>
         </div>
@@ -41,7 +41,7 @@ export default function HelpTable(props: HelpTableProps) {
       </div>
     <table data-testid="help-table" className="w-full md:w-1/2">
       <thead data-testid="table-head">
-        <tr className="font-bold border-b">
+        <tr className=" border-b">
           <td data-testid="letter-col" className="w-10 h-10"/>
           {wordCountArr.map(i => (
             <td key={i} className="w-10 h-10">
@@ -54,7 +54,7 @@ export default function HelpTable(props: HelpTableProps) {
       <tbody>
         {validLetters.map(letter => (
           <tr className="border-b" key={letter} data-testid={`${letter}-row`}>
-            <td className="font-bold w-10 h-10">
+            <td className=" w-10 h-10">
               <div className="text-center w-full h-full flex items-center justify-center">
                 {letter.toUpperCase()}
               </div>
@@ -64,10 +64,10 @@ export default function HelpTable(props: HelpTableProps) {
                 {comboAnswerCount(letter, count.words) === 0 
                   ? <div className=""></div> 
                   : comboAnswerCount(letter, count.words) - foundCombo(foundWords, letter, count.length) === 0 
-                  ? <div className="text-center text-2xl text-black w-full h-full bg-yellow-300  flex items-center justify-center">
+                  ? <div className="text-center text-bold text-4xl text-white w-full h-full bg-yellow-300  flex items-center justify-center">
                       <IoIosCheckmark />
                     </div>
-                  : <p className="text-center w-full h-full flex items-center justify-center">{comboAnswerCount(letter, count.words) - foundCombo(foundWords, letter, count.length)}</p>}
+                  : <p className="font-bold bg-yellow-100 text-center w-full h-full flex items-center justify-center">{comboAnswerCount(letter, count.words) - foundCombo(foundWords, letter, count.length)}</p>}
                 </td>
             ))}
             <td  data-testid={`${letter}-total`} className="border-l w-10 h-10">
@@ -91,7 +91,7 @@ export default function HelpTable(props: HelpTableProps) {
           {wordArr.map(count => (
             <td className="border-l w-10 h-10" data-testid={`${count.length}-total`} key={count.length}>
               {count.words.length - foundWords.filter(word => word.length == count.length).length === 0 
-              ? <div className="text-center text-2xl text-black w-full h-full bg-yellow-300  flex items-center justify-center">
+              ? <div className="text-center text-4xl text-white w-full h-full bg-yellow-300  flex items-center justify-center">
                   <IoIosCheckmark />
                 </div>
               : <p className="text-center w-full h-full flex items-center justify-center">

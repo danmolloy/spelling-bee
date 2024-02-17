@@ -28,10 +28,10 @@ export default function Hints(props: HintsProps) {
           <AiOutlineClose />
         </button>
       </div>
-      <div className='p-2'>
-        <p className='text-lg'>Words: {`${foundWords.length}/${answers.length}`}</p>
-        <p className='text-lg'>{`Pangrams: ${foundWords.filter(i => pangrams.map(j => j.toLowerCase()).includes(i.toLowerCase())).length}/${pangrams.length}`}</p>
-        <p className='text-lg'>Points: {`${getPoints(foundWords)}/${getPoints(answers)}`}</p>
+      <div className='p-2 font-light'>
+        <p className=''>Words: {`${foundWords.length}/${answers.length}`}</p>
+        <p className=''>{`Pangrams: ${foundWords.filter(i => pangrams.map(j => j.toLowerCase()).includes(i.toLowerCase())).length}/${pangrams.length}`}</p>
+        <p className=''>Points: {`${getPoints(foundWords)}/${getPoints(answers)}`}</p>
       </div>
         <HelpTable foundWords={foundWords} validLetters={validLetters} centerLetter={centerLetter} answers={answers} />
       <TwoLetterList foundWords={foundWords} answers={answers} />

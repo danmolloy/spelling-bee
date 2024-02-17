@@ -25,17 +25,17 @@ export default function TwoLetterList(props: TwoLetterListProps) {
   }
 
   return (
-    <div className="p-2 my-2" data-testid="two-letter-list">
-      <p className="font-bold">Two-Letter List:</p>
-      <p>How many words remain for each pair of starting letters.</p>
+    <div className="p-2 my-4" data-testid="two-letter-list">
+      <p className="font-bold">Two-Letter List</p>
+      <p className="my-2 text-sm font-light">How many words remain for each pair of starting letters.</p>
       {initialLetters.map(letter => (
-        <div className="flex flex-row " key={`${letter}-row`} data-testid={`${letter}-row`}>
+        <div className="flex flex-row font-light" key={`${letter}-row`} data-testid={`${letter}-row`}>
           {combinationArr.filter(i => i.letters[0] === letter.toUpperCase()).map(i => (
             <div data-testid={`${i.letters}-cell`} className=" flex flex-row border-b m-1 h-7  items-center" key={i.letters}>
               <p className="px-1">{i.letters}</p>
               <div className="h-full w-7 flex items-center justify-center ">
               {i.count - foundCount(foundWords, i.letters) === 0 
-              ? <div className="text-center text-2xl text-black w-full h-full bg-yellow-300  flex items-center justify-center">
+              ? <div className="text-center text-4xl text-white w-full h-full bg-yellow-300  flex items-center justify-center">
               <IoIosCheckmark />
             </div>
               : <p>{i.count - foundCount(foundWords, i.letters)}</p>}
