@@ -28,7 +28,7 @@ export default function HelpTable(props: HelpTableProps) {
   }
 
   return (
-    <div className='flex flex-col items-center py-2'>
+    <div className='flex flex-col items-center py-2 '>
       <div className="flex flex-row justify-between md:w-1/2 self-start md:self-auto ">
         <div className="flex flex-row items-center" data-testid="letter-label">
           <FaArrowDown />
@@ -39,7 +39,7 @@ export default function HelpTable(props: HelpTableProps) {
           <FaArrowRight />
         </div>
       </div>
-    <table data-testid="help-table" className="w-2/3 md:w-1/2">
+    <table data-testid="help-table" className="w-full md:w-1/2">
       <thead data-testid="table-head">
         <tr className="font-bold border-b">
           <td data-testid="letter-col" className="w-10 h-10"/>
