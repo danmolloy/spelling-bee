@@ -6,7 +6,7 @@ exports[`<LoadingGameIndex /> matches snapshot 1`] = `
   data-testid="loading-index"
 >
   <div
-    class=" md:p-4 flex flex-row md:justify-between w-full md:items-start justify-end"
+    class=" md:p-4 flex flex-row md:justify-between w-full md:items-start justify-end "
     data-testid="header-div"
   >
     <div
@@ -15,22 +15,48 @@ exports[`<LoadingGameIndex /> matches snapshot 1`] = `
       <div
         class="flex flex-row items-end"
       >
+        <h1
+          class="font-display font-bold text-4xl pr-4"
+        >
+          Spelling Bee
+        </h1>
         <div
-          class=" animate-pulse h-10 w-60 bg-zinc-200 rounded-md m-1"
+          class=" animate-pulse h-8 w-60 bg-zinc-200 rounded-md m-1"
         />
       </div>
       <div>
-        <div
-          class=" animate-pulse h-4 w-48 bg-zinc-200 rounded-md m-1 "
-        />
-        <div
-          class=" animate-pulse h-4 w-48 bg-zinc-200 rounded-md m-1"
-        />
+        <h2>
+          Originally a NYT game
+        </h2>
+        <h2>
+          Replicated by Daniel Molloy
+        </h2>
       </div>
     </div>
     <div
-      class=" h-10 w-10  rounded-md m-1"
-    />
+      class="flex flex-col items-end"
+    >
+      <div
+        aria-label="Open/close menu"
+        class="hover:bg-gray-100 active:bg-gray-200 text-2xl m-2 w-10 h-10 rounded-full flex items-center justify-center"
+        data-testid="menu-icon"
+        id="open-menu"
+      >
+        <svg
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 512 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z"
+          />
+        </svg>
+      </div>
+    </div>
   </div>
   <div
     class="flex flex-col md:flex-row-reverse w-full"
@@ -54,13 +80,23 @@ exports[`<LoadingGameIndex /> matches snapshot 1`] = `
         </div>
       </div>
       <div
-        class="w-full md:w-2/5 bg-white absolute z-30 border rounded-lg p-3 flex flex-row justify-between items-center font-light mt-10 transition-all duration-300"
+        class="w-full md:w-2/5 bg-white absolute z-30 border h-12 rounded-lg p-2 flex flex-row justify-between items-center font-light mt-10 transition-all duration-300"
         data-testid="word-list"
       >
         <div
           class=" animate-pulse h-4 w-full bg-zinc-200 rounded-md m-1"
           data-testid="loading-div"
         />
+        <button
+          aria-label="Show found words"
+          class="w-8 h-8 flex justify-center items-center self-start rounded-full hover:bg-gray-100 active:bg-gray-200"
+          data-testid="arrow-icon"
+          id="show-found-words"
+        >
+          <div
+            class="border-black border-r-2 border-b-2 h-3 w-3 self-end rotate-45 mb-3 "
+          />
+        </button>
       </div>
     </div>
     <div

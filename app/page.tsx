@@ -1,6 +1,6 @@
 import GameIndex from './index'
 
-export async function getData() {
+async function getData() {
   const response = await fetch('https://www.nytimes.com/puzzles/spelling-bee', { cache: 'no-store' }).then(res => res.text())
   .then(data => JSON.parse(data.slice(data.indexOf("gameData") + 11, data.indexOf("}}", data.indexOf("gameData")) + 2)))
  
