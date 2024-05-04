@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom"
 import { screen, render, act, fireEvent } from "@testing-library/react"
-import Menu, { MenuProps, menuItems } from "../../components/menu/menu"
+import Menu, { MenuProps, menuItems } from "../../app/menu/menu"
 
 const mockProps: MenuProps = {
   setShowMenuItem: jest.fn(),

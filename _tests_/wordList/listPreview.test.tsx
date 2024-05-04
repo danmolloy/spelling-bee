@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom"
-import ListPreview, { ListPreviewProps } from "../../components/wordList/listPreview";
+import ListPreview, { ListPreviewProps } from "../../app/wordList/listPreview";
 import { mockData } from "../../_mocks_/gameData";
-import { capitalize } from "../../components/wordList";
+import { capitalize } from "../../app/wordList";
 
 
 const mockProps: ListPreviewProps = {

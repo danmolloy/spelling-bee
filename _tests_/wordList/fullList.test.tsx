@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom"
-import FullList, { FullListProps } from "../../components/wordList/fullList";
+import FullList, { FullListProps } from "../../app/wordList/fullList";
 import { mockData } from "../../_mocks_/gameData";
 
 

@@ -14,16 +14,22 @@ export const metadata: Metadata = {
   description: 'Play Spelling Bee',
 }
 
-export default function RootLayout({
+
+export default async function RootLayout({
   // Layouts must accept a children prop.
   // This will be populated with nested layouts or pages
   children,
 }: {
   children: React.ReactNode
 }) {
+  //const gameData = await fetch("/")
   return (
     <html lang="en">
-      <body className={`${cutive.variable} font-sans`}>{children}</body>
+      <body className={`${cutive.variable} font-sans`}>
+        <div>
+          {children}
+        </div>
+      </body>
       <Analytics />
     </html>
   )

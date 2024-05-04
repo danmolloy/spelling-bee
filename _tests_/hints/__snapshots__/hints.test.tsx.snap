@@ -33,34 +33,34 @@ exports[`<Hints /> matches snapshot 1`] = `
     </button>
   </div>
   <div
-    class="p-2"
+    class="p-2 font-light"
   >
     <p
-      class="text-lg"
+      class=""
     >
       Words: 
-      5/5
+      3/5
     </p>
     <p
-      class="text-lg"
+      class=""
     >
       Pangrams: 0/2
     </p>
     <p
-      class="text-lg"
+      class=""
     >
       Points: 
-      36/21
+      8/21
     </p>
   </div>
   <div
-    class="flex flex-col items-center py-2"
+    class="font-light flex flex-col items-center py-2 "
   >
     <div
-      class="flex flex-row justify-between md:w-1/2 self-start md:self-auto "
+      class="text-sm flex flex-row justify-between md:w-1/2 self-start md:self-auto "
     >
       <div
-        class="flex flex-row items-center"
+        class="flex  flex-row items-center"
         data-testid="letter-label"
       >
         <svg
@@ -107,14 +107,14 @@ exports[`<Hints /> matches snapshot 1`] = `
       </div>
     </div>
     <table
-      class="w-2/3 md:w-1/2"
+      class="w-full md:w-1/2"
       data-testid="help-table"
     >
       <thead
         data-testid="table-head"
       >
         <tr
-          class="font-bold border-b"
+          class=" border-b"
         >
           <td
             class="w-10 h-10"
@@ -164,7 +164,7 @@ exports[`<Hints /> matches snapshot 1`] = `
           data-testid="q-row"
         >
           <td
-            class="font-bold w-10 h-10"
+            class=" w-10 h-10"
           >
             <div
               class="text-center w-full h-full flex items-center justify-center"
@@ -214,7 +214,7 @@ exports[`<Hints /> matches snapshot 1`] = `
           data-testid="a-row"
         >
           <td
-            class="font-bold w-10 h-10"
+            class=" w-10 h-10"
           >
             <div
               class="text-center w-full h-full flex items-center justify-center"
@@ -264,7 +264,7 @@ exports[`<Hints /> matches snapshot 1`] = `
           data-testid="b-row"
         >
           <td
-            class="font-bold w-10 h-10"
+            class=" w-10 h-10"
           >
             <div
               class="text-center w-full h-full flex items-center justify-center"
@@ -314,7 +314,7 @@ exports[`<Hints /> matches snapshot 1`] = `
           data-testid="c-row"
         >
           <td
-            class="font-bold w-10 h-10"
+            class=" w-10 h-10"
           >
             <div
               class="text-center w-full h-full flex items-center justify-center"
@@ -364,7 +364,7 @@ exports[`<Hints /> matches snapshot 1`] = `
           data-testid="d-row"
         >
           <td
-            class="font-bold w-10 h-10"
+            class=" w-10 h-10"
           >
             <div
               class="text-center w-full h-full flex items-center justify-center"
@@ -414,7 +414,7 @@ exports[`<Hints /> matches snapshot 1`] = `
           data-testid="e-row"
         >
           <td
-            class="font-bold w-10 h-10"
+            class=" w-10 h-10"
           >
             <div
               class="text-center w-full h-full flex items-center justify-center"
@@ -435,7 +435,7 @@ exports[`<Hints /> matches snapshot 1`] = `
             data-testid="6-e"
           >
             <p
-              class="text-center w-full h-full flex items-center justify-center"
+              class="font-bold bg-yellow-100 text-center w-full h-full flex items-center justify-center"
             >
               1
             </p>
@@ -464,7 +464,7 @@ exports[`<Hints /> matches snapshot 1`] = `
           data-testid="f-row"
         >
           <td
-            class="font-bold w-10 h-10"
+            class=" w-10 h-10"
           >
             <div
               class="text-center w-full h-full flex items-center justify-center"
@@ -476,11 +476,23 @@ exports[`<Hints /> matches snapshot 1`] = `
             class="border-l w-10 h-10"
             data-testid="4-f"
           >
-            <p
-              class="text-center w-full h-full flex items-center justify-center"
+            <div
+              class="text-center text-bold text-4xl text-white w-full h-full bg-yellow-300  flex items-center justify-center"
             >
-              2
-            </p>
+              <svg
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 512 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M362.6 192.9L345 174.8c-.7-.8-1.8-1.2-2.8-1.2-1.1 0-2.1.4-2.8 1.2l-122 122.9-44.4-44.4c-.8-.8-1.8-1.2-2.8-1.2-1 0-2 .4-2.8 1.2l-17.8 17.8c-1.6 1.6-1.6 4.1 0 5.7l56 56c3.6 3.6 8 5.7 11.7 5.7 5.3 0 9.9-3.9 11.6-5.5h.1l133.7-134.4c1.4-1.7 1.4-4.2-.1-5.7z"
+                />
+              </svg>
+            </div>
           </td>
           <td
             class="border-l w-10 h-10"
@@ -505,7 +517,23 @@ exports[`<Hints /> matches snapshot 1`] = `
             <div
               class="text-center w-full h-full flex items-center justify-center"
             >
-              2
+              <div
+                class="text-center text-2xl text-black w-full h-full bg-yellow-300  flex items-center justify-center"
+              >
+                <svg
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 512 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M362.6 192.9L345 174.8c-.7-.8-1.8-1.2-2.8-1.2-1.1 0-2.1.4-2.8 1.2l-122 122.9-44.4-44.4c-.8-.8-1.8-1.2-2.8-1.2-1 0-2 .4-2.8 1.2l-17.8 17.8c-1.6 1.6-1.6 4.1 0 5.7l56 56c3.6 3.6 8 5.7 11.7 5.7 5.3 0 9.9-3.9 11.6-5.5h.1l133.7-134.4c1.4-1.7 1.4-4.2-.1-5.7z"
+                  />
+                </svg>
+              </div>
             </div>
           </td>
         </tr>
@@ -525,11 +553,23 @@ exports[`<Hints /> matches snapshot 1`] = `
             class="border-l w-10 h-10"
             data-testid="4-total"
           >
-            <p
-              class="text-center w-full h-full flex items-center justify-center"
+            <div
+              class="text-center text-4xl text-white w-full h-full bg-yellow-300  flex items-center justify-center"
             >
-              1
-            </p>
+              <svg
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 512 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M362.6 192.9L345 174.8c-.7-.8-1.8-1.2-2.8-1.2-1.1 0-2.1.4-2.8 1.2l-122 122.9-44.4-44.4c-.8-.8-1.8-1.2-2.8-1.2-1 0-2 .4-2.8 1.2l-17.8 17.8c-1.6 1.6-1.6 4.1 0 5.7l56 56c3.6 3.6 8 5.7 11.7 5.7 5.3 0 9.9-3.9 11.6-5.5h.1l133.7-134.4c1.4-1.7 1.4-4.2-.1-5.7z"
+                />
+              </svg>
+            </div>
           </td>
           <td
             class="border-l w-10 h-10"
@@ -538,71 +578,49 @@ exports[`<Hints /> matches snapshot 1`] = `
             <p
               class="text-center w-full h-full flex items-center justify-center"
             >
-              2
+              1
             </p>
           </td>
           <td
             class="border-l w-10 h-10"
             data-testid="7-total"
           >
-            <div
-              class="text-center text-2xl text-black w-full h-full bg-yellow-300  flex items-center justify-center"
+            <p
+              class="text-center w-full h-full flex items-center justify-center"
             >
-              <svg
-                fill="currentColor"
-                height="1em"
-                stroke="currentColor"
-                stroke-width="0"
-                viewBox="0 0 512 512"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M362.6 192.9L345 174.8c-.7-.8-1.8-1.2-2.8-1.2-1.1 0-2.1.4-2.8 1.2l-122 122.9-44.4-44.4c-.8-.8-1.8-1.2-2.8-1.2-1 0-2 .4-2.8 1.2l-17.8 17.8c-1.6 1.6-1.6 4.1 0 5.7l56 56c3.6 3.6 8 5.7 11.7 5.7 5.3 0 9.9-3.9 11.6-5.5h.1l133.7-134.4c1.4-1.7 1.4-4.2-.1-5.7z"
-                />
-              </svg>
-            </div>
+              1
+            </p>
           </td>
           <td
             class="text-center border-l w-10 h-10"
             data-testid="total-words"
           >
-            <div
-              class="text-center text-2xl text-black w-full h-full bg-yellow-300  flex items-center justify-center"
+            <p
+              class="text-center w-full h-full flex items-center justify-center"
             >
-              <svg
-                fill="currentColor"
-                height="1em"
-                stroke="currentColor"
-                stroke-width="0"
-                viewBox="0 0 512 512"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M362.6 192.9L345 174.8c-.7-.8-1.8-1.2-2.8-1.2-1.1 0-2.1.4-2.8 1.2l-122 122.9-44.4-44.4c-.8-.8-1.8-1.2-2.8-1.2-1 0-2 .4-2.8 1.2l-17.8 17.8c-1.6 1.6-1.6 4.1 0 5.7l56 56c3.6 3.6 8 5.7 11.7 5.7 5.3 0 9.9-3.9 11.6-5.5h.1l133.7-134.4c1.4-1.7 1.4-4.2-.1-5.7z"
-                />
-              </svg>
-            </div>
+              2
+            </p>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
   <div
-    class="p-2 my-2"
+    class="p-2 my-4"
     data-testid="two-letter-list"
   >
     <p
       class="font-bold"
     >
-      Two-Letter List:
+      Two-Letter List
     </p>
-    <p>
+    <p
+      class="my-2 text-sm font-light"
+    >
       How many words remain for each pair of starting letters.
     </p>
     <div
-      class="flex flex-row "
+      class="flex flex-row font-light"
       data-testid="e-row"
     >
       <div
@@ -624,7 +642,7 @@ exports[`<Hints /> matches snapshot 1`] = `
       </div>
     </div>
     <div
-      class="flex flex-row "
+      class="flex flex-row font-light"
       data-testid="f-row"
     >
       <div
@@ -639,9 +657,23 @@ exports[`<Hints /> matches snapshot 1`] = `
         <div
           class="h-full w-7 flex items-center justify-center "
         >
-          <p>
-            1
-          </p>
+          <div
+            class="text-center text-4xl text-white w-full h-full bg-yellow-300  flex items-center justify-center"
+          >
+            <svg
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 512 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M362.6 192.9L345 174.8c-.7-.8-1.8-1.2-2.8-1.2-1.1 0-2.1.4-2.8 1.2l-122 122.9-44.4-44.4c-.8-.8-1.8-1.2-2.8-1.2-1 0-2 .4-2.8 1.2l-17.8 17.8c-1.6 1.6-1.6 4.1 0 5.7l56 56c3.6 3.6 8 5.7 11.7 5.7 5.3 0 9.9-3.9 11.6-5.5h.1l133.7-134.4c1.4-1.7 1.4-4.2-.1-5.7z"
+              />
+            </svg>
+          </div>
         </div>
       </div>
       <div
@@ -656,14 +688,28 @@ exports[`<Hints /> matches snapshot 1`] = `
         <div
           class="h-full w-7 flex items-center justify-center "
         >
-          <p>
-            1
-          </p>
+          <div
+            class="text-center text-4xl text-white w-full h-full bg-yellow-300  flex items-center justify-center"
+          >
+            <svg
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 512 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M362.6 192.9L345 174.8c-.7-.8-1.8-1.2-2.8-1.2-1.1 0-2.1.4-2.8 1.2l-122 122.9-44.4-44.4c-.8-.8-1.8-1.2-2.8-1.2-1 0-2 .4-2.8 1.2l-17.8 17.8c-1.6 1.6-1.6 4.1 0 5.7l56 56c3.6 3.6 8 5.7 11.7 5.7 5.3 0 9.9-3.9 11.6-5.5h.1l133.7-134.4c1.4-1.7 1.4-4.2-.1-5.7z"
+              />
+            </svg>
+          </div>
         </div>
       </div>
     </div>
     <div
-      class="flex flex-row "
+      class="flex flex-row font-light"
       data-testid="s-row"
     >
       <div
@@ -695,9 +741,23 @@ exports[`<Hints /> matches snapshot 1`] = `
         <div
           class="h-full w-7 flex items-center justify-center "
         >
-          <p>
-            1
-          </p>
+          <div
+            class="text-center text-4xl text-white w-full h-full bg-yellow-300  flex items-center justify-center"
+          >
+            <svg
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 512 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M362.6 192.9L345 174.8c-.7-.8-1.8-1.2-2.8-1.2-1.1 0-2.1.4-2.8 1.2l-122 122.9-44.4-44.4c-.8-.8-1.8-1.2-2.8-1.2-1 0-2 .4-2.8 1.2l-17.8 17.8c-1.6 1.6-1.6 4.1 0 5.7l56 56c3.6 3.6 8 5.7 11.7 5.7 5.3 0 9.9-3.9 11.6-5.5h.1l133.7-134.4c1.4-1.7 1.4-4.2-.1-5.7z"
+              />
+            </svg>
+          </div>
         </div>
       </div>
     </div>

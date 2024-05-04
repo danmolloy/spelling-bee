@@ -1,6 +1,6 @@
 import { render, screen, act, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom"
-import Buttons, { ButtonsProps } from "../../components/gameInput/buttons";
+import Buttons, { ButtonsProps } from "../../app/gameInput/buttons";
 
 
 describe("<Buttons />", () => {

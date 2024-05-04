@@ -37,8 +37,10 @@ exports[`Header component matches snapshot 1`] = `
     class="flex flex-col items-end"
   >
     <button
+      aria-label="Open/close menu"
       class="hover:bg-gray-100 active:bg-gray-200 text-2xl m-2 w-10 h-10 rounded-full flex items-center justify-center"
       data-testid="menu-icon"
+      id="open-menu"
     >
       <svg
         fill="currentColor"

@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
-import TwoLetterList, { TwoLetterListProps } from "../../components/hints/twoLetterList"
+import TwoLetterList, { TwoLetterListProps } from "../../app/hints/twoLetterList"
 import { mockData } from "../../_mocks_/gameData"
 
 const mockProps: TwoLetterListProps = {
@@ -18,7 +18,7 @@ describe("<TwoLetterList />", () => {
     expect(twoLetterList).toBeInTheDocument()
   })
   it("'Two letter list' title is in the document", () => {
-    const title = screen.getByText("Two-Letter List:")
+    const title = screen.getByText("Two-Letter List")
     expect(title).toBeInTheDocument()
   })
   it("helpful text is in the document", () => {

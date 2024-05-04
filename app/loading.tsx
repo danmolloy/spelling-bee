@@ -1,12 +1,13 @@
-import InputIndex from "../gameInput";
-import Hexagon from "../gameInput/hexagon";
-import UserRanking from "../rankings/userRanking";
-import WordList from "../wordList";
-import LoadingHeader from "./loadingHeader";
-import LoadingHive from "./loadingHive";
-import LoadingRanking from "./loadingRanking";
-import LoadingTextInput from "./loadingTextInput";
-import LoadingWordList from "./loadingWordList";
+'use client'
+import InputIndex from "./gameInput";
+import Hexagon from "./gameInput/hexagon";
+import UserRanking from "./rankings/userRanking";
+import WordList from "./wordList";
+import LoadingHeader from "./header/loading";
+import LoadingHive from "./loading/loadingHive";
+import LoadingRanking from "./loading/loadingRanking";
+import LoadingTextInput from "./loading/loadingTextInput";
+import LoadingWordList from "./wordList/loading";
 
 export default function LoadingGameIndex() {
   return (

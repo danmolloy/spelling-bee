@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom"
 import { screen, render, fireEvent, act } from "@testing-library/react"
-import Rankings, { RankingsProps, rankingLevels } from "../../components/rankings"
+import Rankings, { RankingsProps, rankingLevels } from "../../app/rankings"
 import { mockData } from "../../_mocks_/gameData"
 import { getPoints } from "../../lib/functions" 
 

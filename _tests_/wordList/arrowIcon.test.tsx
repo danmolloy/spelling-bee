@@ -1,6 +1,6 @@
 import { render, screen, act, fireEvent } from "@testing-library/react"
 import "@testing-library/jest-dom"
-import ArrowIcon from "../../components/wordList/arrowIcon"
+import ArrowIcon from "../../app/wordList/arrowIcon"
 
 const mockProps = {
   showList: jest.fn()

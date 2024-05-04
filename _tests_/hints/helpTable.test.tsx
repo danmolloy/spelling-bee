@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react"
 import { mockData } from "../../_mocks_/gameData"
 import "@testing-library/jest-dom"
-import HelpTable, { HelpTableProps } from "../../components/hints/helpTable"
+import HelpTable, { HelpTableProps } from "../../app/hints/helpTable"
 
 const mockProps: HelpTableProps = {
   answers: mockData.answers,

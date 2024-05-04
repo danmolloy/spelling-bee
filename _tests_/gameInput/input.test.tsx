@@ -1,6 +1,6 @@
 import { render, screen, fireEvent, act, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom"
-import TextInput, { InputProps } from "../../components/gameInput/input";
+import TextInput, { InputProps } from "../../app/gameInput/input";
 import { mockData } from "../../_mocks_/gameData";
 
 const mockProps: InputProps = {

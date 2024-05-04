@@ -1,17 +1,15 @@
-import { render, screen, act, fireEvent } from "@testing-library/react";
+import { render, screen, act, fireEvent, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom"
-import InputIndex, { InputIndexProps } from "../../components/gameInput";
+import InputIndex, { InputIndexProps } from "../../app/gameInput";
 import { mockData } from "../../_mocks_/gameData";
 
 
 
-/* I haven't checked components are passed correct props */
 
 describe("<InputIndex />", () => {
   const mockProps: InputIndexProps = {
     centerLetter: mockData.centerLetter,
-/*     revealedAnswers: false,
- */    outerLetters: mockData.outerLetters,
+    outerLetters: mockData.outerLetters,
     enterWord: jest.fn(),
     inputWord: mockData.answers[0],
     setInputWord: jest.fn(),
@@ -27,7 +25,7 @@ describe("<InputIndex />", () => {
     expect(inputIndex).toBeInTheDocument()
   })
   it("if message !== null, it is in the document", () => {
-    const mockMessage = screen.getByText(mockProps.message)
+    const mockMessage = screen.getByText(String(mockProps.message))
     expect(mockMessage).toBeInTheDocument()
   })
   it("<TextInput /> is in the document", () => {
@@ -56,13 +54,14 @@ describe("<InputIndex />", () => {
     expect(textInput.textContent).toMatch(/^|$/gi)
 
   })
-  it("shuffle() shuffles", () => {
+  it("shuffle() shuffles", async () => {
     const lettersDiv = screen.getByTestId("letters-div")
     const letters = lettersDiv.textContent
     const shuffleBtn = screen.getByTestId("shuffle-btn")
-    act(() => {
+    await act(async () => {
       fireEvent.click(shuffleBtn)
+      await new Promise((resolve) => setTimeout(resolve, 400))
     })
-    expect(lettersDiv.textContent).not.toMatch(letters)
+    expect(lettersDiv.textContent).not.toMatch(String(letters))
   })
 })

@@ -29,8 +29,8 @@ export default function TextInput(props: InputProps) {
     }
     else if (e.keyCode > 64 && e.keyCode < 91) {
       setUserWord(userWord.concat(e.key.toUpperCase()))
-    } else if (e.keyCode === 13) {
-      /* !revealedAnswers && */ searchWord(userWord)
+    } else if (e.keyCode === 13 && document.activeElement?.id == "") {
+      searchWord(userWord)
     } else if (e.keyCode === 32) {
       shuffle()
     }

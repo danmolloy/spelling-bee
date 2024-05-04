@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom"
 import { screen, render, act, fireEvent } from "@testing-library/react"
-import HowTo, { HowToProps } from "../../components/howTo"
+import HowTo, { HowToProps } from "../../app/how-to"
 
 const mockProps: HowToProps = {
   setShowMenuItem: jest.fn()

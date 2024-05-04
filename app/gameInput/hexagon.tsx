@@ -10,8 +10,10 @@ export default function Hexagon(props: HexagonProps) {
   const { shuffling, center, letter, setLetter } = props
 
   return (
-    <div 
+    <button 
+      id={`${letter}-letter`}
       data-testid={`${letter}-hexagon-div`} 
+      tabIndex={0}
       className={(shuffling || letter)
         ? "select-none hex active:scale-90 active:border-gray-50 my-16 rounded-full"
         : "pulse hex active:scale-90 active:border-gray-50 my-16 rounded-full"}  
@@ -28,6 +30,6 @@ export default function Hexagon(props: HexagonProps) {
         </h2>}
         </div>
        <div className={center ? "center-bottom" : "hex-bottom"}></div>
-     </div>
+     </button>
   )
 }

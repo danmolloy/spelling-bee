@@ -1,17 +1,22 @@
+import Link from "next/link";
 import { AiOutlineClose } from "react-icons/ai";
 
 export const menuItems = [
   {
     name: "How to Play",
-    onClickArg: "howTo"
+    onClickArg: "howTo",
+    href: "how-to"
   },
   {
     name: "Rankings",
-    onClickArg: "rankings"
+    onClickArg: "rankings",
+    href: "how-to"
+
   },
   {
     name: "Today's Hints",
-    onClickArg: "hints"
+    onClickArg: "hints",
+    href: "hints"
   },
 ]
 

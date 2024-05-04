@@ -87,9 +87,11 @@ exports[`<LoadingGameIndex /> matches snapshot 1`] = `
         <div
           class="left flex flex-col h-full "
         >
-          <div
+          <button
             class="pulse hex active:scale-90 active:border-gray-50 my-16 rounded-full"
             data-testid="-hexagon-div"
+            id="-letter"
+            tabindex="0"
           >
             <div
               class="hex-top"
@@ -100,10 +102,12 @@ exports[`<LoadingGameIndex /> matches snapshot 1`] = `
             <div
               class="hex-bottom"
             />
-          </div>
-          <div
+          </button>
+          <button
             class="pulse hex active:scale-90 active:border-gray-50 my-16 rounded-full"
             data-testid="-hexagon-div"
+            id="-letter"
+            tabindex="0"
           >
             <div
               class="hex-top"
@@ -114,14 +118,16 @@ exports[`<LoadingGameIndex /> matches snapshot 1`] = `
             <div
               class="hex-bottom"
             />
-          </div>
+          </button>
         </div>
         <div
           class=" flex flex-col h-full -mt-10 md:-mt-14"
         >
-          <div
+          <button
             class="pulse hex active:scale-90 active:border-gray-50 my-16 rounded-full"
             data-testid="-hexagon-div"
+            id="-letter"
+            tabindex="0"
           >
             <div
               class="hex-top"
@@ -132,10 +138,12 @@ exports[`<LoadingGameIndex /> matches snapshot 1`] = `
             <div
               class="hex-bottom"
             />
-          </div>
-          <div
+          </button>
+          <button
             class="pulse hex active:scale-90 active:border-gray-50 my-16 rounded-full"
             data-testid="-hexagon-div"
+            id="-letter"
+            tabindex="0"
           >
             <div
               class="center-top"
@@ -146,10 +154,12 @@ exports[`<LoadingGameIndex /> matches snapshot 1`] = `
             <div
               class="center-bottom"
             />
-          </div>
-          <div
+          </button>
+          <button
             class="pulse hex active:scale-90 active:border-gray-50 my-16 rounded-full"
             data-testid="-hexagon-div"
+            id="-letter"
+            tabindex="0"
           >
             <div
               class="hex-top"
@@ -160,14 +170,16 @@ exports[`<LoadingGameIndex /> matches snapshot 1`] = `
             <div
               class="hex-bottom"
             />
-          </div>
+          </button>
         </div>
         <div
           class="flex flex-col"
         >
-          <div
+          <button
             class="pulse hex active:scale-90 active:border-gray-50 my-16 rounded-full"
             data-testid="-hexagon-div"
+            id="-letter"
+            tabindex="0"
           >
             <div
               class="hex-top"
@@ -178,10 +190,12 @@ exports[`<LoadingGameIndex /> matches snapshot 1`] = `
             <div
               class="hex-bottom"
             />
-          </div>
-          <div
+          </button>
+          <button
             class="pulse hex active:scale-90 active:border-gray-50 my-16 rounded-full"
             data-testid="-hexagon-div"
+            id="-letter"
+            tabindex="0"
           >
             <div
               class="hex-top"
@@ -192,7 +206,7 @@ exports[`<LoadingGameIndex /> matches snapshot 1`] = `
             <div
               class="hex-bottom"
             />
-          </div>
+          </button>
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
-import Encouragement, { EncouragementProps } from "../../components/effects/encouragement"
+import Encouragement, { EncouragementProps } from "../../app/effects/encouragement"
 
 const mockProps: EncouragementProps = {
   points: Math.ceil(Math.random() * 6),

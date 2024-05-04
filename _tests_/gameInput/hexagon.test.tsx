@@ -1,6 +1,6 @@
 import { act, fireEvent, render, screen } from "@testing-library/react"
 import "@testing-library/jest-dom"
-import Hexagon, { HexagonProps } from "../../components/gameInput/hexagon"
+import Hexagon, { HexagonProps } from "../../app/gameInput/hexagon"
 import { mockData } from "../../_mocks_/gameData"
 
 

@@ -1,9 +1,11 @@
-import { useRef } from 'react';
+'use client'
 import { AiOutlineClose } from 'react-icons/ai'
 
 export type HowToProps = {
   setShowMenuItem: (arg: null) => void
 }
+
+
 
 export default function HowTo(props: HowToProps) {
   const { setShowMenuItem } = props;

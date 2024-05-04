@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
-import Realistic from "../../components/effects/realistic"
+import Realistic from "../../app/effects/realistic"
 import ReactCanvasConfetti from "react-canvas-confetti";
 
 jest.mock("react-canvas-confetti")

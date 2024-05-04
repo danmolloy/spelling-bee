@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom"
 import { screen, render, act, fireEvent } from "@testing-library/react"
-import Hints, { HintsProps } from "../../components/hints"
+import Hints, { HintsProps } from "../../app/hints"
 import { mockData } from "../../_mocks_/gameData"
 import { getPoints } from "../../lib/functions"
 
@@ -64,7 +64,7 @@ describe("<Hints />", () => {
     centerLetter: "a",
     validLetters: ["q", "a", "b", "c", "d", "e", "f"],
     setShowMenuItem: jest.fn(),
-    foundWords: mockData.answers.slice(0, 5),
+    foundWords: ["four", "funf", "sixsix"],
     answers: ["four", "funf", "sixsix", "seventy", "eighty"],
     pangrams: ["lorem", "ipsum"]
   }

@@ -30,12 +30,10 @@ export default function WordList(props: WordListProps) {
       className={showList 
       ? "w-[96vw] md:w-2/5 h-3/4 overflow-y-scroll bg-white absolute z-30 border rounded-lg p-2 justify-start items-center font-light flex flex-col mt-10 transition-all duration-400" 
       : "w-[96vw] md:w-2/5 h-12 bg-white absolute z-30 border rounded-lg p-2 flex flex-col justify-start overflow-hidden items-center font-light mt-10 transition-all duration-400"}>
-      {isLoading 
-      ? <div data-testid="loading-div" className=" animate-pulse h-4 w-full bg-zinc-200 rounded-md m-1"/>
-      : <div className=" w-full flex flex-row items-center ">
-        <ListPreview answerLength={answers.length} /* revealWords={revealWords} */ words={words} showList={showList}/>
+      <div className=" w-full flex flex-row items-center ">
+        <ListPreview answerLength={answers.length} words={words} showList={showList}/>
         <ArrowIcon showList={() => setShowList(!showList)}/>
-      </div>}
+      </div>
       {showList && <FullList answers={answers} pangrams={pangrams} /* revealWords={revealWords} */ words={words} />}
     </div>
   )

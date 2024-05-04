@@ -1,6 +1,6 @@
 import { render, screen, act, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom"
-import Header, { HeaderProps } from "../../components/layout/header";
+import Header, { HeaderProps } from "../../app/header";
 
 const mockProps: HeaderProps = {
   date: "mockDate",

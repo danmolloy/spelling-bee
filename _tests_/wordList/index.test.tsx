@@ -1,6 +1,6 @@
 import { render, screen, fireEvent, act } from "@testing-library/react";
 import "@testing-library/jest-dom"
-import WordList, { WordListProps, capitalize } from "../../components/wordList";
+import WordList, { WordListProps, capitalize } from "../../app/wordList";
 import { mockData } from "../../_mocks_/gameData";
 
 const mockProps: WordListProps = {

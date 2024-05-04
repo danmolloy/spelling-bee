@@ -24,7 +24,7 @@ export default function Header(props: HeaderProps) {
       </div>}
       </div>
       <div className='flex flex-col items-end'>
-        <button className='hover:bg-gray-100 active:bg-gray-200 text-2xl m-2 w-10 h-10 rounded-full flex items-center justify-center' data-testid="menu-icon" onClick={() => setShowMenu()}>
+        <button aria-label="Open/close menu" id="open-menu" className='hover:bg-gray-100 active:bg-gray-200 text-2xl m-2 w-10 h-10 rounded-full flex items-center justify-center' data-testid="menu-icon" onClick={() => setShowMenu()}>
           <GiHamburgerMenu />
         </button>
       </div>

@@ -19,10 +19,8 @@ export default function ListPreview(props: ListPreviewProps) {
         :  */`You have found ${words.length} words`}
         </p>
       : words === undefined || words.length < 1 
-        ? <p className="text-gray-400">
-          {/* revealWords 
-          ? "The answers..."
-          :  */"Your words..."}
+        ? <p className="text-gray-500">
+          Your words...
           </p> 
         : words.length < 5
         ? words.map(i => (
@@ -31,7 +29,7 @@ export default function ListPreview(props: ListPreviewProps) {
         : /* !revealWords
         ?  */<div className=" w-full flex flex-row flex-wrap">{[...words].slice(0, 4).map(i => (
           <p key={i} className="px-1 ">{capitalize(i)}</p>))}
-          <span className="text-gray-400 ">...</span>
+          <span className="text-gray-500 ">...</span>
           </div>
         /* : <p className="text-gray-400">The answers...</p>  */}
       </div>

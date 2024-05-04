@@ -30,7 +30,7 @@
     "**/*.ts",
     "**/*.tsx",
     "pages/index.tsx",
-    "components/effects/completioncomponents/effects/realistic.tsxstic.tsx",
+    "app/effects/completioncomponents/effects/realistic.tsxstic.tsx",
     ".next/types/**/*.ts"
   ],
   "exclude": [

@@ -1,9 +1,9 @@
 import { render, screen, act, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom"
-import GameIndex, { GameIndexProps } from "../components";
+import GameIndex, { GameIndexProps } from "../app/index";
 import { mockData } from "../_mocks_/gameData";
 import "react-canvas-confetti"
-import { capitalize } from "../components/wordList";
+import { capitalize } from "../app/wordList";
 import { getPoints } from "../lib/functions";
 
 jest.mock("react-canvas-confetti")
