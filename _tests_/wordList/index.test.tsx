@@ -39,23 +39,6 @@ describe("<WordList />", () => {
   })
 })
 
-describe("<WordList />", () => {
-  const mockProps: WordListProps = {
-    words: mockData.answers.slice(0, 5),
-    //revealWords: false,
-    answers: mockData.answers,
-    pangrams: mockData.pangrams,
-    isLoading: true
-  }
-  
-    beforeEach(() => {
-      render(<WordList {...mockProps} />)
-    })
-  it("loading-div is in the document if isLoading", () => {
-    const loadingDiv = screen.getByTestId("loading-div")
-    expect(loadingDiv).toBeInTheDocument()
-  })
-})
 
 describe("<WordList />", () => {
   const mockProps: WordListProps = {
