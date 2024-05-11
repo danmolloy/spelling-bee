@@ -1,9 +1,12 @@
 # Spelling Bee
 ## Overview
-I am a big fan of word games, in particular NYT's [Spelling Bee](https://www.nytimes.com/puzzles/spelling-bee). I enjoy playing it so much I created a replica. 
+This is a personal portfolio project, and is a replica of NYT's [Spelling Bee](https://www.nytimes.com/puzzles/spelling-bee) game. 
+It showcases a playful user experience, dynamic data rendering, state management and a variety of event listeners.
+Technically, the project has a focus on a UI/UX design, performance and accessibility.
+
 
 ### Game Rules
-Very simply, each day a list of seven letters generate. The goal is to find as many words as you can which are at least four letters. There is one center letter which must be used in all words. Additionally, there is always at least one "pangram", a word which uses all letters at least once. 
+Each day a list of seven letters generate. The goal is to find as many words as you can which are at least four letters. There is one center letter which must be used in all words. Additionally, there is always at least one "pangram", a word which uses all letters at least once. 
 
 ## Features
 ### UI and UX
